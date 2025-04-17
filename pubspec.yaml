@@ -66,6 +66,7 @@ flutter:
     - assets/images/irix.logo.png
     - assets/images/Vector.png
     - assets/images/qr.png
+    - assets/images/Photo by Petr Sevcovic.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
