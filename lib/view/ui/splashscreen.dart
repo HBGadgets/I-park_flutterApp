@@ -44,7 +44,7 @@ class SplashPageScreen extends State<SplashPage> {
                 ),
                 foregroundColor: Colors.black,
                 text: " Get Started  > > > ",
-                backgroundColor: Colors.white,
+                backgroundColor: Colors.white
               ),
               const SizedBox(height: 30),
             ],
