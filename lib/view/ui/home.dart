@@ -58,7 +58,7 @@ class HomeScreen extends State<HomePage> {
               child: TabBar(
                 indicatorColor: Colors.white,
                 labelColor: Colors.white,
-                unselectedLabelColor: Colors.white.withOpacity(0.6),
+                unselectedLabelColor: Colors.white.withAlpha(153),
                 onTap: onTabChanged,
                 tabs: const [
                   Tab(text: 'Home', icon: Icon(Icons.home, size: 30, color: Colors.white)),
