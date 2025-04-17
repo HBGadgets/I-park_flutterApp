@@ -126,12 +126,24 @@ class HomeScreen extends State<HomePage> {
             padding: const EdgeInsets.all(18),
             child: ListView(
               children: [
-                ChatItem('MH36A6678', 'I Need my car in 30 min'),
-                const Divider(color: Colors.black, thickness: 1, height: 15),
-                ChatItem('MH36A6678', 'I Need my car in 5 min'),
-                const Divider(color: Colors.black, thickness: 1, height: 15),
-                ChatItem('MH36A6678', 'I Need my car in 30 min'),
-                const Divider(color: Colors.black, thickness: 1, height: 15),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.directions_car_outlined),
+                        SizedBox(width: 10,),
+                        Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                      ],
+                    ),
+                    Image.asset("assets/images/Vector.png")
+
+                  ],
+                ),
+                Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                SizedBox(height: 10,),
+                Divider(height: 15,thickness: 1,color: Colors.black,)
+
+               
               ],
             ),
           ),
