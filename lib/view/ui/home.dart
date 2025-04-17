@@ -195,110 +195,6 @@ class HomeScreen extends State<HomePage> {
                       ),
                     ),
                     Row(
-                      spacing: 3,
-                      children: [
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                      ],
-                    ),
-                  ],
-                ),
-                subtitle: const Text(
-                  'MH36A6678',
-                  style: TextStyle(fontSize: 13),
-                ),
-              ),
-              Divider(),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(width: 35),
-                  Container(
-                    child: Column(
-                      children: [
-                        Image.asset("assets/images/Ellipse 3.png"),
-                        Image.asset("assets/images/Line 11.png"),
-                        Image.asset(
-                          "assets/images/Ellipse 3.png",
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 35),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Arrival",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
-                            SizedBox(width: 50),
-                            Icon(Icons.timer_outlined),
-                            Text("19:09"),
-                            SizedBox(width: 20),
-                            Text("PM"),
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        Text(
-                          "Departure",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
-                            SizedBox(width: 50),
-                            Icon(Icons.timer_outlined),
-                            Text("19:09"),
-                            SizedBox(width: 20),
-                            Text("PM"),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 30),
-            ],
-          ),
-        ),
-        SizedBox(height: 10,),
-        Card(
-          margin: const EdgeInsets.all(10),
-          shadowColor: Colors.grey,
-          color: Colors.white,
-          elevation: 4,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor: Colors.black,
-                  child: Icon(Icons.person, size: 38, color: Colors.white),
-                ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Shrikant Ramesh Yadav',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
                         5,
@@ -375,7 +271,7 @@ class HomeScreen extends State<HomePage> {
             ],
           ),
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 10),
         Card(
           margin: const EdgeInsets.all(10),
           shadowColor: Colors.grey,
@@ -403,7 +299,110 @@ class HomeScreen extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
                         5,
-                            (index) => Icon(Icons.star, color: Colors.amber, size: 12),
+                        (index) =>
+                            Icon(Icons.star, color: Colors.amber, size: 12),
+                      ),
+                    ),
+                  ],
+                ),
+                subtitle: const Text(
+                  'MH36A6678',
+                  style: TextStyle(fontSize: 13),
+                ),
+              ),
+              Divider(),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: 35),
+                  Container(
+                    child: Column(
+                      children: [
+                        Image.asset("assets/images/Ellipse 3.png"),
+                        Image.asset("assets/images/Line 11.png"),
+                        Image.asset(
+                          "assets/images/Ellipse 3.png",
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 35),
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Arrival",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          "Departure",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+            ],
+          ),
+        ),
+        SizedBox(height: 10),
+        Card(
+          margin: const EdgeInsets.all(10),
+          shadowColor: Colors.grey,
+          color: Colors.white,
+          elevation: 4,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ListTile(
+                leading: const CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child: Icon(Icons.person, size: 38, color: Colors.white),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Shrikant Ramesh Yadav',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        5,
+                        (index) =>
+                            Icon(Icons.star, color: Colors.amber, size: 12),
                       ),
                     ),
                   ],
