@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3, // Number of tabs
+      length: 3,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(80),
@@ -28,9 +28,9 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  _buildHomeTab(),
-                  _buildHistoryTab(),
-                  _buildProfileTab(),
+                  buildHomeTab(),
+                  buildHistoryTab(),
+                  buildProfileTab(),
                 ],
               ),
             ),
@@ -38,10 +38,12 @@ class HomeScreen extends StatelessWidget {
               color: Colors.black,
               child: TabBar(
                 indicatorColor: Colors.white,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.white,
                 tabs: const [
-                  Tab(text: 'Home'),
-                  Tab(text: 'History'),
-                  Tab(text: 'Profile'),
+                  Tab(text: 'Home',icon: Icon(Icons.home,size: 30,color: Colors.white,)),
+                  Tab(text: 'History',icon: Icon(Icons.history,size: 30,color: Colors.white),),
+                  Tab(text: 'Profile',icon: Icon(Icons.person,size: 30,color: Colors.white),),
                 ],
               ),
             ),
@@ -51,7 +53,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHomeTab() {
+  Widget buildHomeTab() {
     return Column(
       children: [
         Center(
@@ -85,8 +87,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Image.network(
-                    'https://s3-alpha-sig.figma.com/img/69ea/eaa6/85c65e5de97d11f6b062d82c9b918b00?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=nGiUFhUPiPY8mV0iQzX3DX-flOgsNFoKe71SQib9EEywffr9e3ifJ5UxcebOJD~6jl8zqrAMU5MA7ZStlmdK9CnVp95qMcHkjZ85FmhmwCz1Ft6P37tI844Kj4Krki8BPVZHvdTUhhzU ~hR5JO7~VLXPLfuKMf1rze9-4EZBKtFrMpHX7-g06Q7N0RtjnGk88WHrsN0pcJoaXso2omqAcIbQBgWag~UGi8ejv3NomSOlTn59QFC1erH299R-n2H5PHLY60XvWN1aFMvKMe-zZknMGG2lz1Z7RtbPk5IFcnd~3QJTNy2QP3aisHGxSQBE4D~I1Q5fPDbm80gTHavCXg__',
+                  Image.asset('assets/images/qr.png',
                     width: 259,
                     height: 259,
                   ),
@@ -128,13 +129,13 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHistoryTab() {
+  Widget buildHistoryTab() {
     return Center(
       child: Text('History Tab Content'),
     );
   }
 
-  Widget _buildProfileTab() {
+  Widget buildProfileTab() {
     return Center(
       child: Text('Profile Tab Content'),
     );
