@@ -63,7 +63,7 @@ flutter:
     - assets/images/image.png
     - assets/images/planewhite.png
     - assets/images/irix.logo.png
-
+    - assets/images/Vector.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

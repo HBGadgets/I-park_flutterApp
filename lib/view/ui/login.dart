@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -128,9 +130,15 @@ class LoginPageScreen extends State<LoginPage> {
                 width: 318.52,
                 height: 53,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                  },
+
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black, // Background color
+                    backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -151,15 +159,7 @@ class LoginPageScreen extends State<LoginPage> {
               ),
               SizedBox(height: 30),
               Text("or continue with", style: TextStyle(color: Colors.black)),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.facebook, size: 40),
-                  Icon(Icons.apple, size: 50),
-                  Icon(Icons.g_mobiledata, size: 70),
-                ],
-              ),
+
             ],
           ),
         ),
