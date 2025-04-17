@@ -315,17 +315,15 @@ class HomeScreen extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 35),
-                  Container(
-                    child: Column(
-                      children: [
-                        Image.asset("assets/images/Ellipse 3.png"),
-                        Image.asset("assets/images/Line 11.png"),
-                        Image.asset(
-                          "assets/images/Ellipse 3.png",
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      Image.asset("assets/images/Ellipse 3.png"),
+                      Image.asset("assets/images/Line 11.png"),
+                      Image.asset(
+                        "assets/images/Ellipse 3.png",
+                        color: Colors.black,
+                      ),
+                    ],
                   ),
                   SizedBox(width: 35),
                   Center(
