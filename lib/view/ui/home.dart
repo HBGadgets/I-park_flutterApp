@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../chat_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,13 +25,59 @@ class HomeScreen extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          leading: Icon(Icons.menu, color: Colors.white),
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: Icon(Icons.menu, color: Colors.white),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            },
+          ),
           title: Text(
             appBarTitles[selectedTabIndex],
             style: TextStyle(color: Colors.white, fontSize: 24),
           ),
           centerTitle: true,
           actions: [Icon(Icons.notifications, color: Colors.white)],
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                child: Text(
+                  'Menu',
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.history),
+                title: Text('History'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Profile'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
         ),
         body: Column(
           children: [
@@ -74,7 +119,6 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
-
   Widget buildHomeTab() {
     return Column(
       children: [
@@ -120,18 +164,30 @@ class HomeScreen extends State<HomePage> {
               ),
             ),
           ),
-        ),//filll
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(18),
             child: ListView(
               children: [
-                ChatItem('MH36A6678', 'I Need my car in 30 min'),
-                const Divider(color: Colors.black, thickness: 1, height: 15),
-                ChatItem('MH36A6678', 'I Need my car in 5 min'),
-                const Divider(color: Colors.black, thickness: 1, height: 15),
-                ChatItem('MH36A6678', 'I Need my car in 30 min'),
-                const Divider(color: Colors.black, thickness: 1, height: 15),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.directions_car_outlined),
+                        SizedBox(width: 10,),
+                        Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                      ],
+                    ),
+                    Image.asset("assets/images/Vector.png")
+
+                  ],
+                ),
+                Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                SizedBox(height: 10,),
+                Divider(height: 15,thickness: 1,color: Colors.black,)
+
+
               ],
             ),
           ),
@@ -271,7 +327,7 @@ class HomeScreen extends State<HomePage> {
             ],
           ),
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 10),
         Card(
           margin: const EdgeInsets.all(10),
           shadowColor: Colors.grey,
@@ -299,7 +355,8 @@ class HomeScreen extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
                         5,
-                            (index) => Icon(Icons.star, color: Colors.amber, size: 12),
+                        (index) =>
+                            Icon(Icons.star, color: Colors.amber, size: 12),
                       ),
                     ),
                   ],
@@ -370,7 +427,7 @@ class HomeScreen extends State<HomePage> {
             ],
           ),
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 10),
         Card(
           margin: const EdgeInsets.all(10),
           shadowColor: Colors.grey,
@@ -398,7 +455,8 @@ class HomeScreen extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
                         5,
-                            (index) => Icon(Icons.star, color: Colors.amber, size: 12),
+                        (index) =>
+                            Icon(Icons.star, color: Colors.amber, size: 12),
                       ),
                     ),
                   ],

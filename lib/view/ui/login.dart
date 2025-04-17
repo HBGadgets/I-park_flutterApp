@@ -89,7 +89,7 @@ class LoginPageScreen extends State<LoginPage> {
                 ),
                 style: TextStyle(color: Colors.black, fontSize: 16),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 50),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -125,7 +125,7 @@ class LoginPageScreen extends State<LoginPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 60),
               SizedBox(
                 width: 318.52,
                 height: 53,
