@@ -197,14 +197,11 @@ class HomeScreen extends State<HomePage> {
                       ),
                     ),
                     Row(
-                      spacing: 3,
-                      children: [
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                      ],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        5,
+                            (index) => Icon(Icons.star, color: Colors.amber, size: 12),
+                      ),
                     ),
                   ],
                 ),
