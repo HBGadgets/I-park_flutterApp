@@ -13,6 +13,7 @@ class SplashPage extends StatefulWidget {
 class SplashPageScreen extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
+   Image image = Image.asset("assets/images/irix.logo.png");
     return Scaffold(
       body: Stack(
         children: [
@@ -38,9 +39,19 @@ class SplashPageScreen extends State<SplashPage> {
                       MaterialPageRoute(builder: (context) => LoginPage()),
                     );
                   },
-                  sliderButtonContent: Image.asset(
-                    "assets/images/irix.logo.png",
-                  ),
+                  sliderButtonContent:Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0), // Add padding
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min, // Use min to avoid overflow
+                      children: [
+                        image,
+                        SizedBox(width: 8), // Space between image and text
+                        Text(
+                          "Get Started",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),),
                   foregroundColor: Colors.black,
                   text: " Get Started  > > > ",
                   backgroundColor: Colors.white,

@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   slide_to_confirm: ^1.1.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -63,6 +64,7 @@ flutter:
     - assets/images/image.png
     - assets/images/planewhite.png
     - assets/images/irix.logo.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
