@@ -41,9 +41,18 @@ class HomeScreen extends StatelessWidget {
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.white,
                 tabs: const [
-                  Tab(text: 'Home',icon: Icon(Icons.home,size: 30,color: Colors.white,)),
-                  Tab(text: 'History',icon: Icon(Icons.history,size: 30,color: Colors.white),),
-                  Tab(text: 'Profile',icon: Icon(Icons.person,size: 30,color: Colors.white),),
+                  Tab(
+                    text: 'Home',
+                    icon: Icon(Icons.home, size: 30, color: Colors.white),
+                  ),
+                  Tab(
+                    text: 'History',
+                    icon: Icon(Icons.history, size: 30, color: Colors.white),
+                  ),
+                  Tab(
+                    text: 'Profile',
+                    icon: Icon(Icons.person, size: 30, color: Colors.white),
+                  ),
                 ],
               ),
             ),
@@ -83,14 +92,14 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(width: 10),
                       const Text(
                         'Rohan Rah',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
-                  Image.asset('assets/images/qr.png',
-                    width: 259,
-                    height: 259,
-                  ),
+                  Image.asset('assets/images/qr.png', width: 259, height: 259),
                   const Text(
                     'Scan QR',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
@@ -105,23 +114,11 @@ class HomeScreen extends StatelessWidget {
           child: ListView(
             children: [
               ChatItem('MH36A6678', 'I Need my car in 30 min'),
-              const Divider(
-                color: Colors.black,
-                thickness: 1,
-                height: 20,
-              ),
+              const Divider(color: Colors.black, thickness: 1, height: 20),
               ChatItem('MH36A6678', 'I Need my car in 5 min'),
-              const Divider(
-                color: Colors.black,
-                thickness: 1,
-                height: 20,
-              ),
+              const Divider(color: Colors.black, thickness: 1, height: 20),
               ChatItem('MH36A6678', 'I Need my car in 30 min'),
-              const Divider(
-                color: Colors.black,
-                thickness: 1,
-                height: 20,
-              ),
+              const Divider(color: Colors.black, thickness: 1, height: 20),
             ],
           ),
         ),
@@ -130,14 +127,143 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget buildHistoryTab() {
-    return Center(
-      child: Text('History Tab Content'),
+    return Column(
+      children: [
+        SizedBox(height: 30,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const SizedBox(width: 10),
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'DD/MM/YY',
+                  prefixIcon: Icon(Icons.calendar_month),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: 'Select Time',
+                  prefixIcon: Icon(Icons.timer_outlined),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+          ],
+        ),
+        const SizedBox(height: 20),
+        Card(
+          margin: const EdgeInsets.all(10),
+          shadowColor: Colors.grey,color: Colors.white,
+          elevation: 4,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ListTile(
+                leading: const CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child: Icon(Icons.person, size: 38, color: Colors.white),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Shrikant Ramesh Yadav',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Row(
+                      spacing: 10,
+                      children: [
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                      ],
+                    ),
+                  ],
+                ),
+                subtitle: const Text(
+                  'MH36A6678',
+                  style: TextStyle(fontSize: 13),
+                ),
+              ),
+              Divider(),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: 35),
+                  Container(
+                    child: Column(
+                      children: [
+                        Image.asset("assets/images/Ellipse 3.png"),
+                        Image.asset("assets/images/Line 11.png"),
+                        Image.asset(
+                          "assets/images/Ellipse 3.png",
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 35),
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Arrival",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          "Departure",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
   Widget buildProfileTab() {
-    return Center(
-      child: Text('Profile Tab Content'),
-    );
+    return Center(child: Text('Profile Tab Content'));
   }
 }
