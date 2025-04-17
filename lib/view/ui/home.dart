@@ -9,7 +9,6 @@ class HomePage extends StatefulWidget {
 
 class HomeScreen extends State<HomePage> {
   int selectedTabIndex = 0;
-
   final List<String> appBarTitles = ['Home', 'History', 'Profile'];
 
   void onTabChanged(int index) {
@@ -201,8 +200,7 @@ class HomeScreen extends State<HomePage> {
                   ],
                 ),
                 SizedBox(height: 8,),
-                Divider(height: 15,thickness: 1,color: Colors.black,)
-                ,
+                Divider(height: 15,thickness: 1,color: Colors.black,),
                 Column(
                   children: [
                     SizedBox(height: 8,),
@@ -218,11 +216,9 @@ class HomeScreen extends State<HomePage> {
                               ],
                             ),
                             Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-
                           ],
                         ),
                         Image.asset("assets/images/Vector.png"),
-
                       ],
                     ),
                   ],
@@ -245,7 +241,6 @@ class HomeScreen extends State<HomePage> {
                               ],
                             ),
                             Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-
                           ],
                         ),
                         Image.asset("assets/images/Vector.png"),

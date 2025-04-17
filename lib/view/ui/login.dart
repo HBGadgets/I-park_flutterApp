@@ -113,14 +113,14 @@ class LoginPageScreen extends State<LoginPage> {
                   Row(
                     children: [
                       Checkbox(value: false, onChanged: (val) {}),
-                      Text("Remember me", style: TextStyle(color: Colors.grey,fontSize: 12)),
+                      Text("Remember me", style: TextStyle(color: Colors.grey,fontSize: 12,fontWeight: FontWeight.bold)),
                     ],
                   ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
                       "Forget Password ?",
-                      style: TextStyle(color: Colors.grey,fontSize: 12),
+                      style: TextStyle(color: Colors.grey,fontSize: 12,fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
