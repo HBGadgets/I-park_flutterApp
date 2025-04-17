@@ -9,13 +9,26 @@ class ChatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: const Icon(Icons.directions_car),
-      title: Text(carNumber),
-      subtitle: Text(message),
+      leading: Padding(
+        padding: const EdgeInsets.only(bottom: 18),
+        child: const Icon(
+          Icons.directions_car_outlined,
+          size: 24,
+          color: Colors.black,
+        ),
+      ),
+      title: Text(
+        carNumber,
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+      ),
+      subtitle: Text(textAlign: TextAlign.start,
+        message,
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+      ),
       trailing: Image.asset(
         'assets/images/Vector.png',
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         fit: BoxFit.cover,
       ),
     );

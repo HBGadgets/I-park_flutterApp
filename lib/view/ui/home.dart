@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
-
 import '../../chat_item.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  HomeScreen createState() => HomeScreen();
+}
+
+class HomeScreen extends State<HomePage> {
+  int selectedTabIndex = 0;
+
+  final List<String> appBarTitles = [
+    'Home',
+    'History',
+    'Profile',
+  ];
+
+  void onTabChanged(int index) {
+    setState(() {
+      selectedTabIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +34,7 @@ class HomeScreen extends StatelessWidget {
             backgroundColor: Colors.black,
             leading: Icon(Icons.menu, color: Colors.white),
             title: Text(
-              'Home',
+              appBarTitles[selectedTabIndex],
               style: TextStyle(color: Colors.white, fontSize: 24),
             ),
             centerTitle: true,
@@ -27,6 +45,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Expanded(
               child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
                 children: [
                   buildHomeTab(),
                   buildHistoryTab(),
@@ -39,11 +58,12 @@ class HomeScreen extends StatelessWidget {
               child: TabBar(
                 indicatorColor: Colors.white,
                 labelColor: Colors.white,
-                unselectedLabelColor: Colors.white,
+                unselectedLabelColor: Colors.white.withOpacity(0.6),
+                onTap: onTabChanged,
                 tabs: const [
-                  Tab(text: 'Home',icon: Icon(Icons.home,size: 30,color: Colors.white,)),
-                  Tab(text: 'History',icon: Icon(Icons.history,size: 30,color: Colors.white),),
-                  Tab(text: 'Profile',icon: Icon(Icons.person,size: 30,color: Colors.white),),
+                  Tab(text: 'Home', icon: Icon(Icons.home, size: 30, color: Colors.white)),
+                  Tab(text: 'History', icon: Icon(Icons.history, size: 30, color: Colors.white)),
+                  Tab(text: 'Profile', icon: Icon(Icons.person, size: 30, color: Colors.white)),
                 ],
               ),
             ),
@@ -64,7 +84,6 @@ class HomeScreen extends StatelessWidget {
               width: 345,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.circular(32),
                 border: Border.all(color: Colors.black, width: 1),
               ),
@@ -87,7 +106,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Image.asset('assets/images/qr.png',
+                  Image.asset(
+                    'assets/images/qr.png',
                     width: 259,
                     height: 259,
                   ),
@@ -100,29 +120,31 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 20),
         Expanded(
-          child: ListView(
-            children: [
-              ChatItem('MH36A6678', 'I Need my car in 30 min'),
-              const Divider(
-                color: Colors.black,
-                thickness: 1,
-                height: 20,
-              ),
-              ChatItem('MH36A6678', 'I Need my car in 5 min'),
-              const Divider(
-                color: Colors.black,
-                thickness: 1,
-                height: 20,
-              ),
-              ChatItem('MH36A6678', 'I Need my car in 30 min'),
-              const Divider(
-                color: Colors.black,
-                thickness: 1,
-                height: 20,
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(18),
+            child: ListView(
+              children: [
+                ChatItem('MH36A6678', 'I Need my car in 30 min'),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 1,
+                  height: 15,
+                ),
+                ChatItem('MH36A6678', 'I Need my car in 5 min'),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 1,
+                  height: 15,
+                ),
+                ChatItem('MH36A6678', 'I Need my car in 30 min'),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 1,
+                  height: 15,
+                ),
+              ],
+            ),
           ),
         ),
       ],
