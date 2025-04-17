@@ -14,7 +14,7 @@ class ChatItem extends StatelessWidget {
       subtitle: Text(message),
       trailing: Image.asset(
         'assets/images/Vector.png',
-        width: 40
+        width: 40,
         height: 40,
         fit: BoxFit.cover,
       ),
