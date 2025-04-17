@@ -24,18 +24,15 @@ class HomeScreen extends State<HomePage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(80),
-          child: AppBar(
-            backgroundColor: Colors.black,
-            leading: Icon(Icons.menu, color: Colors.white),
-            title: Text(
-              appBarTitles[selectedTabIndex],
-              style: TextStyle(color: Colors.white, fontSize: 24),
-            ),
-            centerTitle: true,
-            actions: [Icon(Icons.notifications, color: Colors.white)],
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          leading: Icon(Icons.menu, color: Colors.white),
+          title: Text(
+            appBarTitles[selectedTabIndex],
+            style: TextStyle(color: Colors.white, fontSize: 24),
           ),
+          centerTitle: true,
+          actions: [Icon(Icons.notifications, color: Colors.white)],
         ),
         body: Column(
           children: [
@@ -144,9 +141,9 @@ class HomeScreen extends State<HomePage> {
   }
 
   Widget buildHistoryTab() {
-    return Column(
+    return ListView(
       children: [
-        SizedBox(height: 30,),
+        SizedBox(height: 30),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -176,7 +173,216 @@ class HomeScreen extends State<HomePage> {
         const SizedBox(height: 20),
         Card(
           margin: const EdgeInsets.all(10),
-          shadowColor: Colors.grey,color: Colors.white,
+          shadowColor: Colors.grey,
+          color: Colors.white,
+          elevation: 4,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ListTile(
+                leading: const CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child: Icon(Icons.person, size: 38, color: Colors.white),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Shrikant Ramesh Yadav',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Row(
+                      spacing: 3,
+                      children: [
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                      ],
+                    ),
+                  ],
+                ),
+                subtitle: const Text(
+                  'MH36A6678',
+                  style: TextStyle(fontSize: 13),
+                ),
+              ),
+              Divider(),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: 35),
+                  Container(
+                    child: Column(
+                      children: [
+                        Image.asset("assets/images/Ellipse 3.png"),
+                        Image.asset("assets/images/Line 11.png"),
+                        Image.asset(
+                          "assets/images/Ellipse 3.png",
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 35),
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Arrival",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          "Departure",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+            ],
+          ),
+        ),
+        SizedBox(height: 10,),
+        Card(
+          margin: const EdgeInsets.all(10),
+          shadowColor: Colors.grey,
+          color: Colors.white,
+          elevation: 4,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ListTile(
+                leading: const CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child: Icon(Icons.person, size: 38, color: Colors.white),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Shrikant Ramesh Yadav',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Row(
+                      spacing: 3,
+                      children: [
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                        Icon(Icons.star, size: 12, color: Colors.amber),
+                      ],
+                    ),
+                  ],
+                ),
+                subtitle: const Text(
+                  'MH36A6678',
+                  style: TextStyle(fontSize: 13),
+                ),
+              ),
+              Divider(),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: 35),
+                  Container(
+                    child: Column(
+                      children: [
+                        Image.asset("assets/images/Ellipse 3.png"),
+                        Image.asset("assets/images/Line 11.png"),
+                        Image.asset(
+                          "assets/images/Ellipse 3.png",
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 35),
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Arrival",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          "Departure",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month),
+                            Text("17.02-2025"),
+                            SizedBox(width: 50),
+                            Icon(Icons.timer_outlined),
+                            Text("19:09"),
+                            SizedBox(width: 20),
+                            Text("PM"),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+            ],
+          ),
+        ),
+        SizedBox(height: 10,),
+        Card(
+          margin: const EdgeInsets.all(10),
+          shadowColor: Colors.grey,
+          color: Colors.white,
           elevation: 4,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -285,6 +491,7 @@ class HomeScreen extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: 10),
           CircleAvatar(
             backgroundColor: Colors.grey[300],
             radius: 90,
@@ -306,62 +513,80 @@ class HomeScreen extends State<HomePage> {
             ),
           ),
           const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Employee ID',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          'Employee ID',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'EMP0001111',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                      ],
                     ),
+                    Column(
+                      children: [
+                        Text(
+                          'Contact no',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '+91 75484856',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Job Title',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Text('EMP0001111',style: TextStyle(color: Colors.grey,fontSize: 16),),
-                ],
+                ),
+                Text(
+                  'Valley Parking Attendent',
+                  style: TextStyle(color: Colors.grey, fontSize: 16),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Supervisor',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Deepak Rahate',
+                  style: TextStyle(color: Colors.grey, fontSize: 16),
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
+          ),
 
-              ),
-              Column(
-                children: [
-                  Text(
-                    'Contact no',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text('+91 75484856',style: TextStyle(color: Colors.grey,fontSize: 16)),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Job Title',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Supervisor',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
           Container(
             margin: const EdgeInsets.all(12),
             padding: const EdgeInsets.all(16),
