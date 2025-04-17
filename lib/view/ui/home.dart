@@ -121,29 +121,98 @@ class HomeScreen extends State<HomePage> {
             ),
           ),
         ),
+        Row(mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text("Recent Chats"),
+            SizedBox(width: 30,)
+          ],
+        ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(18),
-            child: ListView(
+            padding: const EdgeInsets.only(left: 20,right: 20),
+            child: ListView(padding: EdgeInsets.all(10),
               children: [
-                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Column(
                   children: [
-                    Row(
+                    SizedBox(height: 8,),
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.directions_car_outlined),
-                        SizedBox(width: 10,),
-                        Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(Icons.directions_car_outlined),
+                                SizedBox(width: 10,),
+                                Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                              ],
+                            ),
+                            Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+
+                          ],
+                        ),
+                        Image.asset("assets/images/Vector.png"),
+
                       ],
                     ),
-                    Image.asset("assets/images/Vector.png")
-
                   ],
                 ),
-                Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                SizedBox(height: 10,),
+                SizedBox(height: 8,),
+                Divider(height: 15,thickness: 1,color: Colors.black,)
+                ,
+                Column(
+                  children: [
+                    SizedBox(height: 8,),
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(Icons.directions_car_outlined),
+                                SizedBox(width: 10,),
+                                Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                              ],
+                            ),
+                            Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+
+                          ],
+                        ),
+                        Image.asset("assets/images/Vector.png"),
+
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8,),
+                Divider(height: 15,thickness: 1,color: Colors.black,),
+                Column(
+                  children: [
+                    SizedBox(height: 8,),
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(Icons.directions_car_outlined),
+                                SizedBox(width: 10,),
+                                Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                              ],
+                            ),
+                            Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+
+                          ],
+                        ),
+                        Image.asset("assets/images/Vector.png"),
+
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8,),
                 Divider(height: 15,thickness: 1,color: Colors.black,)
 
-               
               ],
             ),
           ),
