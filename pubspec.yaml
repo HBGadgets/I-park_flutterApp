@@ -67,6 +67,10 @@ flutter:
     - assets/images/Vector.png
     - assets/images/qr.png
     - assets/images/Photo by Petr Sevcovic.png
+    - assets/images/Frame 103.png
+    - assets/images/Ellipse 3.png
+    - assets/images/Line 11.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
