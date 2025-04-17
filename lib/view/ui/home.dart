@@ -299,14 +299,11 @@ class HomeScreen extends State<HomePage> {
                       ),
                     ),
                     Row(
-                      spacing: 3,
-                      children: [
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                      ],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        5,
+                            (index) => Icon(Icons.star, color: Colors.amber, size: 12),
+                      ),
                     ),
                   ],
                 ),
@@ -403,14 +400,11 @@ class HomeScreen extends State<HomePage> {
                       ),
                     ),
                     Row(
-                      spacing: 3,
-                      children: [
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                        Icon(Icons.star, size: 12, color: Colors.amber),
-                      ],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        5,
+                            (index) => Icon(Icons.star, color: Colors.amber, size: 12),
+                      ),
                     ),
                   ],
                 ),
@@ -425,17 +419,15 @@ class HomeScreen extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 35),
-                  Container(
-                    child: Column(
-                      children: [
-                        Image.asset("assets/images/Ellipse 3.png"),
-                        Image.asset("assets/images/Line 11.png"),
-                        Image.asset(
-                          "assets/images/Ellipse 3.png",
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      Image.asset("assets/images/Ellipse 3.png"),
+                      Image.asset("assets/images/Line 11.png"),
+                      Image.asset(
+                        "assets/images/Ellipse 3.png",
+                        color: Colors.black,
+                      ),
+                    ],
                   ),
                   SizedBox(width: 35),
                   Center(

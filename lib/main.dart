@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hb/view/ui/login.dart';
 import 'package:hb/view/ui/splashscreen.dart';
 
 void main() {

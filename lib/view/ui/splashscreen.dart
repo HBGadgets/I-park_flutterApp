@@ -19,40 +19,35 @@ class SplashPageScreen extends State<SplashPage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/image.png"),
-                fit: BoxFit.fill,
+                image: AssetImage("assets/images/chris-lee-70l1tDAI6rM-unsplash.png"),
+                fit: BoxFit.cover,
               ),
             ),
-            child: Column(
-              children: [
-                Image.asset(
-                  "assets/images/planewhite.png",
-                  height: 398,
-                  width: 398,
+          ),
+          Column(
+            children: [
+              Image.asset(
+                "assets/images/planewhite.png",
+                height: 398,
+                width: 398,
+              ),
+              const Spacer(),
+              ConfirmationSlider(
+                onConfirmation: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                sliderButtonContent: Image.asset(
+                  "assets/images/irix.logo.png",
                 ),
-
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(height: 350),
-                    ConfirmationSlider(
-                      onConfirmation: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                      },
-                      sliderButtonContent: Image.asset(
-                        "assets/images/irix.logo.png",
-                      ),
-                      foregroundColor: Colors.black,
-                      text: " Get Started  > > > ",
-                      backgroundColor: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                foregroundColor: Colors.black,
+                text: " Get Started  > > > ",
+                backgroundColor: Colors.white,
+              ),
+              const SizedBox(height: 30),
+            ],
           ),
         ],
       ),
