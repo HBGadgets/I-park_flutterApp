@@ -197,7 +197,7 @@ class HomeScreen extends State<HomePage> {
                       ),
                     ),
                     Row(
-                      spacing: 10,
+                      spacing: 3,
                       children: [
                         Icon(Icons.star, size: 12, color: Colors.amber),
                         Icon(Icons.star, size: 12, color: Colors.amber),
