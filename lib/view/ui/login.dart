@@ -22,8 +22,8 @@ class LoginPageScreen extends State<LoginPage> {
               Stack(
                 children: [
                   Center(
-                    child: Image.network(
-                      "https://s3-alpha-sig.figma.com/img/12fe/c62b/5708ae6137dc9a5ca7441d4803a19128?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aQXfu1GjB0fetFF2Zmqk5rYwPafSb8eQRUpGM~oXLWVcU3QkVJOgnDjTHtqnqz0HV5WyeGE3zbuNkTQqX2mRggBT4d4fiQlM4Ia3GSy0IZvPg-PviqDrZ7i9EGF-jVtJrJKgxFk9To7uBteVMGh08ACq2j98jJrsbWI8wRf-Ly6gCYP4V41bbOzv7kB-GkiCXNEIVGuyz23CgBbwgILUVCFGfhmcvkBD2HAayDdDyMji8098IqnVorjxLWCKZ664PLamfeEkehVd9jTQJzmQ6BWTt~OknlPNUZqeZsaDxrkMDvxh4Cvq-1qMOv0FLIsXLAzDMlgzjMzKllY5nwA~Kg__",
+                    child: Image.asset(
+                     "assets/images/planewhite.png",
                       height: 183,
                       width: 183,
                       color: Colors.black,
@@ -157,8 +157,7 @@ class LoginPageScreen extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              Text("or continue with", style: TextStyle(color: Colors.black)),
+
 
             ],
           ),
