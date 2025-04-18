@@ -9,8 +9,6 @@ class ConstantColors{
   static  const Color rememberColor = Colors.grey;
   static  const Color forgetColor = Colors.grey;
   static  const Color loginBButtonColor = Colors.black;
-
-
   static const Color loginLogoColor = Colors.black;
   static const Color backgroundGradientColor = Color(0xDB0C0C15);
   static const Color backgroundGradientTransparent = Colors.transparent;

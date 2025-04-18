@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../constants/constants_colors.dart';
-import '../constants/constants_images.dart';
-import '../constants/constants_integers.dart';
-import '../constants/constants_variables.dart';
+import '../constants/constant_colors.dart';
+import '../constants/constant_images.dart';
+import '../constants/constant_integers.dart';
+import '../constants/constant_variables.dart';
 import 'home.dart';
 
 class LoginPage extends StatefulWidget {

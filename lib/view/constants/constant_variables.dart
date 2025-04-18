@@ -1,5 +1,4 @@
-class ConstantVariables
-{
+class ConstantVariables {
   static const String login = "Login";
   static const String noAccount = "If you don't have an account register";
   static const String getStartedText = "Get Started  > > >";
@@ -11,12 +10,5 @@ class ConstantVariables
   static const String password = "Password";
   static const String enterPassword = "Enter your Password";
   static const String rememberMe = "Remember me";
-  static const String forgetPassword  = "Forget Password ?";
-
-
-
-
-
-
-
+  static const String forgetPassword = "Forget Password ?";
 }

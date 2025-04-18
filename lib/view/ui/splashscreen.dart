@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hb/view/constants/constants_images.dart';
-import 'package:hb/view/constants/constants_integers.dart';
-import 'package:hb/view/constants/constants_variables.dart';
+import 'package:hb/view/constants/constant_images.dart';
+import 'package:hb/view/constants/constant_integers.dart';
+import 'package:hb/view/constants/constant_variables.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
-import '../constants/constants_colors.dart';
+import '../constants/constant_colors.dart';
 import 'login.dart';
 
 class SplashPage extends StatefulWidget {

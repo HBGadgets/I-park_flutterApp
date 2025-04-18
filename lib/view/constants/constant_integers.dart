@@ -25,13 +25,4 @@ class ConstantIntegers {
   static const double buttonHeight = 53.0;
   static const double buttonRadius = 30.0;
   static const double buttonLoginFont = 17.0;
-
-
-
-
-
-
-
-
-
 }
