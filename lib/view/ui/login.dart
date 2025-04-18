@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../constants/constants_colors.dart';
 import '../constants/constants_images.dart';
 import '../constants/constants_integers.dart';
@@ -48,7 +47,7 @@ class LoginPageScreen extends State<LoginPage> {
                         style: TextStyle(
                           fontSize: ConstantIntegers.loginFontSize,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "Poppins",
+                          fontFamily: ConstantVariables.fontFamilyPoppins,
                         ),
                       ),
                     ),
@@ -63,7 +62,7 @@ class LoginPageScreen extends State<LoginPage> {
                     ConstantVariables.noAccount,
                     style: TextStyle(
                       fontSize: ConstantIntegers.noAccountSize,
-                      fontFamily: "Poppins",
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
                     ),
                   ),
                 ],
@@ -71,30 +70,36 @@ class LoginPageScreen extends State<LoginPage> {
               Row(
                 children: [
                   Text(
-                    "You can",
-                    style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
+                    ConstantVariables.youCan,
+                    style: TextStyle(
+                      fontSize: ConstantIntegers.noAccountSize,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
                   ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      "Register here !",
+                      ConstantVariables.registerHere,
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: ConstantIntegers.noAccountSize,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade800,
-                        fontFamily: "Poppins",
+                        color: ConstantColors.registerColor,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: ConstantIntegers.spaceEmail),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Email",
-                    style: TextStyle(fontSize: 13, fontFamily: "Poppins"),
+                    ConstantVariables.email,
+                    style: TextStyle(
+                      fontSize: ConstantIntegers.labelText,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
                   ),
                 ],
               ),
@@ -102,41 +107,50 @@ class LoginPageScreen extends State<LoginPage> {
                 decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.mail_outline_outlined,
-                    color: Colors.black,
+                    color: ConstantColors.iconColor,
                   ),
-                  hintText: "Enter your email address",
+                  hintText: ConstantVariables.enterEmail,
                   hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontFamily: "Poppins",
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
                 ),
-                style: TextStyle(color: Colors.black, fontSize: 16),
+                style: TextStyle(
+                  color: ConstantColors.textFieldText,
+                  fontSize: ConstantIntegers.textFieldFontSize,
+                ),
               ),
-              SizedBox(height: 50),
-
+              SizedBox(height: ConstantIntegers.passwordSpace),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Password",
-                    style: TextStyle(fontSize: 13, fontFamily: "Poppins"),
+                    ConstantVariables.password,
+                    style: TextStyle(
+                      fontSize: ConstantIntegers.labelText,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
                   ),
                 ],
               ),
               TextField(
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.lock_outline, color: Colors.black),
+                  prefixIcon: Icon(
+                    Icons.lock_outline,
+                    color: ConstantColors.iconColor,
+                  ),
                   suffixIcon: Icon(
                     Icons.visibility_outlined,
-                    color: Colors.black,
+                    color: ConstantColors.iconColor,
                   ),
-                  hintText: "Enter your Password",
+                  hintText: ConstantVariables.enterPassword,
                   hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontFamily: "Poppins",
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
                 ),
-                style: TextStyle(color: Colors.black, fontSize: 16),
+                style: TextStyle(
+                  color: ConstantColors.textFieldText,
+                  fontSize: ConstantIntegers.textFieldFontSize,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -145,12 +159,12 @@ class LoginPageScreen extends State<LoginPage> {
                     children: [
                       Checkbox(value: false, onChanged: (val) {}),
                       Text(
-                        "Remember me",
+                        ConstantVariables.rememberMe,
                         style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12,
+                          color: ConstantColors.rememberColor,
+                          fontSize: ConstantIntegers.rememberMeFont,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "Poppins",
+                          fontFamily: ConstantVariables.fontFamilyPoppins,
                         ),
                       ),
                     ],
@@ -158,21 +172,21 @@ class LoginPageScreen extends State<LoginPage> {
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      "Forget Password ?",
+                      ConstantVariables.forgetPassword,
                       style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
+                        color: ConstantColors.forgetColor,
+                        fontSize: ConstantIntegers.forgetPasswordFont,
                         fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins",
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              SizedBox(height: ConstantIntegers.buttonSpace),
               SizedBox(
-                width: 318.52,
-                height: 53,
+                width: ConstantIntegers.buttonWidth,
+                height: ConstantIntegers.buttonHeight,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -180,24 +194,21 @@ class LoginPageScreen extends State<LoginPage> {
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
-
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    backgroundColor: ConstantColors.loginBButtonColor,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15.0,
-                      horizontal: 30.0,
+                      borderRadius: BorderRadius.circular(
+                        ConstantIntegers.buttonRadius,
+                      ),
                     ),
                   ),
                   child: Text(
-                    "Login",
+                    ConstantVariables.login,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 17,
+                      fontSize: ConstantIntegers.buttonLoginFont,
                       fontWeight: FontWeight.bold,
-                      fontFamily: "Poppins",
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
                     ),
                   ),
                 ),

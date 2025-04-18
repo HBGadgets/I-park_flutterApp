@@ -10,6 +10,24 @@ class ConstantIntegers {
   static const double loginFontSize = 30.0;
   static const double noAccountSpace = 30.0;
   static const double noAccountSize = 16.0;
+  static const double spaceEmail = 30.0;
+  static const double labelText = 12.0;
+  static const double textFieldFontSize = 16.0;
+  static const double passwordSpace = 50.0;
+  static const double rememberMeFont = 12.0;
+  static const double forgetPasswordFont = 12.0;
+  static const double buttonSpace = 60.0;
+  static const double buttonWidth = 318.52;
+  static const double buttonHeight = 53.0;
+  static const double buttonRadius = 30.0;
+  static const double buttonLoginFont = 17.0;
+
+
+
+
+
+
+
 
 
 }
