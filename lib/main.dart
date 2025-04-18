@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hb/view/constants/constant_variables.dart';
 import 'package:hb/view/ui/splashscreen.dart';
 
 void main() {
@@ -11,11 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: SplashPage(),debugShowCheckedModeBanner: false,
+      title: ConstantVariables.title,
+      home: SplashPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
