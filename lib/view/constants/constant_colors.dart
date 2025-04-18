@@ -53,9 +53,9 @@ class ConstantColors {
   static const Color historyArrivalTextColor = Colors.black;
   static const Color historyCardCalenderIconColor = Colors.black;
   static const Color historyClockIconColor = Colors.black;
-  static const Color historyTimeTextColor = Colors.grey;
-  static const Color historyHoursTextColor = Colors.grey;
-  static const Color historyDepartureTextColor = Colors.grey;
+  static const Color historyTimeTextColor = Colors.black;
+  static const Color historyHoursTextColor = Colors.black;
+  static const Color historyDepartureTextColor = Colors.black;
 
 
 }

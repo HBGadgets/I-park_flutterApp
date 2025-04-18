@@ -62,11 +62,11 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/chris-lee-70l1tDAI6rM-unsplash.png
-    - assets/images/planewhite.png
+    - assets/images/plane white.png
     - assets/images/irix.logo.png
     - assets/images/Vector.png
     - assets/images/qr.png
-    - assets/images/Photo by Petr Sevcovic.png
+    - assets/images/Photo by Petr.png
     - assets/images/Frame 103.png
     - assets/images/Ellipse 3.png
     - assets/images/Line 11.png
