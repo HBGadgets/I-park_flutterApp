@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hb/view/constants/constants_images.dart';
+import 'package:hb/view/constants/constants_variables.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 
 import 'login.dart';
@@ -19,7 +21,7 @@ class SplashPageScreen extends State<SplashPage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/chris-lee-70l1tDAI6rM-unsplash.png"),
+                image: AssetImage(ConstantsImages.assetImages + ConstantsImages.backgroundCarImage),
                 fit: BoxFit.cover,
               ),
             ),
@@ -28,7 +30,7 @@ class SplashPageScreen extends State<SplashPage> {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xDB0C0C15),Colors.transparent],
+                  colors: [Color(0xDB0C0C15), Colors.transparent],
                 ),
               ),
             ),
@@ -36,7 +38,7 @@ class SplashPageScreen extends State<SplashPage> {
           Column(
             children: [
               Image.asset(
-                "assets/images/planewhite.png",
+                ConstantsImages.assetImages + ConstantsImages.iParkLogo,
                 height: 398,
                 width: 398,
               ),
@@ -49,10 +51,16 @@ class SplashPageScreen extends State<SplashPage> {
                   );
                 },
                 sliderButtonContent: Image.asset(
-                  "assets/images/irix.logo.png",
+                  ConstantsImages.assetImages + ConstantsImages.slideButtonCarLogo,
                 ),
                 foregroundColor: Colors.black,
-                text: " Get Started  > > > ",
+                text: ConstantsVariables.getStartedText,
+                textStyle: TextStyle(
+                  fontFamily: ConstantsVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
                 backgroundColor: Colors.white,
               ),
               const SizedBox(height: 30),
