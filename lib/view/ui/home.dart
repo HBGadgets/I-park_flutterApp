@@ -165,7 +165,7 @@ class HomeScreen extends State<HomePage> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [Text("Recent Chats"), SizedBox(width: 30)],
+          children: [Text("Recent Chats",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)), SizedBox(width: 30)],
         ),
         Expanded(
           child: Padding(
