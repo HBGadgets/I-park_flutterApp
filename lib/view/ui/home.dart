@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hb/view/constants/constant_colors.dart';
 
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
@@ -32,11 +33,11 @@ class HomeScreen extends State<HomePage> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: ConstantColors.appTabBarBackgroundColor,
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
-                icon: Icon(Icons.menu, color: Colors.white),
+                icon: Icon(Icons.menu, color: ConstantColors.menuIconColor),
                 onPressed: () {
                   Scaffold.of(context).openDrawer();
                 },
@@ -46,34 +47,46 @@ class HomeScreen extends State<HomePage> {
           title: Text(
             appBarTitles[selectedTabIndex],
             style: TextStyle(
-              color: Colors.white,
+              color: ConstantColors.appBarTitlesColor,
               fontFamily: ConstantVariables.fontFamilyPoppins,
               fontSize: ConstantIntegers.selectedTabText,
             ),
           ),
           centerTitle: true,
-          actions: [Icon(Icons.notifications, color: Colors.white)],
+          actions: [
+            Icon(
+              Icons.notifications,
+              color: ConstantColors.notificationIconColor,
+            ),
+          ],
         ),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
               DrawerHeader(
-                decoration: BoxDecoration(color: Colors.black),
+                decoration: BoxDecoration(
+                  color: ConstantColors.appTabBarBackgroundColor,
+                ),
                 child: Text(
                   ConstantVariables.menuDrawerHeaderText,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: ConstantColors.drawerMenuTextColor,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                     fontSize: ConstantIntegers.menuText,
                   ),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.info),
+                leading: Icon(
+                  Icons.info,
+                  color: ConstantColors.drawerMenuListIconColor,
+                ),
                 title: Text(
                   ConstantVariables.menuAboutUsListText,
                   style: TextStyle(
+                    color: ConstantColors.drawerMenuListTextColor,
+                    fontWeight: FontWeight.bold,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
                 ),
@@ -82,10 +95,15 @@ class HomeScreen extends State<HomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.settings),
+                leading: Icon(
+                  Icons.settings,
+                  color: ConstantColors.drawerMenuListIconColor,
+                ),
                 title: Text(
                   ConstantVariables.menuSettingsListText,
                   style: TextStyle(
+                    color: ConstantColors.drawerMenuListTextColor,
+                    fontWeight: FontWeight.bold,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
                 ),
@@ -94,10 +112,15 @@ class HomeScreen extends State<HomePage> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.logout),
+                leading: Icon(
+                  Icons.logout,
+                  color: ConstantColors.drawerMenuListIconColor,
+                ),
                 title: Text(
                   ConstantVariables.menuLogoutListText,
                   style: TextStyle(
+                    color: ConstantColors.drawerMenuListTextColor,
+                    fontWeight: FontWeight.bold,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
                 ),
@@ -124,10 +147,9 @@ class HomeScreen extends State<HomePage> {
               height: ConstantIntegers.tabBarContainerHeight,
               color: Colors.black,
               child: TabBar(
-                indicatorColor: Colors.white,
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.white,
-                dividerColor: Colors.black,
+                indicatorColor: ConstantColors.tabBarIndicatorColor,
+                labelColor: ConstantColors.tabBarLabelColor,
+                unselectedLabelColor: ConstantColors.unSelectedLabelColor,
                 onTap: onTabChanged,
                 tabs: const [
                   Tab(
@@ -137,15 +159,16 @@ class HomeScreen extends State<HomePage> {
                         Icon(
                           Icons.home,
                           size: ConstantIntegers.tabBarIcon,
-                          color: Colors.white,
+                          color: ConstantColors.tabBarIconsColor,
                         ),
+
                         Text(
                           ConstantVariables.tabBarHomeText,
                           style: TextStyle(
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                             fontSize: ConstantIntegers.tabBarText,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: ConstantColors.tabBarIconsTextColor,
                           ),
                         ),
                       ],
@@ -158,15 +181,16 @@ class HomeScreen extends State<HomePage> {
                         Icon(
                           Icons.history,
                           size: ConstantIntegers.tabBarIcon,
-                          color: Colors.white,
+                          color: ConstantColors.tabBarIconsColor,
                         ),
+
                         Text(
                           ConstantVariables.tabBarHistoryText,
                           style: TextStyle(
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                             fontSize: ConstantIntegers.tabBarText,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: ConstantColors.tabBarIconsTextColor,
                           ),
                         ),
                       ],
@@ -179,15 +203,16 @@ class HomeScreen extends State<HomePage> {
                         Icon(
                           Icons.person,
                           size: ConstantIntegers.tabBarIcon,
-                          color: Colors.white,
+                          color: ConstantColors.tabBarIconsColor,
                         ),
+
                         Text(
                           ConstantVariables.tabBarProfileText,
                           style: TextStyle(
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                             fontSize: ConstantIntegers.tabBarText,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: ConstantColors.tabBarIconsTextColor,
                           ),
                         ),
                       ],
@@ -217,7 +242,7 @@ class HomeScreen extends State<HomePage> {
                   ConstantIntegers.qrContainerRadius,
                 ),
                 border: Border.all(
-                  color: Colors.black,
+                  color: ConstantColors.homeTabBorderColor,
                   width: ConstantIntegers.qrContainerBorder,
                 ),
               ),
@@ -241,6 +266,7 @@ class HomeScreen extends State<HomePage> {
                           fontSize: ConstantIntegers.usernameFontHome,
                           fontFamily: ConstantVariables.fontFamilyPoppins,
                           fontWeight: FontWeight.bold,
+                          color: ConstantColors.homeScreenPersonNameTextColor,
                         ),
                       ),
                     ],
@@ -253,6 +279,7 @@ class HomeScreen extends State<HomePage> {
                   const Text(
                     ConstantVariables.scanQRText,
                     style: TextStyle(
+                      color: ConstantColors.scanQrTextColor,
                       fontSize: ConstantIntegers.scanQRFontSize,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
                       fontWeight: FontWeight.w600,
@@ -269,7 +296,7 @@ class HomeScreen extends State<HomePage> {
             Text(
               ConstantVariables.recentChantsText,
               style: TextStyle(
-                color: Colors.grey,
+                color: ConstantColors.recentChatsTextColor,
                 fontFamily: ConstantVariables.fontFamilyPoppins,
                 fontWeight: FontWeight.bold,
               ),
@@ -296,16 +323,22 @@ class HomeScreen extends State<HomePage> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.directions_car_outlined),
+                                Icon(
+                                  Icons.directions_car_outlined,
+                                  color: ConstantColors.homeScreenCarIconColor,
+                                ),
                                 SizedBox(
                                   width: ConstantIntegers.chatIconPadding,
                                 ),
                                 Text(
                                   ConstantVariables.carNumberText,
+
                                   style: TextStyle(
                                     fontSize: ConstantIntegers.homeVehicleFont,
                                     fontFamily:
                                         ConstantVariables.fontFamilyPoppins,
+                                    color:
+                                        ConstantColors.homeScreenCarNoTextColor,
                                   ),
                                 ),
                               ],
@@ -314,6 +347,9 @@ class HomeScreen extends State<HomePage> {
                               ConstantVariables.carMessageText,
                               style: TextStyle(
                                 fontSize: ConstantIntegers.chatSize,
+                                color:
+                                    ConstantColors
+                                        .homeScreenCarMessageTextColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -328,10 +364,11 @@ class HomeScreen extends State<HomePage> {
                     ),
                   ],
                 ),
+
                 SizedBox(height: ConstantIntegers.chatBelowPadding),
                 Divider(
                   thickness: ConstantIntegers.dividerThickness,
-                  color: Colors.black,
+                  color: ConstantColors.homeScreenDividerColor,
                 ),
                 Column(
                   children: [
@@ -351,6 +388,8 @@ class HomeScreen extends State<HomePage> {
                                   ConstantVariables.carNumberText,
                                   style: TextStyle(
                                     fontSize: ConstantIntegers.homeVehicleFont,
+                                    color:
+                                        ConstantColors.homeScreenCarNoTextColor,
                                     fontFamily:
                                         ConstantVariables.fontFamilyPoppins,
                                   ),
@@ -360,6 +399,9 @@ class HomeScreen extends State<HomePage> {
                             Text(
                               ConstantVariables.carMessageText,
                               style: TextStyle(
+                                color:
+                                    ConstantColors
+                                        .homeScreenCarMessageTextColor,
                                 fontSize: ConstantIntegers.chatSize,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
@@ -375,10 +417,11 @@ class HomeScreen extends State<HomePage> {
                     ),
                   ],
                 ),
+
                 SizedBox(height: ConstantIntegers.chatBelowPadding),
                 Divider(
                   thickness: ConstantIntegers.dividerThickness,
-                  color: Colors.black,
+                  color: ConstantColors.homeScreenDividerColor,
                 ),
                 Column(
                   children: [
@@ -396,7 +439,10 @@ class HomeScreen extends State<HomePage> {
                                 ),
                                 Text(
                                   ConstantVariables.carNumberText,
+
                                   style: TextStyle(
+                                    color:
+                                        ConstantColors.homeScreenCarNoTextColor,
                                     fontSize: ConstantIntegers.homeVehicleFont,
                                     fontFamily:
                                         ConstantVariables.fontFamilyPoppins,
@@ -407,6 +453,9 @@ class HomeScreen extends State<HomePage> {
                             Text(
                               ConstantVariables.carMessageText,
                               style: TextStyle(
+                                color:
+                                    ConstantColors
+                                        .homeScreenCarMessageTextColor,
                                 fontSize: ConstantIntegers.chatSize,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
@@ -425,7 +474,7 @@ class HomeScreen extends State<HomePage> {
                 SizedBox(height: ConstantIntegers.chatBelowPadding),
                 Divider(
                   thickness: ConstantIntegers.dividerThickness,
-                  color: Colors.black,
+                  color: ConstantColors.homeScreenDividerColor,
                 ),
               ],
             ),
@@ -448,9 +497,13 @@ class HomeScreen extends State<HomePage> {
                 decoration: InputDecoration(
                   hintText: ConstantVariables.dateHintText,
                   hintStyle: TextStyle(
+                    color: ConstantColors.historyTextFieldHintTextColor,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
-                  prefixIcon: Icon(Icons.calendar_month),
+                  prefixIcon: Icon(
+                    Icons.calendar_month,
+                    color: ConstantColors.historyTextFieldIconColor,
+                  ),
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -461,9 +514,13 @@ class HomeScreen extends State<HomePage> {
                 decoration: InputDecoration(
                   labelText: ConstantVariables.labelSelectTimeText,
                   labelStyle: TextStyle(
+                    color: ConstantColors.historyTextFieldHintTextColor,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
-                  prefixIcon: Icon(Icons.timer_outlined),
+                  prefixIcon: Icon(
+                    Icons.timer_outlined,
+                    color: ConstantColors.historyTextFieldIconColor,
+                  ),
                   border: OutlineInputBorder(),
                 ),
               ),
@@ -474,19 +531,20 @@ class HomeScreen extends State<HomePage> {
         const SizedBox(height: ConstantIntegers.historyCardPadding),
         Card(
           margin: const EdgeInsets.all(ConstantIntegers.historyCardMargin),
-          shadowColor: Colors.grey,
-          color: Colors.white,
           elevation: ConstantIntegers.historyCardElevation,
+          shadowColor: ConstantColors.historyCardShadowColor,
+          color: ConstantColors.historyCardColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ListTile(
                 leading: const CircleAvatar(
-                  backgroundColor: Colors.black,
+                  backgroundColor:
+                      ConstantColors.historyListAvatarBackgroundColor,
                   child: Icon(
                     Icons.person,
                     size: ConstantIntegers.historyPersonIconSize,
-                    color: Colors.white,
+                    color: ConstantColors.historyPersonIconColor,
                   ),
                 ),
                 title: Row(
@@ -495,6 +553,7 @@ class HomeScreen extends State<HomePage> {
                     Text(
                       ConstantVariables.historyPersonNameText,
                       style: TextStyle(
+                        color: ConstantColors.historyPersonNameTextColor,
                         fontWeight: FontWeight.bold,
                         fontFamily: ConstantVariables.fontFamilyPoppins,
                         fontSize: ConstantIntegers.historyCardName,
@@ -506,7 +565,7 @@ class HomeScreen extends State<HomePage> {
                         ConstantIntegers.starCountHistory,
                         (index) => Icon(
                           Icons.star,
-                          color: Colors.amber,
+                          color: ConstantColors.profileStarsColor,
                           size: ConstantIntegers.starIconSize,
                         ),
                       ),
@@ -515,9 +574,11 @@ class HomeScreen extends State<HomePage> {
                 ),
                 subtitle: const Text(
                   ConstantVariables.historyCarNumberText,
+
                   style: TextStyle(
                     fontSize: ConstantIntegers.historyVehicleFontSize,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
+                    color: ConstantColors.historySubTitleTextColor,
                   ),
                 ),
               ),
@@ -538,10 +599,11 @@ class HomeScreen extends State<HomePage> {
                       Image.asset(
                         ConstantImages.assetImages +
                             ConstantImages.ellipseLineImage,
-                        color: Colors.black,
+                        color: ConstantColors.historyArrivalLineColor,
                       ),
                     ],
                   ),
+
                   SizedBox(width: ConstantIntegers.linePaddingWidth),
                   Center(
                     child: Column(
@@ -550,13 +612,18 @@ class HomeScreen extends State<HomePage> {
                         Text(
                           ConstantVariables.distanceArrivalText,
                           style: TextStyle(
+                            color: ConstantColors.historyArrivalTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                           ),
                         ),
                         Row(
                           children: [
-                            Icon(Icons.calendar_month),
+                            Icon(
+                              Icons.calendar_month,
+                              color:
+                                  ConstantColors.historyCardCalenderIconColor,
+                            ),
                             Text(
                               ConstantVariables.dateText,
                               style: TextStyle(
@@ -564,10 +631,14 @@ class HomeScreen extends State<HomePage> {
                               ),
                             ),
                             SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(Icons.timer_outlined),
+                            Icon(
+                              Icons.timer_outlined,
+                              color: ConstantColors.historyClockIconColor,
+                            ),
                             Text(
                               ConstantVariables.timeText,
                               style: TextStyle(
+                                color: ConstantColors.historyTimeTextColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
@@ -575,6 +646,7 @@ class HomeScreen extends State<HomePage> {
                             Text(
                               ConstantVariables.hoursText,
                               style: TextStyle(
+                                color: ConstantColors.historyHoursTextColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
@@ -586,6 +658,7 @@ class HomeScreen extends State<HomePage> {
                         Text(
                           ConstantVariables.distanceDepartureText,
                           style: TextStyle(
+                            color: ConstantColors.historyDepartureTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                           ),
@@ -628,19 +701,20 @@ class HomeScreen extends State<HomePage> {
         SizedBox(height: ConstantIntegers.betweenCardPadding),
         Card(
           margin: const EdgeInsets.all(ConstantIntegers.historyCardMargin),
-          shadowColor: Colors.grey,
-          color: Colors.white,
           elevation: ConstantIntegers.historyCardElevation,
+          shadowColor: ConstantColors.historyCardShadowColor,
+          color: ConstantColors.historyCardColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ListTile(
                 leading: const CircleAvatar(
-                  backgroundColor: Colors.black,
+                  backgroundColor:
+                      ConstantColors.historyListAvatarBackgroundColor,
                   child: Icon(
                     Icons.person,
                     size: ConstantIntegers.historyPersonIconSize,
-                    color: Colors.white,
+                    color: ConstantColors.historyPersonIconColor,
                   ),
                 ),
                 title: Row(
@@ -649,6 +723,7 @@ class HomeScreen extends State<HomePage> {
                     Text(
                       ConstantVariables.historyPersonNameText,
                       style: TextStyle(
+                        color: ConstantColors.historyPersonNameTextColor,
                         fontWeight: FontWeight.bold,
                         fontFamily: ConstantVariables.fontFamilyPoppins,
                         fontSize: ConstantIntegers.historyCardName,
@@ -660,7 +735,7 @@ class HomeScreen extends State<HomePage> {
                         ConstantIntegers.starCountHistory,
                         (index) => Icon(
                           Icons.star,
-                          color: Colors.amber,
+                          color: ConstantColors.profileStarsColor,
                           size: ConstantIntegers.starIconSize,
                         ),
                       ),
@@ -669,9 +744,11 @@ class HomeScreen extends State<HomePage> {
                 ),
                 subtitle: const Text(
                   ConstantVariables.historyCarNumberText,
+
                   style: TextStyle(
                     fontSize: ConstantIntegers.historyVehicleFontSize,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
+                    color: ConstantColors.historySubTitleTextColor,
                   ),
                 ),
               ),
@@ -692,10 +769,11 @@ class HomeScreen extends State<HomePage> {
                       Image.asset(
                         ConstantImages.assetImages +
                             ConstantImages.ellipseLineImage,
-                        color: Colors.black,
+                        color: ConstantColors.historyArrivalLineColor,
                       ),
                     ],
                   ),
+
                   SizedBox(width: ConstantIntegers.linePaddingWidth),
                   Center(
                     child: Column(
@@ -704,13 +782,18 @@ class HomeScreen extends State<HomePage> {
                         Text(
                           ConstantVariables.distanceArrivalText,
                           style: TextStyle(
+                            color: ConstantColors.historyArrivalTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                           ),
                         ),
                         Row(
                           children: [
-                            Icon(Icons.calendar_month),
+                            Icon(
+                              Icons.calendar_month,
+                              color:
+                                  ConstantColors.historyCardCalenderIconColor,
+                            ),
                             Text(
                               ConstantVariables.dateText,
                               style: TextStyle(
@@ -718,10 +801,14 @@ class HomeScreen extends State<HomePage> {
                               ),
                             ),
                             SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(Icons.timer_outlined),
+                            Icon(
+                              Icons.timer_outlined,
+                              color: ConstantColors.historyClockIconColor,
+                            ),
                             Text(
                               ConstantVariables.timeText,
                               style: TextStyle(
+                                color: ConstantColors.historyTimeTextColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
@@ -729,6 +816,7 @@ class HomeScreen extends State<HomePage> {
                             Text(
                               ConstantVariables.hoursText,
                               style: TextStyle(
+                                color: ConstantColors.historyHoursTextColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
@@ -740,6 +828,7 @@ class HomeScreen extends State<HomePage> {
                         Text(
                           ConstantVariables.distanceDepartureText,
                           style: TextStyle(
+                            color: ConstantColors.historyDepartureTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                           ),
@@ -782,19 +871,20 @@ class HomeScreen extends State<HomePage> {
         SizedBox(height: ConstantIntegers.betweenCardPadding),
         Card(
           margin: const EdgeInsets.all(ConstantIntegers.historyCardMargin),
-          shadowColor: Colors.grey,
-          color: Colors.white,
           elevation: ConstantIntegers.historyCardElevation,
+          shadowColor: ConstantColors.historyCardShadowColor,
+          color: ConstantColors.historyCardColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ListTile(
                 leading: const CircleAvatar(
-                  backgroundColor: Colors.black,
+                  backgroundColor:
+                      ConstantColors.historyListAvatarBackgroundColor,
                   child: Icon(
                     Icons.person,
                     size: ConstantIntegers.historyPersonIconSize,
-                    color: Colors.white,
+                    color: ConstantColors.historyPersonIconColor,
                   ),
                 ),
                 title: Row(
@@ -803,6 +893,7 @@ class HomeScreen extends State<HomePage> {
                     Text(
                       ConstantVariables.historyPersonNameText,
                       style: TextStyle(
+                        color: ConstantColors.historyPersonNameTextColor,
                         fontWeight: FontWeight.bold,
                         fontFamily: ConstantVariables.fontFamilyPoppins,
                         fontSize: ConstantIntegers.historyCardName,
@@ -814,7 +905,7 @@ class HomeScreen extends State<HomePage> {
                         ConstantIntegers.starCountHistory,
                         (index) => Icon(
                           Icons.star,
-                          color: Colors.amber,
+                          color: ConstantColors.profileStarsColor,
                           size: ConstantIntegers.starIconSize,
                         ),
                       ),
@@ -823,9 +914,11 @@ class HomeScreen extends State<HomePage> {
                 ),
                 subtitle: const Text(
                   ConstantVariables.historyCarNumberText,
+
                   style: TextStyle(
                     fontSize: ConstantIntegers.historyVehicleFontSize,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
+                    color: ConstantColors.historySubTitleTextColor,
                   ),
                 ),
               ),
@@ -846,10 +939,11 @@ class HomeScreen extends State<HomePage> {
                       Image.asset(
                         ConstantImages.assetImages +
                             ConstantImages.ellipseLineImage,
-                        color: Colors.black,
+                        color: ConstantColors.historyArrivalLineColor,
                       ),
                     ],
                   ),
+
                   SizedBox(width: ConstantIntegers.linePaddingWidth),
                   Center(
                     child: Column(
@@ -858,13 +952,18 @@ class HomeScreen extends State<HomePage> {
                         Text(
                           ConstantVariables.distanceArrivalText,
                           style: TextStyle(
+                            color: ConstantColors.historyArrivalTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                           ),
                         ),
                         Row(
                           children: [
-                            Icon(Icons.calendar_month),
+                            Icon(
+                              Icons.calendar_month,
+                              color:
+                                  ConstantColors.historyCardCalenderIconColor,
+                            ),
                             Text(
                               ConstantVariables.dateText,
                               style: TextStyle(
@@ -872,10 +971,14 @@ class HomeScreen extends State<HomePage> {
                               ),
                             ),
                             SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(Icons.timer_outlined),
+                            Icon(
+                              Icons.timer_outlined,
+                              color: ConstantColors.historyClockIconColor,
+                            ),
                             Text(
                               ConstantVariables.timeText,
                               style: TextStyle(
+                                color: ConstantColors.historyTimeTextColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
@@ -883,6 +986,7 @@ class HomeScreen extends State<HomePage> {
                             Text(
                               ConstantVariables.hoursText,
                               style: TextStyle(
+                                color: ConstantColors.historyHoursTextColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
@@ -894,6 +998,7 @@ class HomeScreen extends State<HomePage> {
                         Text(
                           ConstantVariables.distanceDepartureText,
                           style: TextStyle(
+                            color: ConstantColors.historyDepartureTextColor,
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
                           ),
@@ -955,6 +1060,7 @@ class HomeScreen extends State<HomePage> {
             Text(
               ConstantVariables.profileText,
               style: TextStyle(
+                color: ConstantColors.profileNameText,
                 fontFamily: ConstantVariables.fontFamilyPoppins,
                 fontSize: ConstantIntegers.profileNameFont,
                 fontWeight: FontWeight.bold,
@@ -967,7 +1073,7 @@ class HomeScreen extends State<HomePage> {
                 ConstantIntegers.profileStarCount,
                 (index) => Icon(
                   Icons.star,
-                  color: Colors.amber,
+                  color: ConstantColors.profileStarsColor,
                   size: ConstantIntegers.profileStarSize,
                 ),
               ),
@@ -991,8 +1097,8 @@ class HomeScreen extends State<HomePage> {
                           Text(
                             ConstantVariables.employeeIdText,
                             style: TextStyle(
+                              color: ConstantColors.allProfileTextColor,
                               fontSize: ConstantIntegers.profileInfoTitle,
-                              color: Colors.black,
                               fontFamily: ConstantVariables.fontFamilyPoppins,
                               fontWeight: FontWeight.bold,
                             ),
@@ -1000,7 +1106,7 @@ class HomeScreen extends State<HomePage> {
                           Text(
                             ConstantVariables.employeeIdNumberText,
                             style: TextStyle(
-                              color: Colors.grey,
+                              color: ConstantColors.allProfileSubTextColor,
                               fontSize: ConstantIntegers.profileInfoSubTitle,
                               fontFamily: ConstantVariables.fontFamilyPoppins,
                             ),
@@ -1013,7 +1119,7 @@ class HomeScreen extends State<HomePage> {
                             ConstantVariables.contactNoText,
                             style: TextStyle(
                               fontSize: ConstantIntegers.profileInfoTitle,
-                              color: Colors.black,
+                              color: ConstantColors.allProfileTextColor,
                               fontFamily: ConstantVariables.fontFamilyPoppins,
                               fontWeight: FontWeight.bold,
                             ),
@@ -1022,7 +1128,7 @@ class HomeScreen extends State<HomePage> {
                             ConstantVariables.mobileNoText,
                             style: TextStyle(
                               fontFamily: ConstantVariables.fontFamilyPoppins,
-                              color: Colors.grey,
+                              color: ConstantColors.allProfileSubTextColor,
                               fontSize: ConstantIntegers.profileInfoSubTitle,
                             ),
                           ),
@@ -1035,7 +1141,7 @@ class HomeScreen extends State<HomePage> {
                     ConstantVariables.jobTitleText,
                     style: TextStyle(
                       fontSize: ConstantIntegers.profileInfoTitle,
-                      color: Colors.black,
+                      color: ConstantColors.allProfileTextColor,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
                       fontWeight: FontWeight.bold,
                     ),
@@ -1043,7 +1149,7 @@ class HomeScreen extends State<HomePage> {
                   Text(
                     ConstantVariables.jobDescriptionText,
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: ConstantColors.allProfileSubTextColor,
                       fontSize: ConstantIntegers.profileInfoSubTitle,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
                     ),
@@ -1052,8 +1158,8 @@ class HomeScreen extends State<HomePage> {
                   Text(
                     ConstantVariables.supervisorText,
                     style: TextStyle(
+                      color: ConstantColors.allProfileTextColor,
                       fontSize: ConstantIntegers.profileInfoTitle,
-                      color: Colors.black,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
                       fontWeight: FontWeight.bold,
                     ),
@@ -1061,8 +1167,8 @@ class HomeScreen extends State<HomePage> {
                   Text(
                     ConstantVariables.supervisorNameText,
                     style: TextStyle(
-                      color: Colors.grey,
                       fontSize: ConstantIntegers.profileInfoSubTitle,
+                      color: ConstantColors.allProfileSubTextColor,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
                     ),
                   ),
@@ -1082,7 +1188,7 @@ class HomeScreen extends State<HomePage> {
                   ConstantIntegers.feedbackContainerRadius,
                 ),
                 border: Border.all(
-                  color: Colors.black,
+                  color: ConstantColors.feedbackContainerBorderColor,
                   width: ConstantIntegers.feedbackContainerBorder,
                 ),
               ),
@@ -1093,7 +1199,7 @@ class HomeScreen extends State<HomePage> {
                     ConstantVariables.feedbackText,
                     style: TextStyle(
                       fontSize: ConstantIntegers.profileFeedbackFont,
-                      color: Colors.grey,
+                      color: ConstantColors.feedbackColorText,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
                       fontWeight: FontWeight.bold,
                     ),
@@ -1105,7 +1211,7 @@ class HomeScreen extends State<HomePage> {
                     style: TextStyle(
                       fontSize: ConstantIntegers.feedbackInfoFont,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.grey[600],
+                      color: ConstantColors.feedbackContentColorText,
                     ),
                   ),
                 ],
