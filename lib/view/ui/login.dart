@@ -30,7 +30,7 @@ class LoginPageScreen extends State<LoginPage> {
                 children: [
                   Center(
                     child: Image.asset(
-                      ConstantImages.assetImages + ConstantImages.irixLogo,
+                      ConstantsImages.assetImages + ConstantsImages.iParkLogo,
                       height: ConstantIntegers.irixHeight,
                       width: ConstantIntegers.irixWidth,
                       color: ConstantColors.primaryColor,
