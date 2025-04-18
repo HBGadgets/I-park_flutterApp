@@ -231,8 +231,7 @@ class HomeScreen extends State<HomePage> {
                     width: 259,
                     height: 259,
                   ),
-                  const Text(
-                    'Scan QR',
+                  const Text(ConstantVariables.scanQRText,
                     style: TextStyle(
                       fontSize: 24,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -248,7 +247,7 @@ class HomeScreen extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              "Recent Chats",
+             ConstantVariables.recentChantsText,
               style: TextStyle(
                 color: Colors.grey,
                 fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -278,7 +277,7 @@ class HomeScreen extends State<HomePage> {
                                 Icon(Icons.directions_car_outlined),
                                 SizedBox(width: 10),
                                 Text(
-                                  "MH36A6678",
+                                  ConstantVariables.carNumberText,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontFamily:
@@ -288,7 +287,7 @@ class HomeScreen extends State<HomePage> {
                               ],
                             ),
                             Text(
-                              "I Need my car in 30 min..",
+                              ConstantVariables.carMessageText,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -321,7 +320,7 @@ class HomeScreen extends State<HomePage> {
                                 Icon(Icons.directions_car_outlined),
                                 SizedBox(width: 10),
                                 Text(
-                                  "MH36A6678",
+                                  ConstantVariables.carNumberText,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontFamily:
@@ -331,7 +330,7 @@ class HomeScreen extends State<HomePage> {
                               ],
                             ),
                             Text(
-                              "I Need my car in 30 min..",
+                              ConstantVariables.carMessageText,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -364,7 +363,7 @@ class HomeScreen extends State<HomePage> {
                                 Icon(Icons.directions_car_outlined),
                                 SizedBox(width: 10),
                                 Text(
-                                  "MH36A6678",
+                                  ConstantVariables.carNumberText,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontFamily:
@@ -374,7 +373,7 @@ class HomeScreen extends State<HomePage> {
                               ],
                             ),
                             Text(
-                              "I Need my car in 30 min..",
+                              ConstantVariables.carMessageText,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -412,7 +411,7 @@ class HomeScreen extends State<HomePage> {
             Expanded(
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'DD/MM/YY',
+                  hintText: ConstantVariables.dateHintText,
                   hintStyle: TextStyle(
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
@@ -425,7 +424,7 @@ class HomeScreen extends State<HomePage> {
             Expanded(
               child: TextField(
                 decoration: InputDecoration(
-                  labelText: 'Select Time',
+                  labelText: ConstantVariables.labelSelectTimeText,
                   labelStyle: TextStyle(
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
@@ -455,7 +454,7 @@ class HomeScreen extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Shrikant Ramesh Yadav',
+                      ConstantVariables.historyPersonNameText,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -473,7 +472,7 @@ class HomeScreen extends State<HomePage> {
                   ],
                 ),
                 subtitle: const Text(
-                  'MH36A6678',
+                  ConstantVariables.historyCarNumberText,
                   style: TextStyle(
                     fontSize: 13,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -510,7 +509,7 @@ class HomeScreen extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Arrival",
+                          ConstantVariables.distanceArrivalText,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -520,7 +519,7 @@ class HomeScreen extends State<HomePage> {
                           children: [
                             Icon(Icons.calendar_month),
                             Text(
-                              "17.02-2025",
+                              ConstantVariables.dateText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -528,14 +527,14 @@ class HomeScreen extends State<HomePage> {
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
                             Text(
-                              "19:09",
+                              ConstantVariables.timeText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
                             SizedBox(width: 20),
                             Text(
-                              "PM",
+                              ConstantVariables.hoursText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -544,7 +543,7 @@ class HomeScreen extends State<HomePage> {
                         ),
                         SizedBox(height: 20),
                         Text(
-                          "Departure",
+                          ConstantVariables.distanceDepartureText,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -554,7 +553,7 @@ class HomeScreen extends State<HomePage> {
                           children: [
                             Icon(Icons.calendar_month),
                             Text(
-                              "17.02-2025",
+                              ConstantVariables.dateText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -562,14 +561,14 @@ class HomeScreen extends State<HomePage> {
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
                             Text(
-                              "19:09",
+                              ConstantVariables.timeText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
                             SizedBox(width: 20),
                             Text(
-                              "PM",
+                              ConstantVariables.hoursText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -603,7 +602,7 @@ class HomeScreen extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Shrikant Ramesh Yadav',
+                      ConstantVariables.historyPersonNameText,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -621,7 +620,7 @@ class HomeScreen extends State<HomePage> {
                   ],
                 ),
                 subtitle: const Text(
-                  'MH36A6678',
+                  ConstantVariables.historyCarNumberText,
                   style: TextStyle(
                     fontSize: 13,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -652,7 +651,7 @@ class HomeScreen extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Arrival",
+                          ConstantVariables.distanceArrivalText,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -662,7 +661,7 @@ class HomeScreen extends State<HomePage> {
                           children: [
                             Icon(Icons.calendar_month),
                             Text(
-                              "17.02-2025",
+                              ConstantVariables.dateText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -670,14 +669,14 @@ class HomeScreen extends State<HomePage> {
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
                             Text(
-                              "19:09",
+                              ConstantVariables.timeText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
                             SizedBox(width: 20),
                             Text(
-                              "PM",
+                              ConstantVariables.hoursText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -686,7 +685,7 @@ class HomeScreen extends State<HomePage> {
                         ),
                         SizedBox(height: 20),
                         Text(
-                          "Departure",
+                          ConstantVariables.distanceDepartureText,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -696,7 +695,7 @@ class HomeScreen extends State<HomePage> {
                           children: [
                             Icon(Icons.calendar_month),
                             Text(
-                              "17.02-2025",
+                              ConstantVariables.dateText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -704,14 +703,14 @@ class HomeScreen extends State<HomePage> {
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
                             Text(
-                              "19:09",
+                              ConstantVariables.timeText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
                             SizedBox(width: 20),
                             Text(
-                              "PM",
+                              ConstantVariables.hoursText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -745,7 +744,7 @@ class HomeScreen extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Shrikant Ramesh Yadav',
+                      ConstantVariables.historyPersonNameText,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -763,7 +762,7 @@ class HomeScreen extends State<HomePage> {
                   ],
                 ),
                 subtitle: const Text(
-                  'MH36A6678',
+                  ConstantVariables.historyCarNumberText,
                   style: TextStyle(
                     fontSize: 13,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -794,14 +793,14 @@ class HomeScreen extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Arrival",
+                          ConstantVariables.distanceArrivalText,
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
                             Text(
-                              "17.02-2025",
+                              ConstantVariables.dateText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -809,14 +808,14 @@ class HomeScreen extends State<HomePage> {
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
                             Text(
-                              "19 :09",
+                              ConstantVariables.timeText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
                             SizedBox(width: 20),
                             Text(
-                              "PM",
+                              ConstantVariables.hoursText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -825,14 +824,14 @@ class HomeScreen extends State<HomePage> {
                         ),
                         SizedBox(height: 20),
                         Text(
-                          "Departure",
+                          ConstantVariables.distanceDepartureText,
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
                             Text(
-                              "17.02-2025",
+                              ConstantVariables.dateText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -840,14 +839,14 @@ class HomeScreen extends State<HomePage> {
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
                             Text(
-                              "19:09",
+                              ConstantVariables.timeText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
                             ),
                             SizedBox(width: 20),
                             Text(
-                              "PM",
+                              ConstantVariables.hoursText,
                               style: TextStyle(
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                               ),
@@ -883,7 +882,7 @@ class HomeScreen extends State<HomePage> {
             ),
             const SizedBox(height: 16),
             Text(
-              'Rohan Rah',
+              ConstantVariables.profileText,
               style: TextStyle(
                 fontFamily: ConstantVariables.fontFamilyPoppins,
                 fontSize: 20,
@@ -911,7 +910,7 @@ class HomeScreen extends State<HomePage> {
                       Column(
                         children: [
                           Text(
-                            'Employee ID',
+                            ConstantVariables.employeeIdText,
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.black,
@@ -920,7 +919,7 @@ class HomeScreen extends State<HomePage> {
                             ),
                           ),
                           Text(
-                            'EMP0001111',
+                            ConstantVariables.employeeIdNumberText,
                             style: TextStyle(
                               color: Colors.grey,
                               fontSize: 16,
@@ -932,7 +931,7 @@ class HomeScreen extends State<HomePage> {
                       Column(
                         children: [
                           Text(
-                            'Contact no',
+                            ConstantVariables.contactNoText,
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.black,
@@ -941,7 +940,7 @@ class HomeScreen extends State<HomePage> {
                             ),
                           ),
                           Text(
-                            '+91 75484856',
+                            ConstantVariables.mobileNoText,
                             style: TextStyle(
                               fontFamily: ConstantVariables.fontFamilyPoppins,
                               color: Colors.grey,
@@ -954,7 +953,7 @@ class HomeScreen extends State<HomePage> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Job Title',
+                    ConstantVariables.jobTitleText,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -963,7 +962,7 @@ class HomeScreen extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    'Valley Parking Attendant',
+                    ConstantVariables.jobDescriptionText,
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
@@ -972,7 +971,7 @@ class HomeScreen extends State<HomePage> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Supervisor',
+                    ConstantVariables.supervisorText,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -981,7 +980,7 @@ class HomeScreen extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    'Deepak Rahate',
+                    ConstantVariables.supervisorNameText,
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
@@ -1003,7 +1002,7 @@ class HomeScreen extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Feedback:',
+                    ConstantVariables.feedbackText,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
@@ -1013,7 +1012,7 @@ class HomeScreen extends State<HomePage> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '"I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods."',
+                    ConstantVariables.feedbackContentText,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 14,
