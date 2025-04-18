@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constants_variables.dart';
 
 import '../constants/constant_images.dart';
+import '../constants/constant_integers.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -249,7 +250,8 @@ class HomeScreen extends State<HomePage> {
                     width: ConstantIntegers.qrImageWidth,
                     height: ConstantIntegers.qrImageHeight,
                   ),
-                  const Text(ConstantVariables.scanQRText,
+                  const Text(
+                    ConstantVariables.scanQRText,
                     style: TextStyle(
                       fontSize: ConstantIntegers.scanQRFontSize,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -265,7 +267,7 @@ class HomeScreen extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-             ConstantVariables.recentChantsText,
+              ConstantVariables.recentChantsText,
               style: TextStyle(
                 color: Colors.grey,
                 fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -855,7 +857,10 @@ class HomeScreen extends State<HomePage> {
                       children: [
                         Text(
                           ConstantVariables.distanceArrivalText,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                          ),
                         ),
                         Row(
                           children: [
@@ -888,7 +893,10 @@ class HomeScreen extends State<HomePage> {
                         ),
                         Text(
                           ConstantVariables.distanceDepartureText,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                          ),
                         ),
                         Row(
                           children: [
