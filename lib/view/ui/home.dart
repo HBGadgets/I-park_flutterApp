@@ -46,9 +46,7 @@ class HomeScreen extends State<HomePage> {
             padding: EdgeInsets.zero,
             children: [
               DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                ),
+                decoration: BoxDecoration(color: Colors.black),
                 child: Text(
                   'Menu',
                   style: TextStyle(color: Colors.white, fontSize: 24),
@@ -118,6 +116,7 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
+
   Widget buildHomeTab() {
     return Column(
       children: [
@@ -164,58 +163,77 @@ class HomeScreen extends State<HomePage> {
             ),
           ),
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text("Recent Chats"),
-            SizedBox(width: 30,)
-          ],
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [Text("Recent Chats"), SizedBox(width: 30)],
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(left: 20,right: 20),
-            child: ListView(padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: ListView(
+              padding: EdgeInsets.all(10),
               children: [
                 Column(
                   children: [
-                    SizedBox(height: 8,),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
                                 Icon(Icons.directions_car_outlined),
-                                SizedBox(width: 10,),
-                                Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                                SizedBox(width: 10),
+                                Text(
+                                  "MH36A6678",
+                                  style: TextStyle(fontSize: 16),
+                                ),
                               ],
                             ),
-                            Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-
+                            Text(
+                              "I Need my car in 30 min..",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ],
                         ),
                         Image.asset("assets/images/Vector.png"),
-
                       ],
                     ),
                   ],
                 ),
-                SizedBox(height: 8,),
-                Divider(height: 15,thickness: 1,color: Colors.black,),
+                SizedBox(height: 8),
+                Divider(height: 15, thickness: 1, color: Colors.black),
                 Column(
                   children: [
-                    SizedBox(height: 8,),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
                                 Icon(Icons.directions_car_outlined),
-                                SizedBox(width: 10,),
-                                Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                                SizedBox(width: 10),
+                                Text(
+                                  "MH36A6678",
+                                  style: TextStyle(fontSize: 16),
+                                ),
                               ],
                             ),
-                            Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                            Text(
+                              "I Need my car in 30 min..",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ],
                         ),
                         Image.asset("assets/images/Vector.png"),
@@ -223,36 +241,43 @@ class HomeScreen extends State<HomePage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 8,),
-                Divider(height: 15,thickness: 1,color: Colors.black,),
+                SizedBox(height: 8),
+                Divider(height: 15, thickness: 1, color: Colors.black),
                 Column(
                   children: [
-                    SizedBox(height: 8,),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
                                 Icon(Icons.directions_car_outlined),
-                                SizedBox(width: 10,),
-                                Text("MH36A6678",style: TextStyle(fontSize: 16,))
+                                SizedBox(width: 10),
+                                Text(
+                                  "MH36A6678",
+                                  style: TextStyle(fontSize: 16),
+                                ),
                               ],
                             ),
-                            Text("I Need my car in 30 min..",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                            Text(
+                              "I Need my car in 30 min..",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ],
                         ),
                         Image.asset("assets/images/Vector.png"),
-
                       ],
                     ),
                   ],
                 ),
-                SizedBox(height: 8,),
-                Divider(height: 15,thickness: 1,color: Colors.black,)
-
-
+                SizedBox(height: 8),
+                Divider(height: 15, thickness: 1, color: Colors.black),
               ],
             ),
           ),
@@ -319,7 +344,8 @@ class HomeScreen extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
                         5,
-                            (index) => Icon(Icons.star, color: Colors.amber, size: 12),
+                        (index) =>
+                            Icon(Icons.star, color: Colors.amber, size: 12),
                       ),
                     ),
                   ],

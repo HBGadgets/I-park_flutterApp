@@ -23,6 +23,15 @@ class SplashPageScreen extends State<SplashPage> {
                 fit: BoxFit.cover,
               ),
             ),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0xDB0C0C15),Colors.transparent],
+                ),
+              ),
+            ),
           ),
           Column(
             children: [
@@ -44,7 +53,7 @@ class SplashPageScreen extends State<SplashPage> {
                 ),
                 foregroundColor: Colors.black,
                 text: " Get Started  > > > ",
-                backgroundColor: Colors.white
+                backgroundColor: Colors.white,
               ),
               const SizedBox(height: 30),
             ],
