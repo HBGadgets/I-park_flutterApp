@@ -41,6 +41,7 @@ class LoginPageScreen extends State<LoginPage> {
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
+                          fontFamily: "Poppins"
                         ),
                       ),
                     ),
