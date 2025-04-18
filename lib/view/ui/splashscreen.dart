@@ -21,7 +21,10 @@ class SplashPageScreen extends State<SplashPage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(ConstantsImages.assetImages + ConstantsImages.backgroundCarImage),
+                image: AssetImage(
+                  ConstantsImages.assetImages +
+                      ConstantsImages.backgroundCarImage,
+                ),
                 fit: BoxFit.cover,
               ),
             ),
@@ -51,12 +54,13 @@ class SplashPageScreen extends State<SplashPage> {
                   );
                 },
                 sliderButtonContent: Image.asset(
-                  ConstantsImages.assetImages + ConstantsImages.slideButtonCarLogo,
+                  ConstantsImages.assetImages +
+                      ConstantsImages.slideButtonCarLogo,
                 ),
                 foregroundColor: Colors.black,
-                text: ConstantsVariables.getStartedText,
+                text: ConstantVariables.getStartedText,
                 textStyle: TextStyle(
-                  fontFamily: ConstantsVariables.fontFamilyPoppins,
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
