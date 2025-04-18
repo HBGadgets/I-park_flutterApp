@@ -10,6 +10,10 @@ class ConstantIntegers {
   static const double loginFontSize = 30.0;
   static const double noAccountSpace = 30.0;
   static const double noAccountSize = 16.0;
+  static const double iParkLogoHeight = 398;
+  static const double iParkLogoWidth = 398;
+  static const double getStartedTextFontSize = 12.0;
+  static const double confirmationSliderSizedBoxWidth = 30.0;
 
 
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constants_images.dart';
+import 'package:hb/view/constants/constants_integers.dart';
 import 'package:hb/view/constants/constants_variables.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
-
+import '../constants/constants_colors.dart';
 import 'login.dart';
 
 class SplashPage extends StatefulWidget {
@@ -22,8 +23,8 @@ class SplashPageScreen extends State<SplashPage> {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  ConstantsImages.assetImages +
-                      ConstantsImages.backgroundCarImage,
+                  ConstantImages.assetImages +
+                      ConstantImages.backgroundCarImage,
                 ),
                 fit: BoxFit.cover,
               ),
@@ -33,7 +34,7 @@ class SplashPageScreen extends State<SplashPage> {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xDB0C0C15), Colors.transparent],
+                  colors: [ConstantColors.backgroundGradientColor, ConstantColors.backgroundGradientTransparent],
                 ),
               ),
             ),
@@ -41,9 +42,9 @@ class SplashPageScreen extends State<SplashPage> {
           Column(
             children: [
               Image.asset(
-                ConstantsImages.assetImages + ConstantsImages.iParkLogo,
-                height: 398,
-                width: 398,
+                ConstantImages.assetImages + ConstantImages.iParkLogo,
+                height: ConstantIntegers.iParkLogoHeight,
+                width: ConstantIntegers.iParkLogoWidth
               ),
               const Spacer(),
               ConfirmationSlider(
@@ -54,20 +55,20 @@ class SplashPageScreen extends State<SplashPage> {
                   );
                 },
                 sliderButtonContent: Image.asset(
-                  ConstantsImages.assetImages +
-                      ConstantsImages.slideButtonCarLogo,
+                  ConstantImages.assetImages +
+                      ConstantImages.slideButtonCarLogo,
                 ),
-                foregroundColor: Colors.black,
+                foregroundColor: ConstantColors.sliderButtonForegroundColor,
                 text: ConstantVariables.getStartedText,
                 textStyle: TextStyle(
                   fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
+                  fontSize: ConstantIntegers.getStartedTextFontSize,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: ConstantColors.getStartedTextColor,
                 ),
-                backgroundColor: Colors.white,
+                backgroundColor: ConstantColors.confirmationSliderBackgroundColor,
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: ConstantIntegers.confirmationSliderSizedBoxWidth),
             ],
           ),
         ],
