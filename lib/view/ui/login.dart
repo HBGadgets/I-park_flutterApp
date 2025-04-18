@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../constants/constants_colors.dart';
-import '../constants/constants_images.dart';
-import '../constants/constants_integers.dart';
-import '../constants/constants_variables.dart';
+import '../constants/constant_colors.dart';
+import '../constants/constant_images.dart';
+import '../constants/constant_integers.dart';
+import '../constants/constant_variables.dart';
 import 'home.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,193 +15,222 @@ class LoginPage extends StatefulWidget {
 class LoginPageScreen extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(
-          left: ConstantIntegers.loginMarginLeft,
-          right: ConstantIntegers.loginMarginRight,
+    return Scaffold(body: container());
+  }
+
+  Widget container() {
+    return Container(
+      margin: EdgeInsets.only(
+        left: ConstantIntegers.loginMarginLeft,
+        right: ConstantIntegers.loginMarginRight,
+      ),
+      child: singleChildScroll(),
+    );
+  }
+
+  Widget singleChildScroll() {
+    return SingleChildScrollView(child: columnContent());
+  }
+
+  Widget columnContent() {
+    return Column(
+      children: [
+        SizedBox(height: ConstantIntegers.loginUpperSpaceHeight),
+        stackLogoText(),
+        SizedBox(height: ConstantIntegers.noAccountSpace),
+        noAccountRow(),
+        registerRow(),
+        SizedBox(height: ConstantIntegers.spaceEmail),
+        labelText(ConstantVariables.email),
+        emailTextField(Icons.mail_outline_outlined),
+        SizedBox(height: ConstantIntegers.passwordSpace),
+        labelText(ConstantVariables.password),
+        passwordTextField(),
+        rememberMeContent(),
+        SizedBox(height: ConstantIntegers.buttonSpace),
+        loginButton(),
+      ],
+    );
+  }
+
+  Widget stackLogoText() {
+    return Stack(children: [image(), textLogin()]);
+  }
+
+  Widget image() {
+    return Center(
+      child: Image.asset(
+        ConstantImages.assetImages + ConstantImages.iParkLogo,
+        height: ConstantIntegers.irixHeight,
+        width: ConstantIntegers.irixWidth,
+        color: ConstantColors.loginLogoColor,
+      ),
+    );
+  }
+
+  Widget textLogin() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: ConstantIntegers.loginPaddingTop,
+          left: ConstantIntegers.loginPaddingLeft,
+          right: ConstantIntegers.loginPaddingRight,
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: ConstantIntegers.loginUpperSpaceHeight),
-              Stack(
-                children: [
-                  Center(
-                    child: Image.asset(
-                      ConstantImages.assetImages + ConstantImages.iParkLogo,
-                      height: ConstantIntegers.irixHeight,
-                      width: ConstantIntegers.irixWidth,
-                      color: ConstantColors.loginLogoColor,
-                    ),
-                  ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: ConstantIntegers.loginPaddingTop,
-                        left: ConstantIntegers.loginPaddingLeft,
-                        right: ConstantIntegers.loginPaddingRight,
-                      ),
-                      child: Text(
-                        ConstantVariables.login,
-                        style: TextStyle(
-                          fontSize: ConstantIntegers.loginFontSize,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Poppins",
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: ConstantIntegers.noAccountSpace),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    ConstantVariables.noAccount,
-                    style: TextStyle(
-                      fontSize: ConstantIntegers.noAccountSize,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    "You can",
-                    style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Register here !",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade800,
-                        fontFamily: "Poppins",
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Email",
-                    style: TextStyle(fontSize: 13, fontFamily: "Poppins"),
-                  ),
-                ],
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.mail_outline_outlined,
-                    color: Colors.black,
-                  ),
-                  hintText: "Enter your email address",
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontFamily: "Poppins",
-                  ),
-                ),
-                style: TextStyle(color: Colors.black, fontSize: 16),
-              ),
-              SizedBox(height: 50),
+        child: Text(
+          ConstantVariables.login,
+          style: TextStyle(
+            fontSize: ConstantIntegers.loginFontSize,
+            fontWeight: FontWeight.bold,
+            fontFamily: ConstantVariables.fontFamilyPoppins,
+          ),
+        ),
+      ),
+    );
+  }
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Password",
-                    style: TextStyle(fontSize: 13, fontFamily: "Poppins"),
-                  ),
-                ],
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.lock_outline, color: Colors.black),
-                  suffixIcon: Icon(
-                    Icons.visibility_outlined,
-                    color: Colors.black,
-                  ),
-                  hintText: "Enter your Password",
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontFamily: "Poppins",
-                  ),
-                ),
-                style: TextStyle(color: Colors.black, fontSize: 16),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Checkbox(value: false, onChanged: (val) {}),
-                      Text(
-                        "Remember me",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Poppins",
-                        ),
-                      ),
-                    ],
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forget Password ?",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins",
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 60),
-              SizedBox(
-                width: 318.52,
-                height: 53,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    );
-                  },
+  Widget noAccountRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [noAccountText(ConstantVariables.noAccount)],
+    );
+  }
 
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15.0,
-                      horizontal: 30.0,
-                    ),
-                  ),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                ),
+  Widget noAccountText(String noAccount) {
+    return Text(
+      noAccount,
+      style: TextStyle(
+        fontSize: ConstantIntegers.noAccountSize,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
+      ),
+    );
+  }
+
+  Widget registerRow() {
+    return Row(
+      children: [noAccountText(ConstantVariables.youCan), registerNowButton()],
+    );
+  }
+
+  Widget registerNowButton() {
+    return TextButton(
+      onPressed: () {},
+      child: Text(
+        ConstantVariables.registerHere,
+        style: TextStyle(
+          fontSize: ConstantIntegers.noAccountSize,
+          fontWeight: FontWeight.bold,
+          color: ConstantColors.registerColor,
+          fontFamily: ConstantVariables.fontFamilyPoppins,
+        ),
+      ),
+    );
+  }
+
+  Widget labelText(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: ConstantIntegers.labelText,
+            fontFamily: ConstantVariables.fontFamilyPoppins,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget emailTextField(IconData icon) {
+    return TextField(
+      decoration: InputDecoration(
+        prefixIcon: Icon(icon, color: ConstantColors.iconColor),
+        hintText: ConstantVariables.enterEmail,
+        hintStyle: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins),
+      ),
+      style: TextStyle(
+        color: ConstantColors.textFieldText,
+        fontSize: ConstantIntegers.textFieldFontSize,
+      ),
+    );
+  }
+
+  Widget passwordTextField() {
+    return TextField(
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.lock_outline, color: ConstantColors.iconColor),
+        suffixIcon: Icon(
+          Icons.visibility_outlined,
+          color: ConstantColors.iconColor,
+        ),
+        hintText: ConstantVariables.enterPassword,
+        hintStyle: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins),
+      ),
+      style: TextStyle(
+        color: ConstantColors.textFieldText,
+        fontSize: ConstantIntegers.textFieldFontSize,
+      ),
+    );
+  }
+
+  Widget rememberMeContent() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Checkbox(value: false, onChanged: (val) {}),
+            Text(
+              ConstantVariables.rememberMe,
+              style: TextStyle(
+                color: ConstantColors.rememberColor,
+                fontSize: ConstantIntegers.rememberMeFont,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
               ),
-            ],
+            ),
+          ],
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            ConstantVariables.forgetPassword,
+            style: TextStyle(
+              color: ConstantColors.forgetColor,
+              fontSize: ConstantIntegers.forgetPasswordFont,
+              fontWeight: FontWeight.bold,
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget loginButton() {
+    return SizedBox(
+      width: ConstantIntegers.buttonWidth,
+      height: ConstantIntegers.buttonHeight,
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: ConstantColors.loginBButtonColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(ConstantIntegers.buttonRadius),
+          ),
+        ),
+        child: Text(
+          ConstantVariables.login,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: ConstantIntegers.buttonLoginFont,
+            fontWeight: FontWeight.bold,
+            fontFamily: ConstantVariables.fontFamilyPoppins,
           ),
         ),
       ),
