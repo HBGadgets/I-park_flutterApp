@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hb/view/constants/constants_images.dart';
 import 'package:hb/view/constants/constants_variables.dart';
+
+import '../constants/constant_images.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
