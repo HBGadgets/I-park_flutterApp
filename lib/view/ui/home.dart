@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hb/view/constants/constants_variables.dart';
+
+import '../constants/constant_images.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,7 +12,11 @@ class HomePage extends StatefulWidget {
 
 class HomeScreen extends State<HomePage> {
   int selectedTabIndex = 0;
-  final List<String> appBarTitles = ['Home', 'History', 'Profile'];
+  final List<String> appBarTitles = [
+    ConstantVariables.homeListAppBarTitle,
+    ConstantVariables.historyListAppBarTitle,
+    ConstantVariables.profileListAppBarTitle,
+  ];
 
   void onTabChanged(int index) {
     setState(() {
@@ -21,7 +28,8 @@ class HomeScreen extends State<HomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Scaffold(resizeToAvoidBottomInset: false,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Colors.black,
           leading: Builder(
@@ -36,7 +44,11 @@ class HomeScreen extends State<HomePage> {
           ),
           title: Text(
             appBarTitles[selectedTabIndex],
-            style: TextStyle(color: Colors.white, fontSize: 24),
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: 24,
+            ),
           ),
           centerTitle: true,
           actions: [Icon(Icons.notifications, color: Colors.white)],
@@ -48,27 +60,46 @@ class HomeScreen extends State<HomePage> {
               DrawerHeader(
                 decoration: BoxDecoration(color: Colors.black),
                 child: Text(
-                  'Menu',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+                  ConstantVariables.menuDrawerHeaderText,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                    fontSize: 24,
+                  ),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
+                leading: Icon(Icons.info),
+                title: Text(
+                  ConstantVariables.menuAboutUsListText,
+                  style: TextStyle(
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.history),
-                title: Text('History'),
+                leading: Icon(Icons.settings),
+                title: Text(
+                  ConstantVariables.menuSettingsListText,
+                  style: TextStyle(
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.person),
-                title: Text('Profile'),
+                leading: Icon(Icons.logout),
+                title: Text(
+                  ConstantVariables.menuLogoutListText,
+                  style: TextStyle(
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -89,6 +120,7 @@ class HomeScreen extends State<HomePage> {
               ),
             ),
             Container(
+              height: 70,
               color: Colors.black,
               child: TabBar(
                 indicatorColor: Colors.white,
@@ -97,16 +129,55 @@ class HomeScreen extends State<HomePage> {
                 onTap: onTabChanged,
                 tabs: const [
                   Tab(
-                    text: 'Home',
-                    icon: Icon(Icons.home, size: 30, color: Colors.white),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.home, size: 30, color: Colors.white),
+                        Text(
+                          ConstantVariables.tabBarHomeText,
+                          style: TextStyle(
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Tab(
-                    text: 'History',
-                    icon: Icon(Icons.history, size: 30, color: Colors.white),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.history, size: 30, color: Colors.white),
+                        Text(
+                          ConstantVariables.tabBarHistoryText,
+                          style: TextStyle(
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Tab(
-                    text: 'Profile',
-                    icon: Icon(Icons.person, size: 30, color: Colors.white),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.person, size: 30, color: Colors.white),
+                        Text(
+                          ConstantVariables.tabBarProfileText,
+                          style: TextStyle(
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -138,25 +209,35 @@ class HomeScreen extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          'https://s3-alpha-sig.figma.com/img/3724/daab/670a68c69346a58344a30f1ba22d1020?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ZdUsdNrTdIst1-a~3bP9ER-eezMFl4w-7KLmr1A79KEU18n-yIZ3PYJba7LsMxJ0~r9dy8t0H8ML8EtvjWHKBmTH25FfxBm0E0rS3PYBqlTTy6jeMHpQBZOf6tO58K7knZb9ANaecD9fzgzRVuZbKvSvkK4s0Iq8kR1Gm9yfi29~GE0tvVuVvvykCVtGjZk5s5x3E4yvKaXs8x6m5KK0YZ-qsaO-~kvTi~aOxQSkh7YF7otQDMqgpG4EcyV0L0JnvJBoLB3laGcEs3TeltMRYdfN90USvw~jyBtwvYxjvxQMODPWqGPjhd7Md5AoSf6Ay-5n1Xz-KJoskP1gLnEOEg__',
+                        backgroundImage: AssetImage(
+                          ConstantImages.assetImages +
+                              ConstantImages.circularAvatarImage,
                         ),
                         radius: 20,
                       ),
                       const SizedBox(width: 10),
                       const Text(
-                        'Rohan Rah',
+                        ConstantVariables.homePersonNameText,
                         style: TextStyle(
                           fontSize: 18,
+                          fontFamily: ConstantVariables.fontFamilyPoppins,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
                   ),
-                  Image.asset('assets/images/qr.png', width: 259, height: 259),
+                  Image.asset(
+                    ConstantImages.assetImages + ConstantImages.qrImage,
+                    width: 259,
+                    height: 259,
+                  ),
                   const Text(
                     'Scan QR',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),
@@ -165,7 +246,17 @@ class HomeScreen extends State<HomePage> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [Text("Recent Chats",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)), SizedBox(width: 30)],
+          children: [
+            Text(
+              "Recent Chats",
+              style: TextStyle(
+                color: Colors.grey,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(width: 30),
+          ],
         ),
         Expanded(
           child: Padding(
@@ -188,7 +279,11 @@ class HomeScreen extends State<HomePage> {
                                 SizedBox(width: 10),
                                 Text(
                                   "MH36A6678",
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily:
+                                        ConstantVariables.fontFamilyPoppins,
+                                  ),
                                 ),
                               ],
                             ),
@@ -196,12 +291,16 @@ class HomeScreen extends State<HomePage> {
                               "I Need my car in 30 min..",
                               style: TextStyle(
                                 fontSize: 16,
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        Image.asset("assets/images/Vector.png"),
+                        Image.asset(
+                          ConstantImages.assetImages +
+                              ConstantImages.whatsappVectorImage,
+                        ),
                       ],
                     ),
                   ],
@@ -223,7 +322,11 @@ class HomeScreen extends State<HomePage> {
                                 SizedBox(width: 10),
                                 Text(
                                   "MH36A6678",
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily:
+                                        ConstantVariables.fontFamilyPoppins,
+                                  ),
                                 ),
                               ],
                             ),
@@ -231,12 +334,16 @@ class HomeScreen extends State<HomePage> {
                               "I Need my car in 30 min..",
                               style: TextStyle(
                                 fontSize: 16,
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        Image.asset("assets/images/Vector.png"),
+                        Image.asset(
+                          ConstantImages.assetImages +
+                              ConstantImages.whatsappVectorImage,
+                        ),
                       ],
                     ),
                   ],
@@ -258,7 +365,11 @@ class HomeScreen extends State<HomePage> {
                                 SizedBox(width: 10),
                                 Text(
                                   "MH36A6678",
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily:
+                                        ConstantVariables.fontFamilyPoppins,
+                                  ),
                                 ),
                               ],
                             ),
@@ -266,12 +377,16 @@ class HomeScreen extends State<HomePage> {
                               "I Need my car in 30 min..",
                               style: TextStyle(
                                 fontSize: 16,
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        Image.asset("assets/images/Vector.png"),
+                        Image.asset(
+                          ConstantImages.assetImages +
+                              ConstantImages.whatsappVectorImage,
+                        ),
                       ],
                     ),
                   ],
@@ -298,6 +413,9 @@ class HomeScreen extends State<HomePage> {
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'DD/MM/YY',
+                  hintStyle: TextStyle(
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
                   prefixIcon: Icon(Icons.calendar_month),
                   border: OutlineInputBorder(),
                 ),
@@ -308,6 +426,9 @@ class HomeScreen extends State<HomePage> {
               child: TextField(
                 decoration: InputDecoration(
                   labelText: 'Select Time',
+                  labelStyle: TextStyle(
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
                   prefixIcon: Icon(Icons.timer_outlined),
                   border: OutlineInputBorder(),
                 ),
@@ -337,6 +458,7 @@ class HomeScreen extends State<HomePage> {
                       'Shrikant Ramesh Yadav',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
                         fontSize: 16,
                       ),
                     ),
@@ -352,24 +474,35 @@ class HomeScreen extends State<HomePage> {
                 ),
                 subtitle: const Text(
                   'MH36A6678',
-                  style: TextStyle(fontSize: 13),
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
                 ),
               ),
               Divider(),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 35),
-                  Column(
-                    children: [
-                      Image.asset("assets/images/Ellipse 3.png"),
-                      Image.asset("assets/images/Line 11.png"),
-                      Image.asset(
-                        "assets/images/Ellipse 3.png",
-                        color: Colors.black,
-                      ),
-                    ],
+                  Container(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          ConstantImages.assetImages +
+                              ConstantImages.ellipseLineImage
+                        ),
+                        Image.asset(
+                          ConstantImages.assetImages +
+                              ConstantImages.line11Image
+                        ),
+                        Image.asset(
+                          ConstantImages.assetImages +
+                              ConstantImages.ellipseLineImage,
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(width: 35),
                   Center(
@@ -378,33 +511,69 @@ class HomeScreen extends State<HomePage> {
                       children: [
                         Text(
                           "Arrival",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                          ),
                         ),
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
+                            Text(
+                              "17.02-2025",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
-                            Text("19:09"),
+                            Text(
+                              "19:09",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 20),
-                            Text("PM"),
+                            Text(
+                              "PM",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(height: 20),
                         Text(
                           "Departure",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                          ),
                         ),
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
+                            Text(
+                              "17.02-2025",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
-                            Text("19:09"),
+                            Text(
+                              "19:09",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 20),
-                            Text("PM"),
+                            Text(
+                              "PM",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -437,6 +606,7 @@ class HomeScreen extends State<HomePage> {
                       'Shrikant Ramesh Yadav',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
                         fontSize: 16,
                       ),
                     ),
@@ -452,21 +622,26 @@ class HomeScreen extends State<HomePage> {
                 ),
                 subtitle: const Text(
                   'MH36A6678',
-                  style: TextStyle(fontSize: 13),
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
                 ),
               ),
               Divider(),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 35),
                   Column(
                     children: [
-                      Image.asset("assets/images/Ellipse 3.png"),
-                      Image.asset("assets/images/Line 11.png"),
+                      Image.asset(ConstantImages.assetImages +
+                          ConstantImages.ellipseLineImage),
+                      Image.asset(ConstantImages.assetImages +
+                          ConstantImages.line11Image),
                       Image.asset(
-                        "assets/images/Ellipse 3.png",
+                        ConstantImages.assetImages +
+                            ConstantImages.ellipseLineImage,
                         color: Colors.black,
                       ),
                     ],
@@ -478,33 +653,69 @@ class HomeScreen extends State<HomePage> {
                       children: [
                         Text(
                           "Arrival",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                          ),
                         ),
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
+                            Text(
+                              "17.02-2025",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
-                            Text("19:09"),
+                            Text(
+                              "19:09",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 20),
-                            Text("PM"),
+                            Text(
+                              "PM",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(height: 20),
                         Text(
                           "Departure",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                          ),
                         ),
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
+                            Text(
+                              "17.02-2025",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
-                            Text("19:09"),
+                            Text(
+                              "19:09",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 20),
-                            Text("PM"),
+                            Text(
+                              "PM",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -537,6 +748,7 @@ class HomeScreen extends State<HomePage> {
                       'Shrikant Ramesh Yadav',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
                         fontSize: 16,
                       ),
                     ),
@@ -552,21 +764,26 @@ class HomeScreen extends State<HomePage> {
                 ),
                 subtitle: const Text(
                   'MH36A6678',
-                  style: TextStyle(fontSize: 13),
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
                 ),
               ),
               Divider(),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 35),
                   Column(
                     children: [
-                      Image.asset("assets/images/Ellipse 3.png"),
-                      Image.asset("assets/images/Line 11.png"),
+                      Image.asset(ConstantImages.assetImages +
+                          ConstantImages.ellipseLineImage),
+                      Image.asset(ConstantImages.assetImages +
+                          ConstantImages.line11Image),
                       Image.asset(
-                        "assets/images/Ellipse 3.png",
+                        ConstantImages.assetImages +
+                            ConstantImages.ellipseLineImage,
                         color: Colors.black,
                       ),
                     ],
@@ -583,12 +800,27 @@ class HomeScreen extends State<HomePage> {
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
+                            Text(
+                              "17.02-2025",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
-                            Text("19:09"),
+                            Text(
+                              "19 :09",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 20),
-                            Text("PM"),
+                            Text(
+                              "PM",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(height: 20),
@@ -599,12 +831,27 @@ class HomeScreen extends State<HomePage> {
                         Row(
                           children: [
                             Icon(Icons.calendar_month),
-                            Text("17.02-2025"),
+                            Text(
+                              "17.02-2025",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 50),
                             Icon(Icons.timer_outlined),
-                            Text("19:09"),
+                            Text(
+                              "19:09",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                             SizedBox(width: 20),
-                            Text("PM"),
+                            Text(
+                              "PM",
+                              style: TextStyle(
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -622,133 +869,163 @@ class HomeScreen extends State<HomePage> {
 
   Widget buildProfileTab() {
     return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: 10),
-          CircleAvatar(
-            backgroundColor: Colors.grey[300],
-            radius: 90,
-            backgroundImage: AssetImage(
-              'assets/images/Photo by Petr Sevcovic.png',
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 10),
+            CircleAvatar(
+              backgroundColor: Colors.grey[300],
+              radius: 90,
+              backgroundImage: AssetImage(
+               ConstantImages.assetImages + ConstantImages.circularAvatarImage,
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'Rohan Rah',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              5,
-              (index) => Icon(Icons.star, color: Colors.amber, size: 15),
+            const SizedBox(height: 16),
+            Text(
+              'Rohan Rah',
+              style: TextStyle(
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        Text(
-                          'Employee ID',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                5,
+                (index) => Icon(Icons.star, color: Colors.amber, size: 15),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            'Employee ID',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontFamily: ConstantVariables.fontFamilyPoppins,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'EMP0001111',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          'Contact no',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
+                          Text(
+                            'EMP0001111',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                              fontFamily: ConstantVariables.fontFamilyPoppins,
+                            ),
                           ),
-                        ),
-                        Text(
-                          '+91 75484856',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                      ],
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Contact no',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontFamily: ConstantVariables.fontFamilyPoppins,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '+91 75484856',
+                            style: TextStyle(
+                              fontFamily: ConstantVariables.fontFamilyPoppins,
+                              color: Colors.grey,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Job Title',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Job Title',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
                   ),
-                ),
-                Text(
-                  'Valley Parking Attendent',
-                  style: TextStyle(color: Colors.grey, fontSize: 16),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Supervisor',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+                  Text(
+                    'Valley Parking Attendant',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
                   ),
-                ),
-                Text(
-                  'Deepak Rahate',
-                  style: TextStyle(color: Colors.grey, fontSize: 16),
-                ),
-                const SizedBox(height: 16),
-              ],
-            ),
-          ),
-
-          Container(
-            margin: const EdgeInsets.all(12),
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(19),
-              border: Border.all(color: Colors.black, width: 1),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Feedback:',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
+                  const SizedBox(height: 8),
+                  Text(
+                    'Supervisor',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  '"I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods."',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                ),
-              ],
+                  Text(
+                    'Deepak Rahate',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              margin: const EdgeInsets.all(12),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(19),
+                border: Border.all(color: Colors.black, width: 1),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Feedback:',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '"I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods."',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
