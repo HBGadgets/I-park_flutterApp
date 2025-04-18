@@ -21,7 +21,7 @@ class HomeScreen extends State<HomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Scaffold(
+      child: Scaffold(resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: Colors.black,
           leading: Builder(
