@@ -30,196 +30,475 @@ class HomeScreen extends State<HomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: ConstantIntegers.tabBarLength,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          backgroundColor: ConstantColors.appTabBarBackgroundColor,
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: Icon(Icons.menu, color: ConstantColors.menuIconColor),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
+      child: scaffold(),
+    );
+  }
+
+  Widget scaffold() {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        backgroundColor: ConstantColors.appTabBarBackgroundColor,
+        leading: appBarLeading(),
+        title: appBarTitle(),
+        centerTitle: true,
+        actions: [appBarAction()],
+      ),
+      drawer: drawer(),
+      body: contentColumn(),
+    );
+  }
+
+  Widget appBarLeading() {
+    return Builder(
+      builder: (BuildContext context) {
+        return IconButton(
+          icon: Icon(Icons.menu, color: ConstantColors.menuIconColor),
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+        );
+      },
+    );
+  }
+
+  Widget appBarTitle() {
+    return Text(
+      appBarTitles[selectedTabIndex],
+      style: TextStyle(
+        color: ConstantColors.appBarTitlesColor,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
+        fontSize: ConstantIntegers.selectedTabText,
+      ),
+    );
+  }
+
+  Widget appBarAction() {
+    return Icon(
+      Icons.notifications,
+      color: ConstantColors.notificationIconColor,
+    );
+  }
+
+  Widget contentColumn() {
+    return Column(children: [tabBarContent(), tabBarContentContainer()]);
+  }
+
+  Widget tabBarContent() {
+    return Expanded(
+      child: TabBarView(
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          homeTabViewContent(),
+          historyTabViewContent(),
+          profileTabViewContent(),
+        ],
+      ),
+    );
+  }
+
+  Widget tabBarContentContainer() {
+    return Container(
+      height: ConstantIntegers.tabBarContainerHeight,
+      color: Colors.black,
+      child: tabBar(),
+    );
+  }
+
+  Widget tabBar() {
+    return TabBar(
+      indicatorColor: ConstantColors.tabBarIndicatorColor,
+      labelColor: ConstantColors.tabBarLabelColor,
+      unselectedLabelColor: ConstantColors.unSelectedLabelColor,
+      onTap: onTabChanged,
+      tabs: [homeTab(), historyTab(), profileTab()],
+    );
+  }
+
+  Widget homeTab() {
+    return Tab(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.home,
+            size: ConstantIntegers.tabBarIcon,
+            color: ConstantColors.tabBarIconsColor,
+          ),
+          Text(
+            ConstantVariables.tabBarHomeText,
+            style: TextStyle(
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: ConstantIntegers.tabBarText,
+              fontWeight: FontWeight.bold,
+              color: ConstantColors.tabBarIconsTextColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget historyTab() {
+    return Tab(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.history,
+            size: ConstantIntegers.tabBarIcon,
+            color: ConstantColors.tabBarIconsColor,
+          ),
+          Text(
+            ConstantVariables.tabBarHistoryText,
+            style: TextStyle(
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: ConstantIntegers.tabBarText,
+              fontWeight: FontWeight.bold,
+              color: ConstantColors.tabBarIconsTextColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget profileTab() {
+    return Tab(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.person,
+            size: ConstantIntegers.tabBarIcon,
+            color: ConstantColors.tabBarIconsColor,
+          ),
+          Text(
+            ConstantVariables.tabBarProfileText,
+            style: TextStyle(
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: ConstantIntegers.tabBarText,
+              fontWeight: FontWeight.bold,
+              color: ConstantColors.tabBarIconsTextColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget drawer() {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: ConstantColors.appTabBarBackgroundColor,
+            ),
+            child: Text(
+              ConstantVariables.menuDrawerHeaderText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuTextColor,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+                fontSize: ConstantIntegers.menuText,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.info,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuAboutUsListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
             },
           ),
-          title: Text(
-            appBarTitles[selectedTabIndex],
-            style: TextStyle(
-              color: ConstantColors.appBarTitlesColor,
-              fontFamily: ConstantVariables.fontFamilyPoppins,
-              fontSize: ConstantIntegers.selectedTabText,
+          ListTile(
+            leading: Icon(
+              Icons.settings,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuSettingsListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.logout,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuLogoutListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget homeTabViewContent() {
+    return Column(
+      children: [qrContent(), recentChatsContent(), chatsContent()],
+    );
+  }
+
+  Widget qrContent() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(ConstantIntegers.qrContainerPadding),
+        child: Container(
+          height: ConstantIntegers.containerHeight,
+          width: ConstantIntegers.containerWidth,
+          padding: const EdgeInsets.all(ConstantIntegers.qrColumnPadding),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              ConstantIntegers.qrContainerRadius,
+            ),
+            border: Border.all(
+              color: ConstantColors.homeTabBorderColor,
+              width: ConstantIntegers.qrContainerBorder,
             ),
           ),
-          centerTitle: true,
-          actions: [
-            Icon(
-              Icons.notifications,
-              color: ConstantColors.notificationIconColor,
-            ),
-          ],
-        ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: ConstantColors.appTabBarBackgroundColor,
-                ),
-                child: Text(
-                  ConstantVariables.menuDrawerHeaderText,
-                  style: TextStyle(
-                    color: ConstantColors.drawerMenuTextColor,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                    fontSize: ConstantIntegers.menuText,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CircleAvatar(
+                    backgroundImage: AssetImage(
+                      ConstantImages.assetImages +
+                          ConstantImages.circularAvatarImage,
+                    ),
+                    radius: ConstantIntegers.qrCircularAvatarRadius,
                   ),
-                ),
+                  const SizedBox(width: ConstantIntegers.qrTextSizedBox),
+                  const Text(
+                    ConstantVariables.homePersonNameText,
+                    style: TextStyle(
+                      fontSize: ConstantIntegers.usernameFontHome,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontWeight: FontWeight.bold,
+                      color: ConstantColors.homeScreenPersonNameTextColor,
+                    ),
+                  ),
+                ],
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.info,
-                  color: ConstantColors.drawerMenuListIconColor,
-                ),
-                title: Text(
-                  ConstantVariables.menuAboutUsListText,
-                  style: TextStyle(
-                    color: ConstantColors.drawerMenuListTextColor,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
+              Image.asset(
+                ConstantImages.assetImages + ConstantImages.qrImage,
+                width: ConstantIntegers.qrImageWidth,
+                height: ConstantIntegers.qrImageHeight,
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.settings,
-                  color: ConstantColors.drawerMenuListIconColor,
+              const Text(
+                ConstantVariables.scanQRText,
+                style: TextStyle(
+                  color: ConstantColors.scanQrTextColor,
+                  fontSize: ConstantIntegers.scanQRFontSize,
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontWeight: FontWeight.w600,
                 ),
-                title: Text(
-                  ConstantVariables.menuSettingsListText,
-                  style: TextStyle(
-                    color: ConstantColors.drawerMenuListTextColor,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  Icons.logout,
-                  color: ConstantColors.drawerMenuListIconColor,
-                ),
-                title: Text(
-                  ConstantVariables.menuLogoutListText,
-                  style: TextStyle(
-                    color: ConstantColors.drawerMenuListTextColor,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                  ),
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
               ),
             ],
           ),
         ),
-        body: Column(
+      ),
+    );
+  }
+
+  Widget recentChatsContent() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
+          ConstantVariables.recentChantsText,
+          style: TextStyle(
+            color: ConstantColors.recentChatsTextColor,
+            fontFamily: ConstantVariables.fontFamilyPoppins,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(width: ConstantIntegers.recentSpace),
+      ],
+    );
+  }
+
+  Widget chatsContent() {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: ConstantIntegers.chatPaddingLeft,
+          right: ConstantIntegers.chatPaddingRight,
+        ),
+        child: ListView(
+          padding: EdgeInsets.all(ConstantIntegers.listViewPadding),
           children: [
-            Expanded(
-              child: TabBarView(
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  buildHomeTab(),
-                  buildHistoryTab(),
-                  buildProfileTab(),
-                ],
-              ),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.directions_car_outlined,
+                              color: ConstantColors.homeScreenCarIconColor,
+                            ),
+                            SizedBox(width: ConstantIntegers.chatIconPadding),
+                            Text(
+                              ConstantVariables.carNumberText,
+
+                              style: TextStyle(
+                                fontSize: ConstantIntegers.homeVehicleFont,
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                                color: ConstantColors.homeScreenCarNoTextColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          ConstantVariables.carMessageText,
+                          style: TextStyle(
+                            fontSize: ConstantIntegers.chatSize,
+                            color: ConstantColors.homeScreenCarMessageTextColor,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Image.asset(
+                      ConstantImages.assetImages +
+                          ConstantImages.whatsappVectorImage,
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Container(
-              height: ConstantIntegers.tabBarContainerHeight,
-              color: Colors.black,
-              child: TabBar(
-                indicatorColor: ConstantColors.tabBarIndicatorColor,
-                labelColor: ConstantColors.tabBarLabelColor,
-                unselectedLabelColor: ConstantColors.unSelectedLabelColor,
-                onTap: onTabChanged,
-                tabs: const [
-                  Tab(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+            SizedBox(height: ConstantIntegers.chatBelowPadding),
+            Divider(
+              thickness: ConstantIntegers.dividerThickness,
+              color: ConstantColors.homeScreenDividerColor,
+            ),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.home,
-                          size: ConstantIntegers.tabBarIcon,
-                          color: ConstantColors.tabBarIconsColor,
+                        Row(
+                          children: [
+                            Icon(Icons.directions_car_outlined),
+                            SizedBox(width: ConstantIntegers.chatIconPadding),
+                            Text(
+                              ConstantVariables.carNumberText,
+                              style: TextStyle(
+                                fontSize: ConstantIntegers.homeVehicleFont,
+                                color: ConstantColors.homeScreenCarNoTextColor,
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
+                          ],
                         ),
-
                         Text(
-                          ConstantVariables.tabBarHomeText,
+                          ConstantVariables.carMessageText,
                           style: TextStyle(
+                            color: ConstantColors.homeScreenCarMessageTextColor,
+                            fontSize: ConstantIntegers.chatSize,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
-                            fontSize: ConstantIntegers.tabBarText,
                             fontWeight: FontWeight.bold,
-                            color: ConstantColors.tabBarIconsTextColor,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  Tab(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    Image.asset(
+                      ConstantImages.assetImages +
+                          ConstantImages.whatsappVectorImage,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: ConstantIntegers.chatBelowPadding),
+            Divider(
+              thickness: ConstantIntegers.dividerThickness,
+              color: ConstantColors.homeScreenDividerColor,
+            ),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.history,
-                          size: ConstantIntegers.tabBarIcon,
-                          color: ConstantColors.tabBarIconsColor,
-                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.directions_car_outlined),
+                            SizedBox(width: ConstantIntegers.chatIconPadding),
+                            Text(
+                              ConstantVariables.carNumberText,
 
+                              style: TextStyle(
+                                color: ConstantColors.homeScreenCarNoTextColor,
+                                fontSize: ConstantIntegers.homeVehicleFont,
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          ConstantVariables.tabBarHistoryText,
+                          ConstantVariables.carMessageText,
                           style: TextStyle(
+                            color: ConstantColors.homeScreenCarMessageTextColor,
+                            fontSize: ConstantIntegers.chatSize,
                             fontFamily: ConstantVariables.fontFamilyPoppins,
-                            fontSize: ConstantIntegers.tabBarText,
                             fontWeight: FontWeight.bold,
-                            color: ConstantColors.tabBarIconsTextColor,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  Tab(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.person,
-                          size: ConstantIntegers.tabBarIcon,
-                          color: ConstantColors.tabBarIconsColor,
-                        ),
-
-                        Text(
-                          ConstantVariables.tabBarProfileText,
-                          style: TextStyle(
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                            fontSize: ConstantIntegers.tabBarText,
-                            fontWeight: FontWeight.bold,
-                            color: ConstantColors.tabBarIconsTextColor,
-                          ),
-                        ),
-                      ],
+                    Image.asset(
+                      ConstantImages.assetImages +
+                          ConstantImages.whatsappVectorImage,
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: ConstantIntegers.chatBelowPadding),
+            Divider(
+              thickness: ConstantIntegers.dividerThickness,
+              color: ConstantColors.homeScreenDividerColor,
             ),
           ],
         ),
@@ -227,823 +506,248 @@ class HomeScreen extends State<HomePage> {
     );
   }
 
-  Widget buildHomeTab() {
-    return Column(
-      children: [
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.all(ConstantIntegers.qrContainerPadding),
-            child: Container(
-              height: ConstantIntegers.containerHeight,
-              width: ConstantIntegers.containerWidth,
-              padding: const EdgeInsets.all(ConstantIntegers.qrColumnPadding),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  ConstantIntegers.qrContainerRadius,
-                ),
-                border: Border.all(
-                  color: ConstantColors.homeTabBorderColor,
-                  width: ConstantIntegers.qrContainerBorder,
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const CircleAvatar(
-                        backgroundImage: AssetImage(
-                          ConstantImages.assetImages +
-                              ConstantImages.circularAvatarImage,
-                        ),
-                        radius: ConstantIntegers.qrCircularAvatarRadius,
-                      ),
-                      const SizedBox(width: ConstantIntegers.qrTextSizedBox),
-                      const Text(
-                        ConstantVariables.homePersonNameText,
-                        style: TextStyle(
-                          fontSize: ConstantIntegers.usernameFontHome,
-                          fontFamily: ConstantVariables.fontFamilyPoppins,
-                          fontWeight: FontWeight.bold,
-                          color: ConstantColors.homeScreenPersonNameTextColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Image.asset(
-                    ConstantImages.assetImages + ConstantImages.qrImage,
-                    width: ConstantIntegers.qrImageWidth,
-                    height: ConstantIntegers.qrImageHeight,
-                  ),
-                  const Text(
-                    ConstantVariables.scanQRText,
-                    style: TextStyle(
-                      color: ConstantColors.scanQrTextColor,
-                      fontSize: ConstantIntegers.scanQRFontSize,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              ConstantVariables.recentChantsText,
-              style: TextStyle(
-                color: ConstantColors.recentChatsTextColor,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(width: ConstantIntegers.recentSpace),
-          ],
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: ConstantIntegers.chatPaddingLeft,
-              right: ConstantIntegers.chatPaddingRight,
-            ),
-            child: ListView(
-              padding: EdgeInsets.all(ConstantIntegers.listViewPadding),
-              children: [
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.directions_car_outlined,
-                                  color: ConstantColors.homeScreenCarIconColor,
-                                ),
-                                SizedBox(
-                                  width: ConstantIntegers.chatIconPadding,
-                                ),
-                                Text(
-                                  ConstantVariables.carNumberText,
-
-                                  style: TextStyle(
-                                    fontSize: ConstantIntegers.homeVehicleFont,
-                                    fontFamily:
-                                        ConstantVariables.fontFamilyPoppins,
-                                    color:
-                                        ConstantColors.homeScreenCarNoTextColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              ConstantVariables.carMessageText,
-                              style: TextStyle(
-                                fontSize: ConstantIntegers.chatSize,
-                                color:
-                                    ConstantColors
-                                        .homeScreenCarMessageTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Image.asset(
-                          ConstantImages.assetImages +
-                              ConstantImages.whatsappVectorImage,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: ConstantIntegers.chatBelowPadding),
-                Divider(
-                  thickness: ConstantIntegers.dividerThickness,
-                  color: ConstantColors.homeScreenDividerColor,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(Icons.directions_car_outlined),
-                                SizedBox(
-                                  width: ConstantIntegers.chatIconPadding,
-                                ),
-                                Text(
-                                  ConstantVariables.carNumberText,
-                                  style: TextStyle(
-                                    fontSize: ConstantIntegers.homeVehicleFont,
-                                    color:
-                                        ConstantColors.homeScreenCarNoTextColor,
-                                    fontFamily:
-                                        ConstantVariables.fontFamilyPoppins,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              ConstantVariables.carMessageText,
-                              style: TextStyle(
-                                color:
-                                    ConstantColors
-                                        .homeScreenCarMessageTextColor,
-                                fontSize: ConstantIntegers.chatSize,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Image.asset(
-                          ConstantImages.assetImages +
-                              ConstantImages.whatsappVectorImage,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-
-                SizedBox(height: ConstantIntegers.chatBelowPadding),
-                Divider(
-                  thickness: ConstantIntegers.dividerThickness,
-                  color: ConstantColors.homeScreenDividerColor,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(Icons.directions_car_outlined),
-                                SizedBox(
-                                  width: ConstantIntegers.chatIconPadding,
-                                ),
-                                Text(
-                                  ConstantVariables.carNumberText,
-
-                                  style: TextStyle(
-                                    color:
-                                        ConstantColors.homeScreenCarNoTextColor,
-                                    fontSize: ConstantIntegers.homeVehicleFont,
-                                    fontFamily:
-                                        ConstantVariables.fontFamilyPoppins,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              ConstantVariables.carMessageText,
-                              style: TextStyle(
-                                color:
-                                    ConstantColors
-                                        .homeScreenCarMessageTextColor,
-                                fontSize: ConstantIntegers.chatSize,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Image.asset(
-                          ConstantImages.assetImages +
-                              ConstantImages.whatsappVectorImage,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: ConstantIntegers.chatBelowPadding),
-                Divider(
-                  thickness: ConstantIntegers.dividerThickness,
-                  color: ConstantColors.homeScreenDividerColor,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget buildHistoryTab() {
+  Widget historyTabViewContent() {
     return ListView(
       children: [
         SizedBox(height: ConstantIntegers.dateMarginBox),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const SizedBox(width: ConstantIntegers.dateMarginBoxLeft),
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: ConstantVariables.dateHintText,
-                  hintStyle: TextStyle(
-                    color: ConstantColors.historyTextFieldHintTextColor,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                  ),
-                  prefixIcon: Icon(
-                    Icons.calendar_month,
-                    color: ConstantColors.historyTextFieldIconColor,
-                  ),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            const SizedBox(width: ConstantIntegers.dateMarginBoxMiddle),
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: ConstantVariables.labelSelectTimeText,
-                  labelStyle: TextStyle(
-                    color: ConstantColors.historyTextFieldHintTextColor,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                  ),
-                  prefixIcon: Icon(
-                    Icons.timer_outlined,
-                    color: ConstantColors.historyTextFieldIconColor,
-                  ),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            const SizedBox(width: ConstantIntegers.dateMarginBoxRight),
-          ],
-        ),
+        dateTimeRow(),
         const SizedBox(height: ConstantIntegers.historyCardPadding),
-        Card(
-          margin: const EdgeInsets.all(ConstantIntegers.historyCardMargin),
-          elevation: ConstantIntegers.historyCardElevation,
-          shadowColor: ConstantColors.historyCardShadowColor,
-          color: ConstantColors.historyCardColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor:
-                      ConstantColors.historyListAvatarBackgroundColor,
-                  child: Icon(
-                    Icons.person,
-                    size: ConstantIntegers.historyPersonIconSize,
-                    color: ConstantColors.historyPersonIconColor,
-                  ),
-                ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      ConstantVariables.historyPersonNameText,
-                      style: TextStyle(
-                        color: ConstantColors.historyPersonNameTextColor,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: ConstantVariables.fontFamilyPoppins,
-                        fontSize: ConstantIntegers.historyCardName,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        ConstantIntegers.starCountHistory,
-                        (index) => Icon(
-                          Icons.star,
-                          color: ConstantColors.profileStarsColor,
-                          size: ConstantIntegers.starIconSize,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                subtitle: const Text(
-                  ConstantVariables.historyCarNumberText,
-
-                  style: TextStyle(
-                    fontSize: ConstantIntegers.historyVehicleFontSize,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                    color: ConstantColors.historySubTitleTextColor,
-                  ),
-                ),
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(width: ConstantIntegers.linePadding),
-                  Column(
-                    children: [
-                      Image.asset(
-                        ConstantImages.assetImages +
-                            ConstantImages.ellipseLineImage,
-                      ),
-                      Image.asset(
-                        ConstantImages.assetImages + ConstantImages.line11Image,
-                      ),
-                      Image.asset(
-                        ConstantImages.assetImages +
-                            ConstantImages.ellipseLineImage,
-                        color: ConstantColors.historyArrivalLineColor,
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(width: ConstantIntegers.linePaddingWidth),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          ConstantVariables.distanceArrivalText,
-                          style: TextStyle(
-                            color: ConstantColors.historyArrivalTextColor,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.calendar_month,
-                              color:
-                                  ConstantColors.historyCardCalenderIconColor,
-                            ),
-                            Text(
-                              ConstantVariables.dateText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(
-                              Icons.timer_outlined,
-                              color: ConstantColors.historyClockIconColor,
-                            ),
-                            Text(
-                              ConstantVariables.timeText,
-                              style: TextStyle(
-                                color: ConstantColors.historyTimeTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.timePmPadding),
-                            Text(
-                              ConstantVariables.hoursText,
-                              style: TextStyle(
-                                color: ConstantColors.historyHoursTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: ConstantIntegers.arrivalDeparturePadding,
-                        ),
-                        Text(
-                          ConstantVariables.distanceDepartureText,
-                          style: TextStyle(
-                            color: ConstantColors.historyDepartureTextColor,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.calendar_month),
-                            Text(
-                              ConstantVariables.dateText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(Icons.timer_outlined),
-                            Text(
-                              ConstantVariables.timeText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.timePmPadding),
-                            Text(
-                              ConstantVariables.hoursText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: ConstantIntegers.departureBottomBox),
-            ],
-          ),
-        ),
+        historyCardContent(),
         SizedBox(height: ConstantIntegers.betweenCardPadding),
-        Card(
-          margin: const EdgeInsets.all(ConstantIntegers.historyCardMargin),
-          elevation: ConstantIntegers.historyCardElevation,
-          shadowColor: ConstantColors.historyCardShadowColor,
-          color: ConstantColors.historyCardColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor:
-                      ConstantColors.historyListAvatarBackgroundColor,
-                  child: Icon(
-                    Icons.person,
-                    size: ConstantIntegers.historyPersonIconSize,
-                    color: ConstantColors.historyPersonIconColor,
-                  ),
-                ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      ConstantVariables.historyPersonNameText,
-                      style: TextStyle(
-                        color: ConstantColors.historyPersonNameTextColor,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: ConstantVariables.fontFamilyPoppins,
-                        fontSize: ConstantIntegers.historyCardName,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        ConstantIntegers.starCountHistory,
-                        (index) => Icon(
-                          Icons.star,
-                          color: ConstantColors.profileStarsColor,
-                          size: ConstantIntegers.starIconSize,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                subtitle: const Text(
-                  ConstantVariables.historyCarNumberText,
-
-                  style: TextStyle(
-                    fontSize: ConstantIntegers.historyVehicleFontSize,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                    color: ConstantColors.historySubTitleTextColor,
-                  ),
-                ),
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(width: ConstantIntegers.linePadding),
-                  Column(
-                    children: [
-                      Image.asset(
-                        ConstantImages.assetImages +
-                            ConstantImages.ellipseLineImage,
-                      ),
-                      Image.asset(
-                        ConstantImages.assetImages + ConstantImages.line11Image,
-                      ),
-                      Image.asset(
-                        ConstantImages.assetImages +
-                            ConstantImages.ellipseLineImage,
-                        color: ConstantColors.historyArrivalLineColor,
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(width: ConstantIntegers.linePaddingWidth),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          ConstantVariables.distanceArrivalText,
-                          style: TextStyle(
-                            color: ConstantColors.historyArrivalTextColor,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.calendar_month,
-                              color:
-                                  ConstantColors.historyCardCalenderIconColor,
-                            ),
-                            Text(
-                              ConstantVariables.dateText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(
-                              Icons.timer_outlined,
-                              color: ConstantColors.historyClockIconColor,
-                            ),
-                            Text(
-                              ConstantVariables.timeText,
-                              style: TextStyle(
-                                color: ConstantColors.historyTimeTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.timePmPadding),
-                            Text(
-                              ConstantVariables.hoursText,
-                              style: TextStyle(
-                                color: ConstantColors.historyHoursTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: ConstantIntegers.arrivalDeparturePadding,
-                        ),
-                        Text(
-                          ConstantVariables.distanceDepartureText,
-                          style: TextStyle(
-                            color: ConstantColors.historyDepartureTextColor,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.calendar_month),
-                            Text(
-                              ConstantVariables.dateText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(Icons.timer_outlined),
-                            Text(
-                              ConstantVariables.timeText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.timePmPadding),
-                            Text(
-                              ConstantVariables.hoursText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: ConstantIntegers.departureBottomBox),
-            ],
-          ),
-        ),
+        historyCardContent(),
         SizedBox(height: ConstantIntegers.betweenCardPadding),
-        Card(
-          margin: const EdgeInsets.all(ConstantIntegers.historyCardMargin),
-          elevation: ConstantIntegers.historyCardElevation,
-          shadowColor: ConstantColors.historyCardShadowColor,
-          color: ConstantColors.historyCardColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor:
-                      ConstantColors.historyListAvatarBackgroundColor,
-                  child: Icon(
-                    Icons.person,
-                    size: ConstantIntegers.historyPersonIconSize,
-                    color: ConstantColors.historyPersonIconColor,
-                  ),
-                ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      ConstantVariables.historyPersonNameText,
-                      style: TextStyle(
-                        color: ConstantColors.historyPersonNameTextColor,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: ConstantVariables.fontFamilyPoppins,
-                        fontSize: ConstantIntegers.historyCardName,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        ConstantIntegers.starCountHistory,
-                        (index) => Icon(
-                          Icons.star,
-                          color: ConstantColors.profileStarsColor,
-                          size: ConstantIntegers.starIconSize,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                subtitle: const Text(
-                  ConstantVariables.historyCarNumberText,
-
-                  style: TextStyle(
-                    fontSize: ConstantIntegers.historyVehicleFontSize,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
-                    color: ConstantColors.historySubTitleTextColor,
-                  ),
-                ),
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(width: ConstantIntegers.linePadding),
-                  Column(
-                    children: [
-                      Image.asset(
-                        ConstantImages.assetImages +
-                            ConstantImages.ellipseLineImage,
-                      ),
-                      Image.asset(
-                        ConstantImages.assetImages + ConstantImages.line11Image,
-                      ),
-                      Image.asset(
-                        ConstantImages.assetImages +
-                            ConstantImages.ellipseLineImage,
-                        color: ConstantColors.historyArrivalLineColor,
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(width: ConstantIntegers.linePaddingWidth),
-                  Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          ConstantVariables.distanceArrivalText,
-                          style: TextStyle(
-                            color: ConstantColors.historyArrivalTextColor,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.calendar_month,
-                              color:
-                                  ConstantColors.historyCardCalenderIconColor,
-                            ),
-                            Text(
-                              ConstantVariables.dateText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(
-                              Icons.timer_outlined,
-                              color: ConstantColors.historyClockIconColor,
-                            ),
-                            Text(
-                              ConstantVariables.timeText,
-                              style: TextStyle(
-                                color: ConstantColors.historyTimeTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.timePmPadding),
-                            Text(
-                              ConstantVariables.hoursText,
-                              style: TextStyle(
-                                color: ConstantColors.historyHoursTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: ConstantIntegers.arrivalDeparturePadding,
-                        ),
-                        Text(
-                          ConstantVariables.distanceDepartureText,
-                          style: TextStyle(
-                            color: ConstantColors.historyDepartureTextColor,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.calendar_month),
-                            Text(
-                              ConstantVariables.dateText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.dateTimePadding),
-                            Icon(Icons.timer_outlined),
-                            Text(
-                              ConstantVariables.timeText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                            SizedBox(width: ConstantIntegers.timePmPadding),
-                            Text(
-                              ConstantVariables.hoursText,
-                              style: TextStyle(
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: ConstantIntegers.departureBottomBox),
-            ],
-          ),
-        ),
+        historyCardContent(),
         SizedBox(height: ConstantIntegers.betweenCardPadding),
       ],
     );
   }
 
-  Widget buildProfileTab() {
+  Widget dateTimeRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        const SizedBox(width: ConstantIntegers.dateMarginBoxLeft),
+        dateTimeTextField(ConstantVariables.dateHintText, Icons.calendar_month),
+        const SizedBox(width: ConstantIntegers.dateMarginBoxMiddle),
+        dateTimeTextField(
+          ConstantVariables.labelSelectTimeText,
+          Icons.timer_outlined,
+        ),
+        const SizedBox(width: ConstantIntegers.dateMarginBoxRight),
+      ],
+    );
+  }
+
+  Widget dateTimeTextField(String hintText, IconData icon) {
+    return Expanded(
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: ConstantColors.historyTextFieldHintTextColor,
+            fontFamily: ConstantVariables.fontFamilyPoppins,
+          ),
+          prefixIcon: Icon(
+            icon,
+            color: ConstantColors.historyTextFieldIconColor,
+          ),
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
+  }
+
+  Widget historyCardContent() {
+    return Card(
+      margin: const EdgeInsets.all(ConstantIntegers.historyCardMargin),
+      elevation: ConstantIntegers.historyCardElevation,
+      shadowColor: ConstantColors.historyCardShadowColor,
+      color: ConstantColors.historyCardColor,
+      child: historyCardUserContentColumn(),
+    );
+  }
+
+  Widget historyCardUserContentColumn() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        listTileUser(),
+        Divider(),
+        arrivalDeparture(),
+        SizedBox(height: ConstantIntegers.departureBottomBox),
+      ],
+    );
+  }
+
+  Widget listTileUser() {
+    return ListTile(
+      leading: listTileLeadingContentUser(),
+      title: listTileTitleContentUser(),
+      subtitle: listTileSubtitleContentUser(),
+    );
+  }
+
+  Widget listTileLeadingContentUser() {
+    return CircleAvatar(
+      backgroundColor: ConstantColors.historyListAvatarBackgroundColor,
+      child: Icon(
+        Icons.person,
+        size: ConstantIntegers.historyPersonIconSize,
+        color: ConstantColors.historyPersonIconColor,
+      ),
+    );
+  }
+
+  Widget listTileTitleContentUser() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          ConstantVariables.historyPersonNameText,
+          style: TextStyle(
+            color: ConstantColors.historyPersonNameTextColor,
+            fontWeight: FontWeight.bold,
+            fontFamily: ConstantVariables.fontFamilyPoppins,
+            fontSize: ConstantIntegers.historyCardName,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(
+            ConstantIntegers.starCountHistory,
+            (index) => Icon(
+              Icons.star,
+              color: ConstantColors.profileStarsColor,
+              size: ConstantIntegers.starIconSize,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget listTileSubtitleContentUser() {
+    return Text(
+      ConstantVariables.historyCarNumberText,
+
+      style: TextStyle(
+        fontSize: ConstantIntegers.historyVehicleFontSize,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
+        color: ConstantColors.historySubTitleTextColor,
+      ),
+    );
+  }
+
+  Widget arrivalDeparture() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SizedBox(width: ConstantIntegers.linePadding),
+        Column(
+          children: [
+            Image.asset(
+              ConstantImages.assetImages + ConstantImages.ellipseLineImage,
+            ),
+            Image.asset(
+              ConstantImages.assetImages + ConstantImages.line11Image,
+            ),
+            Image.asset(
+              ConstantImages.assetImages + ConstantImages.ellipseLineImage,
+              color: ConstantColors.historyArrivalLineColor,
+            ),
+          ],
+        ),
+
+        SizedBox(width: ConstantIntegers.linePaddingWidth),
+        Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                ConstantVariables.distanceArrivalText,
+                style: TextStyle(
+                  color: ConstantColors.historyArrivalTextColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                ),
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.calendar_month,
+                    color: ConstantColors.historyCardCalenderIconColor,
+                  ),
+                  Text(
+                    ConstantVariables.dateText,
+                    style: TextStyle(
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
+                  ),
+                  SizedBox(width: ConstantIntegers.dateTimePadding),
+                  Icon(
+                    Icons.timer_outlined,
+                    color: ConstantColors.historyClockIconColor,
+                  ),
+                  Text(
+                    ConstantVariables.timeText,
+                    style: TextStyle(
+                      color: ConstantColors.historyTimeTextColor,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
+                  ),
+                  SizedBox(width: ConstantIntegers.timePmPadding),
+                  Text(
+                    ConstantVariables.hoursText,
+                    style: TextStyle(
+                      color: ConstantColors.historyHoursTextColor,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: ConstantIntegers.arrivalDeparturePadding),
+              Text(
+                ConstantVariables.distanceDepartureText,
+                style: TextStyle(
+                  color: ConstantColors.historyDepartureTextColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                ),
+              ),
+              Row(
+                children: [
+                  Icon(Icons.calendar_month),
+                  Text(
+                    ConstantVariables.dateText,
+                    style: TextStyle(
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
+                  ),
+                  SizedBox(width: ConstantIntegers.dateTimePadding),
+                  Icon(Icons.timer_outlined),
+                  Text(
+                    ConstantVariables.timeText,
+                    style: TextStyle(
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
+                  ),
+                  SizedBox(width: ConstantIntegers.timePmPadding),
+                  Text(
+                    ConstantVariables.hoursText,
+                    style: TextStyle(
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget profileTabViewContent() {
     return Center(
       child: SingleChildScrollView(
         child: Column(
