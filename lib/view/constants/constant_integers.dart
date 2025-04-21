@@ -136,4 +136,6 @@ class ConstantIntegers {
 
 
 
+  static const double aboutUsLogoHeight = 145.0;
+  static const double aboutUsLogoWidth = 145.0;
 }
