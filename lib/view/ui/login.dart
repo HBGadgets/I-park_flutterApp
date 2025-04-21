@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../controller/user_login_api.dart';
 import '../constants/constant_colors.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
@@ -13,6 +14,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageScreen extends State<LoginPage> {
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,7 +149,7 @@ class LoginPageScreen extends State<LoginPage> {
   }
 
   Widget emailTextField(IconData icon) {
-    return TextField(
+    return TextField(controller: emailController,
       decoration: InputDecoration(
         prefixIcon: Icon(icon, color: ConstantColors.iconColor),
         hintText: ConstantVariables.enterEmail,
@@ -159,7 +163,7 @@ class LoginPageScreen extends State<LoginPage> {
   }
 
   Widget passwordTextField() {
-    return TextField(
+    return TextField(controller: passwordController,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock_outline, color: ConstantColors.iconColor),
         suffixIcon: Icon(
@@ -215,11 +219,18 @@ class LoginPageScreen extends State<LoginPage> {
       width: ConstantIntegers.buttonWidth,
       height: ConstantIntegers.buttonHeight,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
+        onPressed: () async {
+          bool success = await login(emailController.text, passwordController.text);
+          if (success) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Login failed. Please try again.')),
+            );
+          }
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: ConstantColors.loginBButtonColor,

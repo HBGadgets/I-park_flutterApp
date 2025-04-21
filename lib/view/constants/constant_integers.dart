@@ -93,6 +93,49 @@ class ConstantIntegers {
   static const double profileFeedbackFont = 16.0;
   static const double feedbackInfoPadding = 8.0;
   static const double feedbackInfoFont = 14.0;
+  static const double containerInitialPosition = 0.0;
+  static const int sliderAnimationSecond = 1;
+  static const double animationBegin = 0.0;
+  static const double animationEnd = 1.0;
+  static const double slidingContainerHeight = 80.0;
+  static const double slidingContainerWidth = 290.0;
+  static const double slidingContainerRadius = 40.0;
+  static const int movingMilliseconds = 300;
+  static const double containerPositionStart = 0.0;
+  static const double containerPositionEnd = 100.0;
+  static const double navigateIf = 100.0;
+  static const double navigateElse = 0.0;
+  static const double insideContainerSliderPadding = 10.0;
+  static const double insideContainerSliderMargin = 10.0;
+  static const double insideContainerSliderRadius = 25.0;
+  static const double insideContainerSliderHeight = 52.0;
+  static const double spaceImageText = 10.0;
+  static const double textPosition = 20.0;
+  static const double containerHide = 0.0;
+  static const double animationValueBegin1 = 2.0;
+  static const double animationValueBegin2 = 0.0;
+  static const double animationValueEnd1 = 2.0;
+  static const double animationValueEnd2 = 0.0;
+  static const double forwardFontSize = 25.0;
+  static const double forwardLetterSpacing = 4.0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   static const double aboutUsLogoHeight = 145.0;
   static const double aboutUsLogoWidth = 145.0;
 }

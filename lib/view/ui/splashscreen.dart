@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_images.dart';
 import 'package:hb/view/constants/constant_integers.dart';
+import 'package:hb/view/constants/constant_variables.dart';
 import '../constants/constant_colors.dart';
 import 'login.dart';
 
@@ -13,31 +14,33 @@ class SplashPage extends StatefulWidget {
 
 class SplashPageScreen extends State<SplashPage>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  double _containerPosition = 0.0;
+  late AnimationController controller;
+  late Animation<double> animation;
+  double containerPosition = ConstantIntegers.containerInitialPosition;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 1),
+    controller = AnimationController(
+      duration: const Duration(seconds: ConstantIntegers.sliderAnimationSecond),
       vsync: this,
     )..repeat(reverse: true);
 
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+    animation = Tween<double>(
+      begin: ConstantIntegers.animationBegin,
+      end: ConstantIntegers.animationEnd,
+    ).animate(controller);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    controller.dispose();
     super.dispose();
   }
 
-  void _navigateToNextPage() {
+  void navigateToNextPage() {
     setState(() {
-      _containerPosition = 0;
+      containerPosition = ConstantIntegers.containerInitialPosition;
     });
 
     Navigator.of(
@@ -82,7 +85,7 @@ class SplashPageScreen extends State<SplashPage>
       children: [
         _buildIrixLogo(),
         const Spacer(),
-        _buildSlidingContainer(),
+        slidingContainer(),
         const SizedBox(
           height: ConstantIntegers.confirmationSliderSizedBoxWidth,
         ),
@@ -98,51 +101,66 @@ class SplashPageScreen extends State<SplashPage>
     );
   }
 
-  Widget _buildSlidingContainer() {
+  Widget slidingContainer() {
     return Center(
       child: Container(
-        height: 80,
-        width: 290,
+        height: ConstantIntegers.slidingContainerHeight,
+        width: ConstantIntegers.slidingContainerWidth,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(
+            ConstantIntegers.slidingContainerRadius,
+          ),
         ),
         child: Stack(
           alignment: Alignment.center,
           children: [
             AnimatedPositioned(
-              duration: const Duration(milliseconds: 300),
-              left: _containerPosition,
+              duration: const Duration(
+                milliseconds: ConstantIntegers.movingMilliseconds,
+              ),
+              left: containerPosition,
               child: GestureDetector(
                 onPanUpdate: (details) {
                   setState(() {
-                    _containerPosition += details.delta.dx;
-                    _containerPosition = _containerPosition.clamp(0.0, 100.0);
+                    containerPosition += details.delta.dx;
+                    containerPosition = containerPosition.clamp(
+                      ConstantIntegers.containerPositionStart,
+                      ConstantIntegers.containerPositionEnd,
+                    );
                   });
                 },
                 onPanEnd: (details) {
-                  if (_containerPosition >= 100) {
-                    _navigateToNextPage();
+                  if (containerPosition >= ConstantIntegers.navigateIf) {
+                    navigateToNextPage();
                   } else {
                     setState(() {
-                      _containerPosition = 0;
+                      containerPosition = ConstantIntegers.navigateElse;
                     });
                   }
                 },
                 child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  margin: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.all(
+                    ConstantIntegers.insideContainerSliderPadding,
+                  ),
+                  margin: const EdgeInsets.only(
+                    left: ConstantIntegers.insideContainerSliderMargin,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade800,
-                    borderRadius: BorderRadius.circular(25),
+                    borderRadius: BorderRadius.circular(
+                      ConstantIntegers.insideContainerSliderRadius,
+                    ),
                   ),
-                  height: 52,
+                  height: ConstantIntegers.insideContainerSliderHeight,
                   child: Row(
                     children: [
-                      Image.asset("assets/images/irix.logo.png"),
-                      const SizedBox(width: 10),
+                      Image.asset(
+                        '${ConstantImages.assetImages}${ConstantImages.slideButtonCarLogo}',
+                      ),
+                      const SizedBox(width: ConstantIntegers.spaceImageText),
                       const Text(
-                        "Get Started",
+                        ConstantVariables.getStartedText,
                         style: TextStyle(color: Colors.white),
                       ),
                     ],
@@ -151,26 +169,37 @@ class SplashPageScreen extends State<SplashPage>
               ),
             ),
             Positioned(
-              right: 20,
+              right: ConstantIntegers.textPosition,
               child: AnimatedBuilder(
-                animation: _animation,
+                animation: animation,
                 builder: (context, child) {
-                  return _containerPosition > 0
+                  return containerPosition > ConstantIntegers.containerHide
                       ? const SizedBox.shrink()
                       : ShaderMask(
                         shaderCallback: (bounds) {
                           return LinearGradient(
                             colors: [Colors.white, Colors.grey.shade900],
-                            begin: Alignment(-1 + _animation.value * 2, 0),
-                            end: Alignment(1 + _animation.value * 2, 0),
+                            begin: Alignment(
+                              -1 +
+                                  animation.value *
+                                      ConstantIntegers.animationValueBegin1,
+                              ConstantIntegers.animationValueBegin2,
+                            ),
+                            end: Alignment(
+                              1 +
+                                  animation.value *
+                                      ConstantIntegers.animationValueEnd1,
+                              ConstantIntegers.animationValueEnd2,
+                            ),
                           ).createShader(bounds);
                         },
                         child: const Text(
-                          ">>>>",
+                          ConstantVariables.forward,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 25,
-                            letterSpacing: 4,
+                            fontSize: ConstantIntegers.forwardFontSize,
+                            letterSpacing:
+                                ConstantIntegers.forwardLetterSpacing,
                           ),
                         ),
                       );
