@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_colors.dart';
+import 'package:hb/view/ui/about_us.dart';
 import 'package:intl/intl.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
@@ -197,6 +198,7 @@ class HomeScreen extends State<HomePage> {
 
   Widget drawer() {
     return Drawer(
+      backgroundColor: Colors.white,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -204,124 +206,85 @@ class HomeScreen extends State<HomePage> {
             decoration: BoxDecoration(
               color: ConstantColors.drawerHeaderBackgroundColor,
             ),
-            child: Image.asset( ConstantImages.assetImages + ConstantImages.iParkLogo,
+            child: Image.asset(
+              ConstantImages.assetImages + ConstantImages.iParkLogo,
               height: ConstantIntegers.irixHeight,
               width: ConstantIntegers.irixWidth,
-              color: ConstantColors.loginLogoColor,)
+              color: ConstantColors.loginLogoColor,
+            ),
           ),
-          ListTile(
-            leading: Icon(
-              Icons.insert_drive_file_outlined,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuAboutUsListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
+          createDrawerItem(
+            icon: Icons.insert_drive_file_outlined,
+            text: ConstantVariables.menuAboutUsListText,
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutUsScreen()),
+              );
             },
           ),
-          ListTile(
-            leading: Icon(
-              Icons.star_border,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuRatingListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
+          createDrawerItem(
+            icon: Icons.star_border,
+            text: ConstantVariables.menuRatingListText,
             onTap: () {
               Navigator.pop(context);
             },
           ),
-          ListTile(
-            leading: Icon(
-              Icons.support_agent_outlined,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuHelpSupportListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
+          createDrawerItem(
+            icon: Icons.support_agent_outlined,
+            text: ConstantVariables.menuHelpSupportListText,
             onTap: () {
               Navigator.pop(context);
             },
           ),
-          ListTile(
-            leading: Icon(
-              Icons.privacy_tip_outlined,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuPrivacyListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ), ListTile(
-            leading: Icon(
-              Icons.settings_outlined,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuAboutUsListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ), ListTile(
-            leading: Icon(
-              Icons.logout,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuAboutUsListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
+          createDrawerItem(
+            icon: Icons.privacy_tip_outlined,
+            text: ConstantVariables.menuPrivacyListText,
             onTap: () {
               Navigator.pop(context);
             },
           ),
-
+          createDrawerItem(
+            icon: Icons.settings_outlined,
+            text: ConstantVariables.menuSettingsListText,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          createDrawerItem(
+            icon: Icons.logout,
+            text: ConstantVariables.menuLogoutListText,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );
   }
 
+  Widget createDrawerItem({
+    required IconData icon,
+    required String text,
+    required GestureTapCallback onTap,
+  }) {
+    return ListTile(
+      leading: Icon(icon, color: ConstantColors.drawerMenuListIconColor),
+      title: Text(
+        text,
+        style: TextStyle(
+          color: ConstantColors.drawerMenuListTextColor,
+          fontWeight: FontWeight.bold,
+          fontFamily: ConstantVariables.fontFamilyPoppins,
+        ),
+      ),
+      onTap: onTap,
+    );
+  }
+
   Widget homeTabViewContent() {
     return Column(
-      children: [
-        qrContent(),
-        recentChatsContent(),
-        chatsContent(),
-      ],
+      children: [qrContent(), recentChatsContent(), chatsContent()],
     );
   }
 
@@ -579,7 +542,7 @@ class HomeScreen extends State<HomePage> {
       setState(() {
         selectedTime = picked;
         timeController.text =
-            "${picked.hour}:${picked.minute.toString().padLeft(2, '0')}"; // Format time
+            "${picked.hour}:${picked.minute.toString().padLeft(2, '0')}";
       });
     }
   }

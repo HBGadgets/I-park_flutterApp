@@ -93,4 +93,6 @@ class ConstantIntegers {
   static const double profileFeedbackFont = 16.0;
   static const double feedbackInfoPadding = 8.0;
   static const double feedbackInfoFont = 14.0;
+  static const double aboutUsLogoHeight = 145.0;
+  static const double aboutUsLogoWidth = 145.0;
 }
