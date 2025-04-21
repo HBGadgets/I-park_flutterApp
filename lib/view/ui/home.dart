@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_colors.dart';
-
+import 'package:intl/intl.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
 import '../constants/constant_variables.dart';
@@ -14,6 +14,13 @@ class HomePage extends StatefulWidget {
 
 class HomeScreen extends State<HomePage> {
   int selectedTabIndex = ConstantIntegers.selectedTab;
+
+  DateTime? selectedDate;
+  TimeOfDay? selectedTime;
+
+  final TextEditingController dateController = TextEditingController();
+  final TextEditingController timeController = TextEditingController();
+
   final List<String> appBarTitles = [
     ConstantVariables.homeListAppBarTitle,
     ConstantVariables.historyListAppBarTitle,
@@ -37,6 +44,7 @@ class HomeScreen extends State<HomePage> {
   Widget scaffold() {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: ConstantColors.defaultDashBoardColour,
       appBar: AppBar(
         backgroundColor: ConstantColors.appTabBarBackgroundColor,
         leading: appBarLeading(),
@@ -256,6 +264,56 @@ class HomeScreen extends State<HomePage> {
               Navigator.pop(context);
             },
           ),
+          ListTile(
+            leading: Icon(
+              Icons.info,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuAboutUsListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ), ListTile(
+            leading: Icon(
+              Icons.info,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuAboutUsListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ), ListTile(
+            leading: Icon(
+              Icons.info,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuAboutUsListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+
         ],
       ),
     );
@@ -263,7 +321,13 @@ class HomeScreen extends State<HomePage> {
 
   Widget homeTabViewContent() {
     return Column(
-      children: [qrContent(), recentChatsContent(), chatsContent()],
+      children: [
+        qrContent(),
+        recentChatsContent(),
+        chatsContent(),
+        chatsContent(),
+        chatsContent(),
+      ],
     );
   }
 
@@ -374,7 +438,6 @@ class HomeScreen extends State<HomePage> {
                             SizedBox(width: ConstantIntegers.chatIconPadding),
                             Text(
                               ConstantVariables.carNumberText,
-
                               style: TextStyle(
                                 fontSize: ConstantIntegers.homeVehicleFont,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -407,99 +470,7 @@ class HomeScreen extends State<HomePage> {
               thickness: ConstantIntegers.dividerThickness,
               color: ConstantColors.homeScreenDividerColor,
             ),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.directions_car_outlined),
-                            SizedBox(width: ConstantIntegers.chatIconPadding),
-                            Text(
-                              ConstantVariables.carNumberText,
-                              style: TextStyle(
-                                fontSize: ConstantIntegers.homeVehicleFont,
-                                color: ConstantColors.homeScreenCarNoTextColor,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          ConstantVariables.carMessageText,
-                          style: TextStyle(
-                            color: ConstantColors.homeScreenCarMessageTextColor,
-                            fontSize: ConstantIntegers.chatSize,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Image.asset(
-                      ConstantImages.assetImages +
-                          ConstantImages.whatsappVectorImage,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: ConstantIntegers.chatBelowPadding),
-            Divider(
-              thickness: ConstantIntegers.dividerThickness,
-              color: ConstantColors.homeScreenDividerColor,
-            ),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.directions_car_outlined),
-                            SizedBox(width: ConstantIntegers.chatIconPadding),
-                            Text(
-                              ConstantVariables.carNumberText,
-
-                              style: TextStyle(
-                                color: ConstantColors.homeScreenCarNoTextColor,
-                                fontSize: ConstantIntegers.homeVehicleFont,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          ConstantVariables.carMessageText,
-                          style: TextStyle(
-                            color: ConstantColors.homeScreenCarMessageTextColor,
-                            fontSize: ConstantIntegers.chatSize,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Image.asset(
-                      ConstantImages.assetImages +
-                          ConstantImages.whatsappVectorImage,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: ConstantIntegers.chatBelowPadding),
-            Divider(
-              thickness: ConstantIntegers.dividerThickness,
-              color: ConstantColors.homeScreenDividerColor,
-            ),
+            // Additional chat items can be added here
           ],
         ),
       ),
@@ -527,34 +498,81 @@ class HomeScreen extends State<HomePage> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         const SizedBox(width: ConstantIntegers.dateMarginBoxLeft),
-        dateTimeTextField(ConstantVariables.dateHintText, Icons.calendar_month),
+        dateTimeTextField(
+          ConstantVariables.dateHintText,
+          Icons.calendar_month,
+          () => _selectDate(context),
+          dateController,
+        ),
         const SizedBox(width: ConstantIntegers.dateMarginBoxMiddle),
         dateTimeTextField(
           ConstantVariables.labelSelectTimeText,
           Icons.timer_outlined,
+          () => _selectTime(context),
+          timeController,
         ),
         const SizedBox(width: ConstantIntegers.dateMarginBoxRight),
       ],
     );
   }
 
-  Widget dateTimeTextField(String hintText, IconData icon) {
+  Widget dateTimeTextField(
+    String hintText,
+    IconData icon,
+    Function onTap,
+    TextEditingController controller,
+  ) {
     return Expanded(
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: TextStyle(
-            color: ConstantColors.historyTextFieldHintTextColor,
-            fontFamily: ConstantVariables.fontFamilyPoppins,
+      child: GestureDetector(
+        onTap: () => onTap(),
+        child: AbsorbPointer(
+          child: TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: TextStyle(
+                color: ConstantColors.historyTextFieldHintTextColor,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+              prefixIcon: Icon(
+                icon,
+                color: ConstantColors.historyTextFieldIconColor,
+              ),
+              border: OutlineInputBorder(),
+            ),
           ),
-          prefixIcon: Icon(
-            icon,
-            color: ConstantColors.historyTextFieldIconColor,
-          ),
-          border: OutlineInputBorder(),
         ),
       ),
     );
+  }
+
+  void _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate ?? DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+        dateController.text = DateFormat('dd/MM/yyyy').format(selectedDate!);
+      });
+    }
+  }
+
+  void _selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime ?? TimeOfDay.now(),
+    );
+    if (picked != null && picked != selectedTime) {
+      setState(() {
+        selectedTime = picked;
+        timeController.text =
+            "${picked.hour}:${picked.minute.toString().padLeft(2, '0')}"; // Format time
+      });
+    }
   }
 
   Widget historyCardContent() {
@@ -629,7 +647,6 @@ class HomeScreen extends State<HomePage> {
   Widget listTileSubtitleContentUser() {
     return Text(
       ConstantVariables.historyCarNumberText,
-
       style: TextStyle(
         fontSize: ConstantIntegers.historyVehicleFontSize,
         fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -657,7 +674,6 @@ class HomeScreen extends State<HomePage> {
             ),
           ],
         ),
-
         SizedBox(width: ConstantIntegers.linePaddingWidth),
         Center(
           child: Column(
