@@ -56,4 +56,10 @@ class ConstantColors {
   static const Color historyTimeTextColor = Colors.black;
   static const Color historyHoursTextColor = Colors.black;
   static const Color historyDepartureTextColor = Colors.black;
+  static const Color defaultLoginColour = Colors.white;
+  static const Color defaultDashBoardColour = Colors.white;
+
+
+
+
 }
