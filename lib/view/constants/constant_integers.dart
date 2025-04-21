@@ -25,7 +25,7 @@ class ConstantIntegers {
   static const double buttonHeight = 53.0;
   static const double buttonRadius = 30.0;
   static const double buttonLoginFont = 17.0;
-  static const int selectedTab = 1;
+  static const int selectedTab = 0;
   static const int tabBarLength = 3;
   static const double selectedTabText = 24.0;
   static const double menuText = 24.0;
