@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_colors.dart';
 import 'package:hb/view/ui/about_us.dart';
+import 'package:hb/view/ui/feedback.dart';
+import 'package:hb/view/ui/privacy_policy.dart';
 import 'package:intl/intl.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
@@ -227,7 +229,10 @@ class HomeScreen extends State<HomePage> {
             icon: Icons.star_border,
             text: ConstantVariables.menuRatingListText,
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FeedbackPage()),
+              );
             },
           ),
           createDrawerItem(
@@ -241,7 +246,10 @@ class HomeScreen extends State<HomePage> {
             icon: Icons.privacy_tip_outlined,
             text: ConstantVariables.menuPrivacyListText,
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()),
+              );
             },
           ),
           createDrawerItem(

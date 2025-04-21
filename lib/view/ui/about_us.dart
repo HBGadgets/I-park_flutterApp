@@ -11,6 +11,7 @@ class AboutUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () {
@@ -19,14 +20,17 @@ class AboutUsScreen extends StatelessWidget {
         ),
         title: Text(
           'About Us',
-          style: TextStyle(color: Colors.white,fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: ConstantVariables.fontFamilyPoppins,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         backgroundColor: Colors.black,
         actions: [
           IconButton(
             icon: Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -48,42 +52,67 @@ class AboutUsScreen extends StatelessWidget {
 
               Text(
                 "Welcome to iPark, the app that transforms the way hotels and guests manage parking. We connect you with valet services at your favorite hotels, making parking and retrieving your vehicle faster, easier, and more convenient than ever before. Whether you're a hotel looking to enhance your guest experience or a traveler who needs quick, seamless parking, iPark is here to help.",
-                style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12, fontWeight: FontWeight.w400),
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                ),
                 textAlign: TextAlign.justify,
               ),
               SizedBox(height: 20),
               Text(
                 'Our Mission',
-                style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(height: 10),
               Text(
                 'At iPark, our mission is to redefine the parking experience. We aim to simplify and streamline parking for both hotels and guests by leveraging technology to connect them in real-time. We believe that parking should never be a hassle, and through our app, we offer a seamless, efficient, and stress-free solution. Our goal is to ensure every guest enjoys a worry-free stay with the convenience of instant valet service at their fingertips.',
-                style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12),
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                ),
                 textAlign: TextAlign.justify,
               ),
               SizedBox(height: 20),
 
               Text(
                 'Who we are:',
-                style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(height: 10),
               Text(
                 'We are a team of innovators passionate about using technology to enhance everyday experiences. Our diverse team comes from backgrounds in hospitality, tech, and customer service, united by a shared vision to solve parking challenges for both businesses and travelers. We work hand-in-hand with hotels to provide top-notch valet services and offer guests an easy, efficient way to schedule parking and retrieve their vehicles—all through a simple, user-friendly app.',
-                style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12),
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                ),
                 textAlign: TextAlign.justify,
               ),
               SizedBox(height: 20),
 
               Text(
                 'Contact Us:',
-                style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
 
               Text(
                 'Have questions or need assistance? We’re here to help!.',
-                style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12),
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppins,
+                  fontSize: 12,
+                ),
                 textAlign: TextAlign.justify,
               ),
               SizedBox(height: 10),
@@ -94,7 +123,13 @@ class AboutUsScreen extends StatelessWidget {
                     children: [
                       Icon(Icons.circle, size: 8, color: Colors.black),
                       SizedBox(width: 8),
-                      Text('Email: support@ipark.com', style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12)),
+                      Text(
+                        'Email: support@ipark.com',
+                        style: TextStyle(
+                          fontFamily: ConstantVariables.fontFamilyPoppins,
+                          fontSize: 12,
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 10),
@@ -102,7 +137,13 @@ class AboutUsScreen extends StatelessWidget {
                     children: [
                       Icon(Icons.circle, size: 8, color: Colors.black),
                       SizedBox(width: 8),
-                      Text('Phone: (555) 123-4567', style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12)),
+                      Text(
+                        'Phone: (555) 123-4567',
+                        style: TextStyle(
+                          fontFamily: ConstantVariables.fontFamilyPoppins,
+                          fontSize: 12,
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 10),
@@ -110,7 +151,13 @@ class AboutUsScreen extends StatelessWidget {
                     children: [
                       Icon(Icons.circle, size: 8, color: Colors.black),
                       SizedBox(width: 8),
-                      Text('Website: www.ipark.com', style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12)),
+                      Text(
+                        'Website: www.ipark.com',
+                        style: TextStyle(
+                          fontFamily: ConstantVariables.fontFamilyPoppins,
+                          fontSize: 12,
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 10),
@@ -118,7 +165,13 @@ class AboutUsScreen extends StatelessWidget {
                     children: [
                       Icon(Icons.circle, size: 8, color: Colors.black),
                       SizedBox(width: 8),
-                      Text('Social Media: @iParkApp', style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins,fontSize: 12)),
+                      Text(
+                        'Social Media: @iParkApp',
+                        style: TextStyle(
+                          fontFamily: ConstantVariables.fontFamilyPoppins,
+                          fontSize: 12,
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -140,11 +193,7 @@ class AboutUsScreen extends StatelessWidget {
                     width: 40,
                   ),
                   SizedBox(width: 10),
-                  Image.asset(
-                    'assets/images/X.png',
-                    height: 40,
-                    width: 40,
-                  ),
+                  Image.asset('assets/images/X.png', height: 40, width: 40),
                   SizedBox(width: 10),
                   Image.asset(
                     'assets/images/Vector.png',
