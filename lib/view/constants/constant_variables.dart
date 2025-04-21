@@ -32,20 +32,20 @@ class ConstantVariables {
   static const String historyPersonNameText = "Shrikant Ramesh Yadav";
   static const String historyCarNumberText = "MH36A6678";
   static const String distanceArrivalText = "Arrival";
-  static const String distanceDepartureText= "Departure";
-  static const String dateText= "17.02-2025";
-  static const String timeText= "19:09";
-  static const String hoursText= "PM";
-  static const String profileText= "Rohan Rah";
-  static const String employeeIdText= "Employee ID";
-  static const String employeeIdNumberText= "EMP0001111";
-  static const String contactNoText= "Contact no";
-  static const String mobileNoText= "+91 75484856";
-  static const String jobTitleText= "Job Title";
-  static const String jobDescriptionText= "Valley Parking Attendant";
-  static const String supervisorText= "Job Title";
-  static const String supervisorNameText= "Deepak Rahate";
-  static const String feedbackText= "Feedback :";
-  static const String feedbackContentText= "I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods.";
-
+  static const String distanceDepartureText = "Departure";
+  static const String dateText = "17.02-2025";
+  static const String timeText = "19:09";
+  static const String hoursText = "PM";
+  static const String profileText = "Rohan Rah";
+  static const String employeeIdText = "Employee ID";
+  static const String employeeIdNumberText = "EMP0001111";
+  static const String contactNoText = "Contact no";
+  static const String mobileNoText = "+91 75484856";
+  static const String jobTitleText = "Job Title";
+  static const String jobDescriptionText = "Valley Parking Attendant";
+  static const String supervisorText = "Supervisor";
+  static const String supervisorNameText = "Deepak Rahate";
+  static const String feedbackText = "Feedback :";
+  static const String feedbackContentText =
+      "I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods.";
 }
