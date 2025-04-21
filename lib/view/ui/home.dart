@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
 import '../constants/constant_variables.dart';
+import 'help_support.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -234,7 +235,10 @@ class HomeScreen extends State<HomePage> {
             icon: Icons.support_agent_outlined,
             text: ConstantVariables.menuHelpSupportListText,
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HelpSupport()),
+              );
             },
           ),
           createDrawerItem(
@@ -255,7 +259,10 @@ class HomeScreen extends State<HomePage> {
             icon: Icons.logout,
             text: ConstantVariables.menuLogoutListText,
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HelpSupport()),
+              );
             },
           ),
         ],
