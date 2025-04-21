@@ -202,20 +202,16 @@ class HomeScreen extends State<HomePage> {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: ConstantColors.appTabBarBackgroundColor,
+              color: ConstantColors.drawerHeaderBackgroundColor,
             ),
-            child: Text(
-              ConstantVariables.menuDrawerHeaderText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuTextColor,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-                fontSize: ConstantIntegers.menuText,
-              ),
-            ),
+            child: Image.asset( ConstantImages.assetImages + ConstantImages.iParkLogo,
+              height: ConstantIntegers.irixHeight,
+              width: ConstantIntegers.irixWidth,
+              color: ConstantColors.loginLogoColor,)
           ),
           ListTile(
             leading: Icon(
-              Icons.info,
+              Icons.insert_drive_file_outlined,
               color: ConstantColors.drawerMenuListIconColor,
             ),
             title: Text(
@@ -232,11 +228,11 @@ class HomeScreen extends State<HomePage> {
           ),
           ListTile(
             leading: Icon(
-              Icons.settings,
+              Icons.star_border,
               color: ConstantColors.drawerMenuListIconColor,
             ),
             title: Text(
-              ConstantVariables.menuSettingsListText,
+              ConstantVariables.menuRatingListText,
               style: TextStyle(
                 color: ConstantColors.drawerMenuListTextColor,
                 fontWeight: FontWeight.bold,
@@ -248,57 +244,57 @@ class HomeScreen extends State<HomePage> {
             },
           ),
           ListTile(
+            leading: Icon(
+              Icons.support_agent_outlined,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuHelpSupportListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.privacy_tip_outlined,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuPrivacyListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ), ListTile(
+            leading: Icon(
+              Icons.settings_outlined,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuAboutUsListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ), ListTile(
             leading: Icon(
               Icons.logout,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuLogoutListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.info,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuAboutUsListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ), ListTile(
-            leading: Icon(
-              Icons.info,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuAboutUsListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ), ListTile(
-            leading: Icon(
-              Icons.info,
               color: ConstantColors.drawerMenuListIconColor,
             ),
             title: Text(
@@ -324,8 +320,6 @@ class HomeScreen extends State<HomePage> {
       children: [
         qrContent(),
         recentChatsContent(),
-        chatsContent(),
-        chatsContent(),
         chatsContent(),
       ],
     );

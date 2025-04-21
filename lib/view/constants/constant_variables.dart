@@ -17,6 +17,9 @@ class ConstantVariables {
   static const String profileListAppBarTitle = "Profile";
   static const String menuDrawerHeaderText = "Menu";
   static const String menuAboutUsListText = "About Us";
+  static const String menuRatingListText = "Rate the app";
+  static const String menuHelpSupportListText = "Help & Support";
+  static const String menuPrivacyListText = "Privacy Policy";
   static const String menuSettingsListText = "Settings";
   static const String menuLogoutListText = "Logout";
   static const String tabBarHomeText = "Home";
