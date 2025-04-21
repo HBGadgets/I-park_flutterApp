@@ -118,24 +118,8 @@ class ConstantIntegers {
   static const double animationValueEnd2 = 0.0;
   static const double forwardFontSize = 25.0;
   static const double forwardLetterSpacing = 4.0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   static const double aboutUsLogoHeight = 145.0;
   static const double aboutUsLogoWidth = 145.0;
+  static const double privacyScreenLogoHeight = 145.0;
+  static const double privacyScreenLogoWidth = 145.0;
 }
