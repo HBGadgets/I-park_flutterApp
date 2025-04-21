@@ -16,11 +16,12 @@ class ConstantColors {
   static const Color confirmationSliderBackgroundColor = Colors.white;
   static const Color menuIconColor = Colors.white;
   static const Color appTabBarBackgroundColor = Colors.black;
+  static const Color drawerHeaderBackgroundColor = Colors.white;
   static const Color appBarTitlesColor = Colors.white;
   static const Color notificationIconColor = Colors.white;
   static const Color drawerMenuTextColor = Colors.white;
   static const Color drawerMenuListIconColor = Colors.black;
-  static const Color drawerMenuListTextColor = Colors.grey;
+  static const Color drawerMenuListTextColor = Colors.black;
   static const Color tabBarIndicatorColor = Colors.white;
   static const Color tabBarLabelColor = Colors.white;
   static const Color unSelectedLabelColor = Colors.white;

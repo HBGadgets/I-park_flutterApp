@@ -202,20 +202,16 @@ class HomeScreen extends State<HomePage> {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: ConstantColors.appTabBarBackgroundColor,
+              color: ConstantColors.drawerHeaderBackgroundColor,
             ),
-            child: Text(
-              ConstantVariables.menuDrawerHeaderText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuTextColor,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-                fontSize: ConstantIntegers.menuText,
-              ),
-            ),
+            child: Image.asset( ConstantImages.assetImages + ConstantImages.iParkLogo,
+              height: ConstantIntegers.irixHeight,
+              width: ConstantIntegers.irixWidth,
+              color: ConstantColors.loginLogoColor,)
           ),
           ListTile(
             leading: Icon(
-              Icons.info,
+              Icons.insert_drive_file_outlined,
               color: ConstantColors.drawerMenuListIconColor,
             ),
             title: Text(
@@ -232,11 +228,11 @@ class HomeScreen extends State<HomePage> {
           ),
           ListTile(
             leading: Icon(
-              Icons.settings,
+              Icons.star_border,
               color: ConstantColors.drawerMenuListIconColor,
             ),
             title: Text(
-              ConstantVariables.menuSettingsListText,
+              ConstantVariables.menuRatingListText,
               style: TextStyle(
                 color: ConstantColors.drawerMenuListTextColor,
                 fontWeight: FontWeight.bold,
@@ -248,57 +244,57 @@ class HomeScreen extends State<HomePage> {
             },
           ),
           ListTile(
+            leading: Icon(
+              Icons.support_agent_outlined,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuHelpSupportListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.privacy_tip_outlined,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuPrivacyListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ), ListTile(
+            leading: Icon(
+              Icons.settings_outlined,
+              color: ConstantColors.drawerMenuListIconColor,
+            ),
+            title: Text(
+              ConstantVariables.menuAboutUsListText,
+              style: TextStyle(
+                color: ConstantColors.drawerMenuListTextColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ), ListTile(
             leading: Icon(
               Icons.logout,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuLogoutListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.info,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuAboutUsListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ), ListTile(
-            leading: Icon(
-              Icons.info,
-              color: ConstantColors.drawerMenuListIconColor,
-            ),
-            title: Text(
-              ConstantVariables.menuAboutUsListText,
-              style: TextStyle(
-                color: ConstantColors.drawerMenuListTextColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ), ListTile(
-            leading: Icon(
-              Icons.info,
               color: ConstantColors.drawerMenuListIconColor,
             ),
             title: Text(
@@ -324,8 +320,6 @@ class HomeScreen extends State<HomePage> {
       children: [
         qrContent(),
         recentChatsContent(),
-        chatsContent(),
-        chatsContent(),
         chatsContent(),
       ],
     );
@@ -421,59 +415,74 @@ class HomeScreen extends State<HomePage> {
         child: ListView(
           padding: EdgeInsets.all(ConstantIntegers.listViewPadding),
           children: [
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.directions_car_outlined,
-                              color: ConstantColors.homeScreenCarIconColor,
-                            ),
-                            SizedBox(width: ConstantIntegers.chatIconPadding),
-                            Text(
-                              ConstantVariables.carNumberText,
-                              style: TextStyle(
-                                fontSize: ConstantIntegers.homeVehicleFont,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                                color: ConstantColors.homeScreenCarNoTextColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          ConstantVariables.carMessageText,
-                          style: TextStyle(
-                            fontSize: ConstantIntegers.chatSize,
-                            color: ConstantColors.homeScreenCarMessageTextColor,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Image.asset(
-                      ConstantImages.assetImages +
-                          ConstantImages.whatsappVectorImage,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            chatColumn(),
             SizedBox(height: ConstantIntegers.chatBelowPadding),
             Divider(
               thickness: ConstantIntegers.dividerThickness,
               color: ConstantColors.homeScreenDividerColor,
             ),
-            // Additional chat items can be added here
+            chatColumn(),
+            SizedBox(height: ConstantIntegers.chatBelowPadding),
+            Divider(
+              thickness: ConstantIntegers.dividerThickness,
+              color: ConstantColors.homeScreenDividerColor,
+            ),
+            chatColumn(),
+            SizedBox(height: ConstantIntegers.chatBelowPadding),
+            Divider(
+              thickness: ConstantIntegers.dividerThickness,
+              color: ConstantColors.homeScreenDividerColor,
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget chatColumn() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.directions_car_outlined,
+                      color: ConstantColors.homeScreenCarIconColor,
+                    ),
+                    SizedBox(width: ConstantIntegers.chatIconPadding),
+                    Text(
+                      ConstantVariables.carNumberText,
+
+                      style: TextStyle(
+                        fontSize: ConstantIntegers.homeVehicleFont,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
+                        color: ConstantColors.homeScreenCarNoTextColor,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  ConstantVariables.carMessageText,
+                  style: TextStyle(
+                    fontSize: ConstantIntegers.chatSize,
+                    color: ConstantColors.homeScreenCarMessageTextColor,
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            Image.asset(
+              ConstantImages.assetImages + ConstantImages.whatsappVectorImage,
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -660,286 +669,307 @@ class HomeScreen extends State<HomePage> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SizedBox(width: ConstantIntegers.linePadding),
-        Column(
-          children: [
-            Image.asset(
-              ConstantImages.assetImages + ConstantImages.ellipseLineImage,
-            ),
-            Image.asset(
-              ConstantImages.assetImages + ConstantImages.line11Image,
-            ),
-            Image.asset(
-              ConstantImages.assetImages + ConstantImages.ellipseLineImage,
-              color: ConstantColors.historyArrivalLineColor,
-            ),
-          ],
-        ),
+        lineImageColumn(),
         SizedBox(width: ConstantIntegers.linePaddingWidth),
-        Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                ConstantVariables.distanceArrivalText,
-                style: TextStyle(
-                  color: ConstantColors.historyArrivalTextColor,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                ),
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.calendar_month,
-                    color: ConstantColors.historyCardCalenderIconColor,
-                  ),
-                  Text(
-                    ConstantVariables.dateText,
-                    style: TextStyle(
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                  SizedBox(width: ConstantIntegers.dateTimePadding),
-                  Icon(
-                    Icons.timer_outlined,
-                    color: ConstantColors.historyClockIconColor,
-                  ),
-                  Text(
-                    ConstantVariables.timeText,
-                    style: TextStyle(
-                      color: ConstantColors.historyTimeTextColor,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                  SizedBox(width: ConstantIntegers.timePmPadding),
-                  Text(
-                    ConstantVariables.hoursText,
-                    style: TextStyle(
-                      color: ConstantColors.historyHoursTextColor,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: ConstantIntegers.arrivalDeparturePadding),
-              Text(
-                ConstantVariables.distanceDepartureText,
-                style: TextStyle(
-                  color: ConstantColors.historyDepartureTextColor,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                ),
-              ),
-              Row(
-                children: [
-                  Icon(Icons.calendar_month),
-                  Text(
-                    ConstantVariables.dateText,
-                    style: TextStyle(
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                  SizedBox(width: ConstantIntegers.dateTimePadding),
-                  Icon(Icons.timer_outlined),
-                  Text(
-                    ConstantVariables.timeText,
-                    style: TextStyle(
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                  SizedBox(width: ConstantIntegers.timePmPadding),
-                  Text(
-                    ConstantVariables.hoursText,
-                    style: TextStyle(
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        Center(child: historyArrivalDepartureColumn()),
       ],
     );
   }
 
-  Widget profileTabViewContent() {
-    return Center(
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: ConstantIntegers.profileUpperPadding),
-            CircleAvatar(
-              radius: ConstantIntegers.profileCircularAvatar,
-              backgroundImage: AssetImage(
-                ConstantImages.assetImages + ConstantImages.circularAvatarImage,
-              ),
-            ),
-            const SizedBox(height: ConstantIntegers.profileNamePadding),
-            Text(
-              ConstantVariables.profileText,
-              style: TextStyle(
-                color: ConstantColors.profileNameText,
-                fontFamily: ConstantVariables.fontFamilyPoppins,
-                fontSize: ConstantIntegers.profileNameFont,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: ConstantIntegers.profileNameStarPadding),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                ConstantIntegers.profileStarCount,
-                (index) => Icon(
-                  Icons.star,
-                  color: ConstantColors.profileStarsColor,
-                  size: ConstantIntegers.profileStarSize,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: ConstantIntegers.profileInfoPaddingLeft,
-                right: ConstantIntegers.profileInfoPaddingRight,
-                top: ConstantIntegers.profileInfoPaddingTop,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            ConstantVariables.employeeIdText,
-                            style: TextStyle(
-                              color: ConstantColors.allProfileTextColor,
-                              fontSize: ConstantIntegers.profileInfoTitle,
-                              fontFamily: ConstantVariables.fontFamilyPoppins,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            ConstantVariables.employeeIdNumberText,
-                            style: TextStyle(
-                              color: ConstantColors.allProfileSubTextColor,
-                              fontSize: ConstantIntegers.profileInfoSubTitle,
-                              fontFamily: ConstantVariables.fontFamilyPoppins,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            ConstantVariables.contactNoText,
-                            style: TextStyle(
-                              fontSize: ConstantIntegers.profileInfoTitle,
-                              color: ConstantColors.allProfileTextColor,
-                              fontFamily: ConstantVariables.fontFamilyPoppins,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            ConstantVariables.mobileNoText,
-                            style: TextStyle(
-                              fontFamily: ConstantVariables.fontFamilyPoppins,
-                              color: ConstantColors.allProfileSubTextColor,
-                              fontSize: ConstantIntegers.profileInfoSubTitle,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: ConstantIntegers.profilePaddings),
-                  Text(
-                    ConstantVariables.jobTitleText,
-                    style: TextStyle(
-                      fontSize: ConstantIntegers.profileInfoTitle,
-                      color: ConstantColors.allProfileTextColor,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    ConstantVariables.jobDescriptionText,
-                    style: TextStyle(
-                      color: ConstantColors.allProfileSubTextColor,
-                      fontSize: ConstantIntegers.profileInfoSubTitle,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                  const SizedBox(height: ConstantIntegers.profilePaddings),
-                  Text(
-                    ConstantVariables.supervisorText,
-                    style: TextStyle(
-                      color: ConstantColors.allProfileTextColor,
-                      fontSize: ConstantIntegers.profileInfoTitle,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    ConstantVariables.supervisorNameText,
-                    style: TextStyle(
-                      fontSize: ConstantIntegers.profileInfoSubTitle,
-                      color: ConstantColors.allProfileSubTextColor,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                    ),
-                  ),
-                  const SizedBox(height: ConstantIntegers.infoFeedbackPadding),
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(
-                ConstantIntegers.feedbackContainerMargin,
-              ),
-              padding: const EdgeInsets.all(
-                ConstantIntegers.feedbackContainerPadding,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  ConstantIntegers.feedbackContainerRadius,
-                ),
-                border: Border.all(
-                  color: ConstantColors.feedbackContainerBorderColor,
-                  width: ConstantIntegers.feedbackContainerBorder,
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    ConstantVariables.feedbackText,
-                    style: TextStyle(
-                      fontSize: ConstantIntegers.profileFeedbackFont,
-                      color: ConstantColors.feedbackColorText,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: ConstantIntegers.feedbackInfoPadding),
-                  Text(
-                    ConstantVariables.feedbackContentText,
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: ConstantIntegers.feedbackInfoFont,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: ConstantColors.feedbackContentColorText,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+  Widget historyArrivalDepartureColumn() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        arrivalDepartureText(ConstantVariables.distanceArrivalText),
+        arrivalRow(),
+        SizedBox(height: ConstantIntegers.arrivalDeparturePadding),
+        arrivalDepartureText(ConstantVariables.distanceDepartureText),
+        departureRow(),
+      ],
+    );
+  }
+
+  Widget arrivalDepartureText(String text) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: ConstantColors.historyArrivalTextColor,
+        fontWeight: FontWeight.bold,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
       ),
     );
   }
+
+  Widget arrivalRow() {
+    return Row(
+      children: [
+        calenderIcon(),
+        dateText(),
+        SizedBox(width: ConstantIntegers.dateTimePadding),
+        timeIcon(),
+        timeText(),
+        SizedBox(width: ConstantIntegers.timePmPadding),
+        pmText(),
+      ],
+    );
+  }
+
+  Widget calenderIcon() {
+    return Icon(
+      Icons.calendar_month,
+      color: ConstantColors.historyCardCalenderIconColor,
+    );
+  }
+
+  Widget dateText() {
+    return Text(
+      ConstantVariables.dateText,
+      style: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins),
+    );
+  }
+
+  Widget timeIcon() {
+    return Icon(
+      Icons.timer_outlined,
+      color: ConstantColors.historyClockIconColor,
+    );
+  }
+
+  Widget timeText() {
+    return Text(
+      ConstantVariables.timeText,
+      style: TextStyle(
+        color: ConstantColors.historyTimeTextColor,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
+      ),
+    );
+  }
+
+  Widget pmText() {
+    return Text(
+      ConstantVariables.hoursText,
+      style: TextStyle(
+        color: ConstantColors.historyHoursTextColor,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
+      ),
+    );
+  }
+
+  Widget departureRow() {
+    return Row(
+      children: [
+        calenderIcon(),
+        dateText(),
+        SizedBox(width: ConstantIntegers.dateTimePadding),
+        timeIcon(),
+        timeText(),
+        SizedBox(width: ConstantIntegers.timePmPadding),
+        pmText(),
+      ],
+    );
+  }
+
+  Widget lineImageColumn() {
+    return Column(children: [greyDotImage(), lineImage(), blackDotImage()]);
+  }
+
+  Widget greyDotImage() {
+    return Image.asset(
+      ConstantImages.assetImages + ConstantImages.ellipseLineImage,
+    );
+  }
+
+  Widget lineImage() {
+    return Image.asset(ConstantImages.assetImages + ConstantImages.line11Image);
+  }
+
+  Widget blackDotImage() {
+    return Image.asset(
+      ConstantImages.assetImages + ConstantImages.ellipseLineImage,
+      color: ConstantColors.historyArrivalLineColor,
+    );
+  }
+
+  Widget profileTabViewContent() {
+    return Center(child: profileScrollbar());
+  }
+}
+
+Widget profileScrollbar() {
+  return SingleChildScrollView(child: profileColumn());
+}
+
+Widget profileColumn() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(height: ConstantIntegers.profileUpperPadding),
+      profileCircularAvatar(),
+      const SizedBox(height: ConstantIntegers.profileNamePadding),
+      profileText(),
+      const SizedBox(height: ConstantIntegers.profileNameStarPadding),
+      starRow(),
+      profilePadding(),
+      profileContainer(),
+    ],
+  );
+}
+
+Widget starRow() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: List.generate(
+      ConstantIntegers.profileStarCount,
+      (index) => Icon(
+        Icons.star,
+        color: ConstantColors.profileStarsColor,
+        size: ConstantIntegers.profileStarSize,
+      ),
+    ),
+  );
+}
+
+Widget profilePadding() {
+  return Padding(
+    padding: const EdgeInsets.only(
+      left: ConstantIntegers.profileInfoPaddingLeft,
+      right: ConstantIntegers.profileInfoPaddingRight,
+      top: ConstantIntegers.profileInfoPaddingTop,
+    ),
+    child: profilePaddingColumn(),
+  );
+}
+
+Widget profilePaddingColumn() {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      profileColumnRow(),
+      const SizedBox(height: ConstantIntegers.profilePaddings),
+      userInfoTitle(ConstantVariables.jobTitleText),
+      userInfoSubtitle(ConstantVariables.jobDescriptionText),
+      const SizedBox(height: ConstantIntegers.profilePaddings),
+      userInfoTitle(ConstantVariables.supervisorText),
+      userInfoSubtitle(ConstantVariables.supervisorNameText),
+      const SizedBox(height: ConstantIntegers.infoFeedbackPadding),
+    ],
+  );
+}
+
+Widget profileColumnRow() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          userInfoTitle(ConstantVariables.employeeIdText),
+          userInfoSubtitle(ConstantVariables.employeeIdNumberText),
+        ],
+      ),
+      Column(
+        children: [
+          userInfoTitle(ConstantVariables.contactNoText),
+          userInfoSubtitle(ConstantVariables.mobileNoText),
+        ],
+      ),
+    ],
+  );
+}
+
+Widget userInfoTitle(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+      color: ConstantColors.allProfileTextColor,
+      fontSize: ConstantIntegers.profileInfoTitle,
+      fontFamily: ConstantVariables.fontFamilyPoppins,
+      fontWeight: FontWeight.bold,
+    ),
+  );
+}
+
+Widget userInfoSubtitle(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+      color: ConstantColors.allProfileSubTextColor,
+      fontSize: ConstantIntegers.profileInfoSubTitle,
+      fontFamily: ConstantVariables.fontFamilyPoppins,
+    ),
+  );
+}
+
+Widget profileContainer() {
+  return Container(
+    margin: const EdgeInsets.all(ConstantIntegers.feedbackContainerMargin),
+    padding: const EdgeInsets.all(ConstantIntegers.feedbackContainerPadding),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(
+        ConstantIntegers.feedbackContainerRadius,
+      ),
+      border: Border.all(
+        color: ConstantColors.feedbackContainerBorderColor,
+        width: ConstantIntegers.feedbackContainerBorder,
+      ),
+    ),
+    child: containerColumn(),
+  );
+}
+
+Widget containerColumn() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      feedbackText(),
+      const SizedBox(height: ConstantIntegers.feedbackInfoPadding),
+      feedbackTextContentText(),
+    ],
+  );
+}
+
+Widget feedbackText() {
+  return Text(
+    ConstantVariables.feedbackText,
+    style: TextStyle(
+      fontSize: ConstantIntegers.profileFeedbackFont,
+      color: ConstantColors.feedbackColorText,
+      fontFamily: ConstantVariables.fontFamilyPoppins,
+      fontWeight: FontWeight.bold,
+    ),
+  );
+}
+
+Widget feedbackTextContentText() {
+  return Text(
+    ConstantVariables.feedbackContentText,
+    textAlign: TextAlign.justify,
+    style: TextStyle(
+      fontSize: ConstantIntegers.feedbackInfoFont,
+      fontFamily: ConstantVariables.fontFamilyPoppins,
+      color: ConstantColors.feedbackContentColorText,
+    ),
+  );
+}
+
+Widget profileCircularAvatar() {
+  return CircleAvatar(
+    radius: ConstantIntegers.profileCircularAvatar,
+    backgroundImage: AssetImage(
+      ConstantImages.assetImages + ConstantImages.circularAvatarImage,
+    ),
+  );
+}
+
+Widget profileText() {
+  return Text(
+    ConstantVariables.profileText,
+    style: TextStyle(
+      color: ConstantColors.profileNameText,
+      fontFamily: ConstantVariables.fontFamilyPoppins,
+      fontSize: ConstantIntegers.profileNameFont,
+      fontWeight: FontWeight.bold,
+    ),
+  );
 }
