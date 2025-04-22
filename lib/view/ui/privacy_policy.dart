@@ -192,7 +192,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: points.map((text) => bulletPoint(text)).toList(),
         ),
-        SizedBox(height: 15),
+
       ],
     );
   }

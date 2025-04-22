@@ -8,6 +8,7 @@ class HelpSupport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.white),
@@ -43,8 +44,8 @@ class HelpSupport extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w900,
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  color: Colors.black,
+                  fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+                  color: Colors.grey,
                 ),
               ),
               SizedBox(height: 10),
@@ -71,7 +72,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
@@ -86,7 +87,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
@@ -101,7 +102,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
@@ -116,7 +117,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
@@ -129,8 +130,8 @@ class HelpSupport extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w900,
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  color: Colors.black,
+                  fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+                  color: Colors.grey,
                 ),
               ),
               SizedBox(height: 20),
@@ -141,12 +142,7 @@ class HelpSupport extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Color(0xA3DFF7F9),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color:
-                        Colors
-                            .black,
-                    width: 1,
-                  ),
+                  border: Border.all(color: Colors.black, width: 1),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -159,9 +155,9 @@ class HelpSupport extends StatelessWidget {
                           "Call Support Team",
                           style: TextStyle(
                             fontSize: 16,
-
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                            color: Colors.black,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold,
+                            color: Color(0xFF454B60)
+                            ,
                           ),
                         ),
                       ],
@@ -179,12 +175,7 @@ class HelpSupport extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Color(0xA3DFF7F9),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color:
-                        Colors
-                            .black,
-                    width: 1,
-                  ),
+                  border: Border.all(color: Colors.black, width: 1),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -197,8 +188,8 @@ class HelpSupport extends StatelessWidget {
                           "Chat with us",
                           style: TextStyle(
                             fontSize: 16,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                            color: Colors.black,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold,
+                            color: Color(0xFF454B60),
                           ),
                         ),
                       ],
@@ -216,12 +207,7 @@ class HelpSupport extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Color(0xA3DFF7F9),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color:
-                        Colors
-                            .black,
-                    width: 1,
-                  ),
+                  border: Border.all(color: Colors.black, width: 1),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -234,8 +220,8 @@ class HelpSupport extends StatelessWidget {
                           "Raise the ticket ",
                           style: TextStyle(
                             fontSize: 16,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                            color: Colors.black,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold,
+                            color: Color(0xFF454B60),
                           ),
                         ),
                       ],
