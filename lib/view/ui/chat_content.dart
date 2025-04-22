@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:hb/view/constants/constant_variables.dart';
 import '../constants/constant_colors.dart';
+import '../constants/constant_images.dart';
 
 class ChatContent extends StatefulWidget {
   final String carNumber;
@@ -15,10 +16,33 @@ class ChatContentScreen extends State<ChatContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: appBarLeading(),
-        title: Text(widget.carNumber),
+        title: Row(mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.directions_car_outlined
+            ),
+            SizedBox(width: 10),
+            Text(
+              widget.carNumber,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications, color: Colors.black),
+            onPressed: () {},
+          ),
+        ],
       ),
     );
   }
@@ -27,9 +51,9 @@ class ChatContentScreen extends State<ChatContent> {
     return Builder(
       builder: (BuildContext context) {
         return IconButton(
-          icon: Icon(Icons.menu, color: ConstantColors.menuIconColor),
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Scaffold.of(context).openDrawer();
+            Navigator.pop(context);
           },
         );
       },

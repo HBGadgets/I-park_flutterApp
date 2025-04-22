@@ -6,6 +6,9 @@ import 'package:hb/view/ui/history_tab.dart';
 import 'package:hb/view/ui/login.dart';
 import 'package:hb/view/ui/privacy_policy.dart';
 import 'package:hb/view/ui/profile_tab.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../controller/user_login_api.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
 import '../constants/constant_variables.dart';
@@ -40,107 +43,81 @@ class HomeScreen extends State<HomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: ConstantIntegers.tabBarLength,
-      child: scaffold(),
-    );
-  }
-
-  Widget scaffold() {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: ConstantColors.defaultDashBoardColour,
-      appBar: AppBar(
-        backgroundColor: ConstantColors.appTabBarBackgroundColor,
-        leading: appBarLeading(),
-        title: appBarTitle(),
-        centerTitle: true,
-        actions: [appBarAction()],
-      ),
-      drawer: drawer(),
-      body: contentColumn(),
-    );
-  }
-
-  Widget appBarLeading() {
-    return Builder(
-      builder: (BuildContext context) {
-        return IconButton(
-          icon: Icon(Icons.menu, color: ConstantColors.menuIconColor),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
-        );
-      },
-    );
-  }
-
-  Widget appBarTitle() {
-    return Text(
-      appBarTitles[selectedTabIndex],
-      style: TextStyle(
-        color: ConstantColors.appBarTitlesColor,
-        fontFamily: ConstantVariables.fontFamilyPoppins,
-        fontSize: ConstantIntegers.selectedTabText,
-      ),
-    );
-  }
-
-  Widget appBarAction() {
-    return Icon(
-      Icons.notifications,
-      color: ConstantColors.notificationIconColor,
-    );
-  }
-
-  Widget contentColumn() {
-    return Column(children: [tabBarContent(), tabBarContentContainer()]);
-  }
-
-  Widget tabBarContent() {
-    return Expanded(
-      child: TabBarView(
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          HomeTab(),
-          ChatTab(),
-         HistoryTabScreen().historyTabViewContent(),
-          ProfileTabScreen().profileTabViewContent(),
-        ],
+      initialIndex: selectedTabIndex,
+      child: Scaffold(
+        backgroundColor: ConstantColors.defaultDashBoardColour,
+        appBar: AppBar(
+          backgroundColor: ConstantColors.appTabBarBackgroundColor,
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: Icon(Icons.menu, color: ConstantColors.menuIconColor),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            },
+          ),
+          title: Text(
+            appBarTitles[selectedTabIndex],
+            style: TextStyle(
+              color: ConstantColors.appBarTitlesColor,
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: ConstantIntegers.selectedTabText,
+            ),
+          ),
+          centerTitle: true,
+          actions: [
+            Icon(
+              Icons.notifications,
+              color: ConstantColors.notificationIconColor,
+            )
+          ],
+        ),
+        drawer: buildDrawer(),
+        body: Column(
+          children: [
+            Expanded(
+              child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  HomeTab(),
+                  ChatTab(),
+                  HistoryTab(),
+                  ProfileTab()
+                ],
+              ),
+            ),
+            Container(
+              height: ConstantIntegers.tabBarContainerHeight,
+              color: Colors.black,
+              child: TabBar(
+                onTap: onTabChanged,
+                indicatorColor: ConstantColors.tabBarIndicatorColor,
+                labelColor: ConstantColors.tabBarLabelColor,
+                unselectedLabelColor: ConstantColors.unSelectedLabelColor,
+                tabs: [
+                  homeTab(),
+                  chatTab(),
+                  historyTab(),
+                  profileTab(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 
-  Widget tabBarContentContainer() {
-    return Container(
-      height: ConstantIntegers.tabBarContainerHeight,
-      color: Colors.black,
-      child: tabBar(),
-    );
-  }
-
-  Widget tabBar() {
-    return TabBar(
-      indicatorColor: ConstantColors.tabBarIndicatorColor,
-      labelColor: ConstantColors.tabBarLabelColor,
-      unselectedLabelColor: ConstantColors.unSelectedLabelColor,
-      onTap: onTabChanged,
-      tabs: [
-       homeTab(),
-        chatTab(),
-        HistoryTabScreen().historyTab(),
-        ProfileTabScreen().profileTab(),
-      ],
-    );
-  }
   Widget homeTab() {
     return Tab(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.home,
-            size: ConstantIntegers.tabBarIcon,
-            color: ConstantColors.tabBarIconsColor,
-          ),
+          Icon(Icons.home,
+              size: ConstantIntegers.tabBarIcon,
+              color: ConstantColors.tabBarIconsColor),
           Text(
             ConstantVariables.tabBarHomeText,
             style: TextStyle(
@@ -154,16 +131,19 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
+
   Widget chatTab() {
     return Tab(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            "assets/images/Vector.png",color: Colors.white,height: 25,
+            "assets/images/Vector.png",
+            color: Colors.white,
+            height: 25,
             width: 25,
           ),
-          SizedBox(height: 5,),
+          const SizedBox(height: 5),
           Text(
             ConstantVariables.tabBarChatText,
             style: TextStyle(
@@ -177,7 +157,52 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
-  Widget drawer() {
+
+  Widget historyTab() {
+    return Tab(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.history,
+              size: ConstantIntegers.tabBarIcon,
+              color: ConstantColors.tabBarIconsColor),
+          Text(
+            ConstantVariables.tabBarHistoryText,
+            style: TextStyle(
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: ConstantIntegers.tabBarText,
+              fontWeight: FontWeight.bold,
+              color: ConstantColors.tabBarIconsTextColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget profileTab() {
+    return Tab(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.person,
+              size: ConstantIntegers.tabBarIcon,
+              color: ConstantColors.tabBarIconsColor),
+          Text(
+            ConstantVariables.tabBarProfileText,
+            style: TextStyle(
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: ConstantIntegers.tabBarText,
+              fontWeight: FontWeight.bold,
+              color: ConstantColors.tabBarIconsTextColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildDrawer() {
     return Drawer(
       backgroundColor: Colors.white,
       child: ListView(
@@ -244,11 +269,16 @@ class HomeScreen extends State<HomePage> {
           createDrawerItem(
             icon: Icons.logout,
             text: ConstantVariables.menuLogoutListText,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
-              );
+            onTap: () async {
+              final prefs = await SharedPreferences.getInstance();
+              if (prefs.containsKey('token')) {
+                await Provider.of<UserProvider>(context, listen: false)
+                    .logout();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              }
             },
           ),
         ],
