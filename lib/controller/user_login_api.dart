@@ -1,33 +1,38 @@
-import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-Future<bool> login(String email, String password) async {
-  final String apiUrl = 'https://i-park.onrender.com/api/user/login';
+class UserProvider with ChangeNotifier {
+  String? _token;
 
-  try {
-    final response = await http.post(
-      Uri.parse(apiUrl),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: jsonEncode({
-        'email': email,
-        'password': password,
-      }),
-    );
+  String? get token => _token;
 
-    if (response.statusCode == 200) {
+  Future<bool> login(String email, String password) async {
+    final String apiUrl = 'https://i-park.onrender.com/api/user/login';
 
-      final data = jsonDecode(response.body);
-      print('Login successful: ${data['token']}');
-      return true;
-    } else {
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+        }),
+      );
 
-      print('Login failed: ${response.body}');
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        _token = data['token'];
+        notifyListeners();
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      print('Error: $e');
       return false;
     }
-  } catch (e) {
-    print('Error: $e');
-    return false;
   }
 }
