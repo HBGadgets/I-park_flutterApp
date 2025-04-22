@@ -15,9 +15,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageScreen extends State<LoginPage> {
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +150,8 @@ class LoginPageScreen extends State<LoginPage> {
   }
 
   Widget emailTextField(IconData icon) {
-    return TextField(controller: emailController,
+    return TextField(
+      controller: emailController,
       decoration: InputDecoration(
         prefixIcon: Icon(icon, color: ConstantColors.iconColor),
         hintText: ConstantVariables.enterEmail,
@@ -164,7 +165,8 @@ class LoginPageScreen extends State<LoginPage> {
   }
 
   Widget passwordTextField() {
-    return TextField(controller: passwordController,
+    return TextField(
+      controller: passwordController,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock_outline, color: ConstantColors.iconColor),
         suffixIcon: Icon(
@@ -224,7 +226,10 @@ class LoginPageScreen extends State<LoginPage> {
           String email = emailController.text;
           String password = passwordController.text;
 
-          bool success = await Provider.of<UserProvider>(context, listen: false).login(email, password);
+          bool success = await Provider.of<UserProvider>(
+            context,
+            listen: false,
+          ).login(email, password);
           if (success) {
             Navigator.push(
               context,

@@ -88,6 +88,7 @@ class HomeScreen extends State<HomePage> {
     return Icon(
       Icons.notifications,
       color: ConstantColors.notificationIconColor,
+      size: 31,
     );
   }
 
@@ -102,7 +103,7 @@ class HomeScreen extends State<HomePage> {
         children: [
           HomeTab(),
           ChatTab(),
-         HistoryTabScreen().historyTabViewContent(),
+          HistoryTabScreen().historyTabViewContent(),
           ProfileTabScreen().profileTabViewContent(),
         ],
       ),
@@ -124,13 +125,14 @@ class HomeScreen extends State<HomePage> {
       unselectedLabelColor: ConstantColors.unSelectedLabelColor,
       onTap: onTabChanged,
       tabs: [
-       homeTab(),
+        homeTab(),
         chatTab(),
         HistoryTabScreen().historyTab(),
         ProfileTabScreen().profileTab(),
       ],
     );
   }
+
   Widget homeTab() {
     return Tab(
       child: Column(
@@ -154,16 +156,19 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
+
   Widget chatTab() {
     return Tab(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            "assets/images/Vector.png",color: Colors.white,height: 25,
+            "assets/images/Vector.png",
+            color: Colors.white,
+            height: 25,
             width: 25,
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 5),
           Text(
             ConstantVariables.tabBarChatText,
             style: TextStyle(
@@ -177,6 +182,7 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
+
   Widget drawer() {
     return Drawer(
       backgroundColor: Colors.white,

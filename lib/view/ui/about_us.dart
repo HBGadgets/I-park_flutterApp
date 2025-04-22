@@ -30,7 +30,7 @@ class AboutUsScreen extends StatelessWidget {
         backgroundColor: Colors.black,
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white),
+            icon: Icon(Icons.notifications, color: Colors.white, size: 31),
             onPressed: () {},
           ),
         ],

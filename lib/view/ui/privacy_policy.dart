@@ -28,7 +28,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white),
+            icon: Icon(Icons.notifications, color: Colors.white, size: 31),
             onPressed: () {},
           ),
         ],
@@ -110,7 +110,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                         buildNumberedItem(7, "Children's Privacy"),
                         buildNumberedItem(8, 'Third-Party Links and Services'),
                         buildNumberedItem(9, 'Changes to this Privacy Policy'),
-                        buildNumberedItem(10,'Contact Us'),
+                        buildNumberedItem(10, 'Contact Us'),
                       ],
                     ),
                   ),
@@ -192,7 +192,6 @@ class PrivacyPolicyScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: points.map((text) => bulletPoint(text)).toList(),
         ),
-
       ],
     );
   }
