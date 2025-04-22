@@ -270,8 +270,7 @@ class HomeScreen extends State<HomePage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => LoginPage()
-                ),
+                MaterialPageRoute(builder: (context) => LoginPage()),
               );
             },
           ),
