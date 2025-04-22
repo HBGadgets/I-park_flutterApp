@@ -72,7 +72,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
@@ -87,7 +87,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
@@ -102,7 +102,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
@@ -117,7 +117,7 @@ class HelpSupport extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
-                      color: Colors.black,
+                      color: Color(0xFF454B60),
                     ),
                   ),
                   Icon(Icons.keyboard_arrow_down_outlined, size: 30),
