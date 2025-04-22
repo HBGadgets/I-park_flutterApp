@@ -4,13 +4,13 @@ class AddCustomerScreen extends StatefulWidget {
   const AddCustomerScreen({super.key});
 
   @override
-  State<AddCustomerScreen> createState() => _AddCustomerScreenState();
+  State<AddCustomerScreen> createState() => AddCustomerScreenState();
 }
 
-class _AddCustomerScreenState extends State<AddCustomerScreen> {
+class AddCustomerScreenState extends State<AddCustomerScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),

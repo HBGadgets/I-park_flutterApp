@@ -159,13 +159,13 @@ class HomeScreen extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.home,
-            size: ConstantIntegers.tabBarIcon,
-            color: ConstantColors.tabBarIconsColor,
+          Image.asset(
+            "assets/images/Vector.png",color: Colors.white,height: 25,
+            width: 25,
           ),
+          SizedBox(height: 5,),
           Text(
-            ConstantVariables.tabBarHomeText,
+            ConstantVariables.tabBarChatText,
             style: TextStyle(
               fontFamily: ConstantVariables.fontFamilyPoppins,
               fontSize: ConstantIntegers.tabBarText,
