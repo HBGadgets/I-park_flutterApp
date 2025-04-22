@@ -109,7 +109,6 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
-
   Widget homeTab() {
     return Tab(
       child: Column(
@@ -143,7 +142,8 @@ class HomeScreen extends State<HomePage> {
             height: 25,
             width: 25,
           ),
-          const SizedBox(height: 5),
+
+          SizedBox(height: 5),
           Text(
             ConstantVariables.tabBarChatText,
             style: TextStyle(

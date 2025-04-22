@@ -25,7 +25,7 @@ class FeedbackPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white),
+            icon: Icon(Icons.notifications, color: Colors.white, size: 31),
             onPressed: () {},
           ),
         ],
@@ -54,7 +54,8 @@ class FeedbackPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Center(
-                  child: Text(textAlign: TextAlign.center,
+                  child: Text(
+                    textAlign: TextAlign.center,
                     'Your Feedback is valuable in helping us better understand your needs and tailor our service accordingly.',
                     style: TextStyle(
                       fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
@@ -123,7 +124,8 @@ class FeedbackPage extends StatelessWidget {
                       child: Text(
                         'Submit',
                         style: TextStyle(
-                          fontFamily: ConstantVariables.fontFamilyPoppinsBlack,fontWeight: FontWeight.bold,
+                          fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+                          fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
