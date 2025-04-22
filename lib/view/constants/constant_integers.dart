@@ -26,7 +26,7 @@ class ConstantIntegers {
   static const double buttonRadius = 30.0;
   static const double buttonLoginFont = 17.0;
   static const int selectedTab = 0;
-  static const int tabBarLength = 3;
+  static const int tabBarLength = 4;
   static const double selectedTabText = 24.0;
   static const double menuText = 24.0;
   static const double tabBarContainerHeight = 70.0;
@@ -45,7 +45,12 @@ class ConstantIntegers {
   static const double qrImageWidth = 259.0;
   static const double scanQRFontSize = 24.0;
   static const double recentSpace = 30.0;
+  static const double recentMessagesSpace = 10.0;
   static const double chatPaddingLeft = 20.0;
+  static const double chatChatPadding = 20.0;
+  static const double recentChatMessagesPadding = 15.0;
+
+
   static const double chatPaddingRight = 20.0;
   static const double listViewPadding = 10.0;
   static const double chatIconPadding = 10.0;
