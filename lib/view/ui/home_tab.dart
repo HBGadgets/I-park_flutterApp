@@ -15,7 +15,7 @@ class HomeTab extends StatefulWidget {
 class HomeTabScreen extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomInset: false,
       body: 
       Column(children: [qrContent(), recentChatsHeader(), chatsList()]),
       backgroundColor: ConstantColors.defaultDashBoardColour,

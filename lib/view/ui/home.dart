@@ -44,7 +44,7 @@ class HomeScreen extends State<HomePage> {
     return DefaultTabController(
       length: ConstantIntegers.tabBarLength,
       initialIndex: selectedTabIndex,
-      child: Scaffold(
+      child: Scaffold(resizeToAvoidBottomInset: true,
         backgroundColor: ConstantColors.defaultDashBoardColour,
         appBar: AppBar(
           backgroundColor: ConstantColors.appTabBarBackgroundColor,
@@ -68,43 +68,45 @@ class HomeScreen extends State<HomePage> {
           ),
           centerTitle: true,
           actions: [
-            Icon(
-              Icons.notifications,
-              color: ConstantColors.notificationIconColor,
-            )
+            Icon(Icons.notifications, color: ConstantColors.notificationIconColor),
           ],
         ),
         drawer: buildDrawer(),
-        body: Column(
-          children: [
-            Expanded(
-              child: TabBarView(
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  HomeTab(),
-                  ChatTab(),
-                  HistoryTab(),
-                  ProfileTab()
-                ],
+        body: Scrollbar(
+          thumbVisibility: true,
+          thickness: 6.0,
+          radius: Radius.circular(10),
+          child: Column(
+            children: [
+              Expanded(
+                child: TabBarView(
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    HomeTab(),
+                    ChatTab(),
+                    HistoryTab(),
+                    ProfileTab(),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              height: ConstantIntegers.tabBarContainerHeight,
-              color: Colors.black,
-              child: TabBar(
-                onTap: onTabChanged,
-                indicatorColor: ConstantColors.tabBarIndicatorColor,
-                labelColor: ConstantColors.tabBarLabelColor,
-                unselectedLabelColor: ConstantColors.unSelectedLabelColor,
-                tabs: [
-                  homeTab(),
-                  chatTab(),
-                  historyTab(),
-                  profileTab(),
-                ],
+              Container(
+                height: ConstantIntegers.tabBarContainerHeight,
+                color: Colors.black,
+                child: TabBar(
+                  onTap: onTabChanged,
+                  indicatorColor: ConstantColors.tabBarIndicatorColor,
+                  labelColor: ConstantColors.tabBarLabelColor,
+                  unselectedLabelColor: ConstantColors.unSelectedLabelColor,
+                  tabs: [
+                    homeTab(),
+                    chatTab(),
+                    historyTab(),
+                    profileTab(),
+                  ],
+                ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -115,9 +117,7 @@ class HomeScreen extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.home,
-              size: ConstantIntegers.tabBarIcon,
-              color: ConstantColors.tabBarIconsColor),
+          Icon(Icons.home, size: ConstantIntegers.tabBarIcon, color: ConstantColors.tabBarIconsColor),
           Text(
             ConstantVariables.tabBarHomeText,
             style: TextStyle(
@@ -137,12 +137,7 @@ class HomeScreen extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            "assets/images/Vector.png",
-            color: Colors.white,
-            height: 25,
-            width: 25,
-          ),
+          Image.asset("assets/images/Vector.png", color: Colors.white, height: 25, width: 25),
           const SizedBox(height: 5),
           Text(
             ConstantVariables.tabBarChatText,
@@ -163,9 +158,7 @@ class HomeScreen extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.history,
-              size: ConstantIntegers.tabBarIcon,
-              color: ConstantColors.tabBarIconsColor),
+          Icon(Icons.history, size: ConstantIntegers.tabBarIcon, color: ConstantColors.tabBarIconsColor),
           Text(
             ConstantVariables.tabBarHistoryText,
             style: TextStyle(
@@ -185,9 +178,7 @@ class HomeScreen extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.person,
-              size: ConstantIntegers.tabBarIcon,
-              color: ConstantColors.tabBarIconsColor),
+          Icon(Icons.person, size: ConstantIntegers.tabBarIcon, color: ConstantColors.tabBarIconsColor),
           Text(
             ConstantVariables.tabBarProfileText,
             style: TextStyle(
@@ -209,9 +200,7 @@ class HomeScreen extends State<HomePage> {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(
-              color: ConstantColors.drawerHeaderBackgroundColor,
-            ),
+            decoration: BoxDecoration(color: ConstantColors.drawerHeaderBackgroundColor),
             child: Image.asset(
               ConstantImages.assetImages + ConstantImages.iParkLogo,
               height: ConstantIntegers.irixHeight,
@@ -219,65 +208,19 @@ class HomeScreen extends State<HomePage> {
               color: ConstantColors.loginLogoColor,
             ),
           ),
-          createDrawerItem(
-            icon: Icons.insert_drive_file_outlined,
-            text: ConstantVariables.menuAboutUsListText,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AboutUsScreen()),
-              );
-            },
-          ),
-          createDrawerItem(
-            icon: Icons.star_border,
-            text: ConstantVariables.menuRatingListText,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FeedbackPage()),
-              );
-            },
-          ),
-          createDrawerItem(
-            icon: Icons.support_agent_outlined,
-            text: ConstantVariables.menuHelpSupportListText,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HelpSupport()),
-              );
-            },
-          ),
-          createDrawerItem(
-            icon: Icons.privacy_tip_outlined,
-            text: ConstantVariables.menuPrivacyListText,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()),
-              );
-            },
-          ),
-          createDrawerItem(
-            icon: Icons.settings_outlined,
-            text: ConstantVariables.menuSettingsListText,
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
+          createDrawerItem(icon: Icons.insert_drive_file_outlined, text: ConstantVariables.menuAboutUsListText, onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUsScreen()))),
+          createDrawerItem(icon: Icons.star_border, text: ConstantVariables.menuRatingListText, onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => FeedbackPage()))),
+          createDrawerItem(icon: Icons.support_agent_outlined, text: ConstantVariables.menuHelpSupportListText, onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HelpSupport()))),
+          createDrawerItem(icon: Icons.privacy_tip_outlined, text: ConstantVariables.menuPrivacyListText, onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()))),
+          createDrawerItem(icon: Icons.settings_outlined, text: ConstantVariables.menuSettingsListText, onTap: () => Navigator.pop(context)),
           createDrawerItem(
             icon: Icons.logout,
             text: ConstantVariables.menuLogoutListText,
             onTap: () async {
               final prefs = await SharedPreferences.getInstance();
               if (prefs.containsKey('token')) {
-                await Provider.of<UserProvider>(context, listen: false)
-                    .logout();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
+                await Provider.of<UserProvider>(context, listen: false).logout();
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
               }
             },
           ),
@@ -286,20 +229,12 @@ class HomeScreen extends State<HomePage> {
     );
   }
 
-  Widget createDrawerItem({
-    required IconData icon,
-    required String text,
-    required GestureTapCallback onTap,
-  }) {
+  Widget createDrawerItem({required IconData icon, required String text, required GestureTapCallback onTap}) {
     return ListTile(
       leading: Icon(icon, color: ConstantColors.drawerMenuListIconColor),
       title: Text(
         text,
-        style: TextStyle(
-          color: ConstantColors.drawerMenuListTextColor,
-          fontWeight: FontWeight.bold,
-          fontFamily: ConstantVariables.fontFamilyPoppins,
-        ),
+        style: TextStyle(color: ConstantColors.drawerMenuListTextColor, fontWeight: FontWeight.bold, fontFamily: ConstantVariables.fontFamilyPoppins),
       ),
       onTap: onTap,
     );
