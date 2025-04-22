@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_variables.dart';
 import 'package:hb/view/ui/splashscreen.dart';
+import 'package:provider/provider.dart';
+
+import 'controller/user_login_api.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
