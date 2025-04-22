@@ -138,7 +138,7 @@ class FeedbackPage extends StatelessWidget {
   }
 }
 
-class FeedbackOption extends StatelessWidget {
+class FeedbackOption extends StatefulWidget {
   final String imagePath;
   final String label;
 
@@ -149,20 +149,54 @@ class FeedbackOption extends StatelessWidget {
   });
 
   @override
+  FeedbackOptionState createState() => FeedbackOptionState();
+}
+
+class FeedbackOptionState extends State<FeedbackOption> {
+  double scale = 1.0;
+
+  void onTapDown(TapDownDetails details) {
+    setState(() {
+      scale = 1.2;
+    });
+  }
+
+  void onTapUp(TapUpDetails details) {
+    setState(() {
+      scale = 1.0;
+    });
+  }
+
+  void onTapCancel() {
+    setState(() {
+      scale = 1.0;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(imagePath, height: 79, width: 79),
-        SizedBox(height: 30),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 16,
-            fontFamily: ConstantVariables.fontFamilyPoppins,
-            fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTapDown: onTapDown,
+      onTapUp: onTapUp,
+      onTapCancel: onTapCancel,
+      child: Column(
+        children: [
+          AnimatedScale(
+            scale: scale,
+            duration: Duration(milliseconds: 200),
+            child: Image.asset(widget.imagePath, height: 79, width: 79),
           ),
-        ),
-      ],
+          SizedBox(height: 30),
+          Text(
+            widget.label,
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

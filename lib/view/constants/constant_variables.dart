@@ -4,8 +4,8 @@ class ConstantVariables {
   static const String noAccount = "If you don't have an account register";
   static const String getStartedText = "Get Started";
   static const String forward = ">>>>";
-
   static const String fontFamilyPoppins = "Poppins";
+  static const String fontFamilyPoppinsBlack = "PoppinsBlack";
   static const String youCan = "You can";
   static const String registerHere = "Register here !";
   static const String email = "Email";
