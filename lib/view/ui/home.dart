@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_colors.dart';
 import 'package:hb/view/ui/about_us.dart';
 import 'package:hb/view/ui/feedback.dart';
+import 'package:hb/view/ui/login.dart';
 import 'package:hb/view/ui/privacy_policy.dart';
 import 'package:intl/intl.dart';
 import '../constants/constant_images.dart';
@@ -269,7 +270,8 @@ class HomeScreen extends State<HomePage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HelpSupport()),
+                MaterialPageRoute(builder: (context) => LoginPage()
+                ),
               );
             },
           ),
