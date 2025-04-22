@@ -49,3 +49,6 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/poppins.ttf
+    - family: Poppins-Black
+      fonts:
+        - asset: assets/fonts/Poppins-Black.ttf
