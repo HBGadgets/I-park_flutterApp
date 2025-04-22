@@ -28,7 +28,7 @@ class HelpSupport extends StatelessWidget {
         backgroundColor: Colors.black,
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white),
+            icon: Icon(Icons.notifications, color: Colors.white, size: 31),
             onPressed: () {},
           ),
         ],
@@ -155,9 +155,9 @@ class HelpSupport extends StatelessWidget {
                           "Call Support Team",
                           style: TextStyle(
                             fontSize: 16,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold,
-                            color: Color(0xFF454B60)
-                            ,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF454B60),
                           ),
                         ),
                       ],
@@ -188,7 +188,8 @@ class HelpSupport extends StatelessWidget {
                           "Chat with us",
                           style: TextStyle(
                             fontSize: 16,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            fontWeight: FontWeight.bold,
                             color: Color(0xFF454B60),
                           ),
                         ),
@@ -220,7 +221,8 @@ class HelpSupport extends StatelessWidget {
                           "Raise the ticket ",
                           style: TextStyle(
                             fontSize: 16,
-                            fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold,
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            fontWeight: FontWeight.bold,
                             color: Color(0xFF454B60),
                           ),
                         ),
@@ -231,7 +233,7 @@ class HelpSupport extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 60),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

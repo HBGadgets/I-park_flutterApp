@@ -111,7 +111,6 @@ class HomeScreen extends State<HomePage> {
       ),
     );
   }
-
   Widget homeTab() {
     return Tab(
       child: Column(
@@ -137,7 +136,12 @@ class HomeScreen extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("assets/images/Vector.png", color: Colors.white, height: 25, width: 25),
+          Image.asset(
+            "assets/images/Vector.png",
+            color: Colors.white,
+            height: 25,
+            width: 25,
+          ),
           const SizedBox(height: 5),
           Text(
             ConstantVariables.tabBarChatText,
