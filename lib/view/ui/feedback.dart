@@ -7,6 +7,7 @@ class FeedbackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -46,17 +47,17 @@ class FeedbackPage extends StatelessWidget {
                     'How was your experience?',
                     style: TextStyle(
                       fontSize: 24,
-                      fontWeight: FontWeight.w800,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
                 Center(
-                  child: Text(
+                  child: Text(textAlign: TextAlign.center,
                     'Your Feedback is valuable in helping us better understand your needs and tailor our service accordingly.',
                     style: TextStyle(
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
                       fontSize: 12,
                       color: Colors.grey,
                       fontWeight: FontWeight.bold,
@@ -122,7 +123,7 @@ class FeedbackPage extends StatelessWidget {
                       child: Text(
                         'Submit',
                         style: TextStyle(
-                          fontFamily: ConstantVariables.fontFamilyPoppins,
+                          fontFamily: ConstantVariables.fontFamilyPoppinsBlack,fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
