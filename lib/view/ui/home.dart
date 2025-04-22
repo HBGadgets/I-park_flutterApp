@@ -44,7 +44,7 @@ class HomeScreen extends State<HomePage> {
     return DefaultTabController(
       length: ConstantIntegers.tabBarLength,
       initialIndex: selectedTabIndex,
-      child: Scaffold(resizeToAvoidBottomInset: true,
+      child: Scaffold(
         backgroundColor: ConstantColors.defaultDashBoardColour,
         appBar: AppBar(
           backgroundColor: ConstantColors.appTabBarBackgroundColor,
