@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:hb/view/constants/constant_variables.dart';
 import '../constants/constant_colors.dart';
+import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
 
 class ChatContent extends StatefulWidget {
@@ -19,28 +20,44 @@ class ChatContentScreen extends State<ChatContent> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        leading: appBarLeading(),
+        title: Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              Icons.directions_car_outlined,
-              color: ConstantColors.homeScreenCarIconColor,
+              Icons.directions_car_outlined
             ),
-            SizedBox(width: ConstantIntegers.chatIconPadding),
-            Text(widget.carNumber),
-            SizedBox(width: ConstantIntegers.chatIconPadding),
-            SizedBox(width: ConstantIntegers.chatIconPadding),
+            SizedBox(width: 10),
+            Text(
+              widget.carNumber,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+                color: Colors.black,
+              ),
+            ),
           ],
         ),
-        centerTitle: true,
-        actions: [Icon(Icons.notifications, color: Colors.black, size: 31)],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications, color: Colors.black),
+            onPressed: () {},
+          ),
+        ],
       ),
+    );
+  }
+
+  Widget appBarLeading() {
+    return Builder(
+      builder: (BuildContext context) {
+        return IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        );
+      },
     );
   }
 }

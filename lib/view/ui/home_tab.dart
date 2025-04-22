@@ -16,13 +16,15 @@ class HomeTabScreen extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [qrContent(), recentChatsHeader(), chatsList()]),
+      body: 
+      Column(children: [qrContent(), recentChatsHeader(), chatsList()]),
       backgroundColor: ConstantColors.defaultDashBoardColour,
     );
   }
 
   Widget qrContent() {
-    return Center(
+    return 
+      Center(
       child: Padding(
         padding: const EdgeInsets.all(ConstantIntegers.qrContainerPadding),
         child: Container(

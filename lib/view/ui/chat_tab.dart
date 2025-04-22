@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../constants/constant_colors.dart';
 import '../constants/constant_integers.dart';
@@ -64,13 +65,14 @@ class ChatTabScreen extends State<ChatTab> {
   Widget _buildChatColumn() {
     return GestureDetector(
       onTap: () {
-        print("Chat column tapped!");
+          print("Chat column tapped!");
         if (mounted) {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder:
-                  (context) => ChatContent(carNumber: ConstantVariables.carNo),
+              builder: (context) => ChatContent(
+                carNumber: ConstantVariables.carNo,
+              ),
             ),
           );
         }

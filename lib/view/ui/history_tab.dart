@@ -74,14 +74,14 @@ class HistoryTabScreen extends State<HistoryTab> {
         dateTimeTextField(
           ConstantVariables.dateHintText,
           Icons.calendar_month,
-          () => _selectDate(context),
+          () => selectDate(context),
           dateController,
         ),
         const SizedBox(width: ConstantIntegers.dateMarginBoxMiddle),
         dateTimeTextField(
           ConstantVariables.labelSelectTimeText,
           Icons.timer_outlined,
-          () => _selectTime(context),
+          () => selectTime(context),
           timeController,
         ),
         const SizedBox(width: ConstantIntegers.dateMarginBoxRight),
@@ -119,7 +119,7 @@ class HistoryTabScreen extends State<HistoryTab> {
     );
   }
 
-  void _selectDate(BuildContext context) async {
+  void selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate ?? DateTime.now(),
@@ -134,7 +134,7 @@ class HistoryTabScreen extends State<HistoryTab> {
     }
   }
 
-  void _selectTime(BuildContext context) async {
+  void selectTime(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: selectedTime ?? TimeOfDay.now(),
