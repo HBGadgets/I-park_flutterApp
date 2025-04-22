@@ -9,7 +9,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -29,14 +29,16 @@ class PrivacyPolicyScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.notifications, color: Colors.white),
             onPressed: () {
-              // Add notification functionality if required
             },
           ),
         ],
         backgroundColor: Colors.black,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(margin: EdgeInsets.all(30),
+        decoration: BoxDecoration(
+          color: Colors.white,
+
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -51,7 +53,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                       Text(
                         'Privacy Policy',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                           fontFamily: ConstantVariables.fontFamilyPoppins,
                         ),
@@ -68,7 +70,6 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Image Section
                 SizedBox(width: 10),
                 Image.asset(
                   ConstantImages.assetImages + ConstantImages.iParkLogo,
@@ -81,6 +82,15 @@ class PrivacyPolicyScreen extends StatelessWidget {
             Divider(
               color: Colors.grey,
               thickness: 1.0,
+            ),
+            SizedBox(height: 5),
+            Text(
+              'Table of contents ',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.black,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
             ),
           ],
         ),
