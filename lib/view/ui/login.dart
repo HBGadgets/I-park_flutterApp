@@ -220,13 +220,17 @@ class LoginPageScreen extends State<LoginPage> {
       height: ConstantIntegers.buttonHeight,
       child: ElevatedButton(
         onPressed: () async {
-          bool success = await login(emailController.text, passwordController.text);
+          String email = emailController.text;
+          String password = passwordController.text;
+
+          bool success = await login(email, password);
           if (success) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
           } else {
+            // Show an error message to the user
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Login failed. Please try again.')),
             );
@@ -250,4 +254,5 @@ class LoginPageScreen extends State<LoginPage> {
       ),
     );
   }
+
 }
