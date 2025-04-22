@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../controller/user_login_api.dart';
 import '../constants/constant_colors.dart';
 import '../constants/constant_images.dart';
@@ -223,14 +224,13 @@ class LoginPageScreen extends State<LoginPage> {
           String email = emailController.text;
           String password = passwordController.text;
 
-          bool success = await login(email, password);
+          bool success = await Provider.of<UserProvider>(context, listen: false).login(email, password);
           if (success) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
           } else {
-            // Show an error message to the user
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Login failed. Please try again.')),
             );
@@ -254,5 +254,4 @@ class LoginPageScreen extends State<LoginPage> {
       ),
     );
   }
-
 }
