@@ -177,6 +177,14 @@ class ConstantIntegers {
 
 
 }
+  static const double aboutUsPagePadding = 16.0;
+  static const double detailAboutUsTextSize = 12.0;
+  static const double aboutUsSizedBox = 20.0;
+  static const double aboutUsDetailSizedBox = 10.0;
+  static const double bulletCircle = 8.0;
+  static const double bulletSpaceCircle = 8.0;
+  static const double socialImageHeight = 40.0;
+  static const double socialImageWidth = 40.0;
 
 
 
@@ -185,10 +193,4 @@ class ConstantIntegers {
 
 
 
-
-
-
-
-
-
-
+}

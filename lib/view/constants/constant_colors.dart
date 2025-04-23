@@ -69,19 +69,6 @@ class ConstantColors {
   static const Color scaFoldError = Colors.red;
   static const Color scaFoldErrorText = Colors.white;
   static const Color loginButtonText = Colors.white;
-
-
-
-
-
-
-
-
-
-
-
-
-
   static const Color addPageScaffoldColor = Colors.white;
   static const Color arrowBackColor = Colors.white;
   static const Color detailsTextColor = Colors.black;
@@ -94,5 +81,10 @@ class ConstantColors {
   static const Color vehicleNumberColor = Colors.black;
   static const Color addButtonTTextColor = Colors.white;
   static const Color totalCountColorText = Colors.grey;
+  static const Color aboutUsDetails = Color(0xFF454B60);
+  static const Color aboutUsIconColor = Colors.black;
+
+
+
 
 }

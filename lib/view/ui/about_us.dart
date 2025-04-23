@@ -10,35 +10,39 @@ class AboutUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ConstantColors.defaultDashBoardColour,
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: ConstantColors.arrowBackColor,
+          ),
+          onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          'About Us',
+          ConstantVariables.aboutUsText,
           style: TextStyle(
-            color: Colors.white,
+            color: ConstantColors.appBarTitlesColor,
             fontFamily: ConstantVariables.fontFamilyPoppins,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: ConstantColors.appTabBarBackgroundColor,
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white, size: 31),
+            icon: Icon(
+              Icons.notifications,
+              color: ConstantColors.notificationIconColor,
+              size: ConstantIntegers.notificationSize,
+            ),
             onPressed: () {},
           ),
         ],
       ),
-
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(ConstantIntegers.aboutUsPagePadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,163 +54,105 @@ class AboutUsScreen extends StatelessWidget {
                   color: ConstantColors.loginLogoColor,
                 ),
               ),
-
-              Text(
-                "Welcome to iPark, the app that transforms the way hotels and guests manage parking. We connect you with valet services at your favorite hotels, making parking and retrieving your vehicle faster, easier, and more convenient than ever before. Whether you're a hotel looking to enhance your guest experience or a traveler who needs quick, seamless parking, iPark is here to help.",
-                style: TextStyle(
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
-                textAlign: TextAlign.justify,
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Our Mission',
-                style: TextStyle(
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'At iPark, our mission is to redefine the parking experience. We aim to simplify and streamline parking for both hotels and guests by leveraging technology to connect them in real-time. We believe that parking should never be a hassle, and through our app, we offer a seamless, efficient, and stress-free solution. Our goal is to ensure every guest enjoys a worry-free stay with the convenience of instant valet service at their fingertips.',
-                style: TextStyle(
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
-                ),
-                textAlign: TextAlign.justify,
-              ),
-              SizedBox(height: 20),
-
-              Text(
-                'Who we are:',
-                style: TextStyle(
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'We are a team of innovators passionate about using technology to enhance everyday experiences. Our diverse team comes from backgrounds in hospitality, tech, and customer service, united by a shared vision to solve parking challenges for both businesses and travelers. We work hand-in-hand with hotels to provide top-notch valet services and offer guests an easy, efficient way to schedule parking and retrieve their vehicles—all through a simple, user-friendly app.',
-                style: TextStyle(
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
-                ),
-                textAlign: TextAlign.justify,
-              ),
-              SizedBox(height: 20),
-
-              Text(
-                'Contact Us:',
-                style: TextStyle(
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              Text(
-                'Have questions or need assistance? We’re here to help!.',
-                style: TextStyle(
-                  fontFamily: ConstantVariables.fontFamilyPoppins,
-                  fontSize: 12,
-                ),
-                textAlign: TextAlign.justify,
-              ),
-              SizedBox(height: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.circle, size: 8, color: Colors.black),
-                      SizedBox(width: 8),
-                      Text(
-                        'Email: support@ipark.com',
-                        style: TextStyle(
-                          fontFamily: ConstantVariables.fontFamilyPoppins,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Icon(Icons.circle, size: 8, color: Colors.black),
-                      SizedBox(width: 8),
-                      Text(
-                        'Phone: (555) 123-4567',
-                        style: TextStyle(
-                          fontFamily: ConstantVariables.fontFamilyPoppins,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Icon(Icons.circle, size: 8, color: Colors.black),
-                      SizedBox(width: 8),
-                      Text(
-                        'Website: www.ipark.com',
-                        style: TextStyle(
-                          fontFamily: ConstantVariables.fontFamilyPoppins,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Icon(Icons.circle, size: 8, color: Colors.black),
-                      SizedBox(width: 8),
-                      Text(
-                        'Social Media: @iParkApp',
-                        style: TextStyle(
-                          fontFamily: ConstantVariables.fontFamilyPoppins,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/images/Instagram.png',
-                    height: 40,
-                    width: 40,
-                  ),
-                  SizedBox(width: 10),
-                  Image.asset(
-                    'assets/images/Facebook.png',
-                    height: 40,
-                    width: 40,
-                  ),
-                  SizedBox(width: 10),
-                  Image.asset('assets/images/X.png', height: 40, width: 40),
-                  SizedBox(width: 10),
-                  Image.asset(
-                    'assets/images/Vector.png',
-                    height: 40,
-                    width: 40,
-                  ),
-                ],
-              ),
+              text(ConstantVariables.welcomeDetails, FontWeight.w400),
+              SizedBox(height: ConstantIntegers.aboutUsSizedBox),
+              text(ConstantVariables.ourMission, FontWeight.bold),
+              SizedBox(height: ConstantIntegers.aboutUsDetailSizedBox),
+              text(ConstantVariables.ourMissionDetails),
+              SizedBox(height: ConstantIntegers.aboutUsSizedBox),
+              text(ConstantVariables.whoWeAre, FontWeight.bold),
+              SizedBox(height: ConstantIntegers.aboutUsDetailSizedBox),
+              text(ConstantVariables.whoWeAreDetails),
+              SizedBox(height: ConstantIntegers.aboutUsSizedBox),
+              text(ConstantVariables.contactUs, FontWeight.bold),
+              text(ConstantVariables.question),
+              SizedBox(height: ConstantIntegers.aboutUsDetailSizedBox),
+              contactInfo(),
+              SizedBox(height: ConstantIntegers.aboutUsSizedBox),
+              socialMediaIcons(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget text(String text, [FontWeight fontWeight = FontWeight.normal]) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontFamily: ConstantVariables.fontFamilyPoppins,
+        fontSize: ConstantIntegers.detailAboutUsTextSize,
+        fontWeight: fontWeight,
+        color: ConstantColors.aboutUsDetails,
+      ),
+      textAlign: TextAlign.justify,
+    );
+  }
+
+  Widget contactInfo() {
+    final contactDetails = [
+      ConstantVariables.emailDetail,
+      ConstantVariables.phoneDetail,
+      ConstantVariables.websiteDetail,
+      ConstantVariables.socialDetail,
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children:
+          contactDetails.map((detail) {
+            return Padding(
+              padding: const EdgeInsets.only(
+                bottom: ConstantIntegers.aboutUsDetailSizedBox,
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.circle,
+                    size: ConstantIntegers.bulletCircle,
+                    color: Colors.black,
+                  ),
+                  SizedBox(width: ConstantIntegers.bulletSpaceCircle),
+                  Text(
+                    detail,
+                    style: TextStyle(
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                      fontSize: ConstantIntegers.detailAboutUsTextSize,
+                      color: ConstantColors.aboutUsDetails,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+    );
+  }
+
+  Widget socialMediaIcons() {
+    final socialMediaIcons = [
+      ConstantImages.instagram,
+      ConstantImages.facebook,
+      ConstantImages.twitter,
+      ConstantImages.whatsapp,
+    ];
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children:
+          socialMediaIcons.map((icon) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: ConstantIntegers.aboutUsDetailSizedBox,
+              ),
+              child: Image.asset(
+                ConstantImages.assetImages + icon,
+                height: ConstantIntegers.socialImageHeight,
+                width: ConstantIntegers.socialImageWidth,
+                color: ConstantColors.aboutUsIconColor,
+              ),
+            );
+          }).toList(),
     );
   }
 }
