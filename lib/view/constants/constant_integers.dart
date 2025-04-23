@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class ConstantIntegers {
   static const double loginMarginLeft = 35.0;
   static const double loginMarginRight = 35.0;
@@ -101,7 +99,7 @@ class ConstantIntegers {
   static const double containerInitialPosition = 0.0;
   static const int sliderAnimationSecond = 1;
   static const double animationBegin = 0.0;
-  static const double animationEnd = 1.0;
+  static const double animationEnd = 20.0;
   static const double slidingContainerHeight = 80.0;
   static const double slidingContainerWidth = 290.0;
   static const double slidingContainerRadius = 40.0;
@@ -165,18 +163,15 @@ class ConstantIntegers {
   static const double vehicleNoTextFontSize = 16.0;
   static const double vehicleNoTextBelowSizedBoxWidth = 10.0;
   static const double vehicleNoHintTextFontSize = 16.0;
-  static const double vehicleNoHintTextBelowSizedBoxHeight= 16.0;
-  static const double addButtonAboveHeight= 28.0;
-  static const double addButtonAboveWidth= 107.0;
-  static const double addButtonEdgeCircular= 5.0;
+  static const double vehicleNoHintTextBelowSizedBoxHeight = 16.0;
+  static const double addButtonAboveHeight = 28.0;
+  static const double addButtonAboveWidth = 107.0;
+  static const double addButtonEdgeCircular = 5.0;
   static const double addButtonTextFontSize = 16.0;
   static const double totalCountTextFontSize = 16.0;
   static const double totalCountTextBelowSizedBoxHeight = 20.0;
   static const double vehicleNoHintTextAboveSizedBoxHeight = 20.0;
   static const double customerIDTextAboveSizedBoxHeight = 16.0;
-
-
-}
   static const double aboutUsPagePadding = 16.0;
   static const double detailAboutUsTextSize = 12.0;
   static const double aboutUsSizedBox = 20.0;
@@ -185,6 +180,42 @@ class ConstantIntegers {
   static const double bulletSpaceCircle = 8.0;
   static const double socialImageHeight = 40.0;
   static const double socialImageWidth = 40.0;
+  static const double mainContainerMargin = 30.0;
+  static const double headlineSearchSizedBox = 10.0;
+  static const double searchQuestionSizedBox = 25.0;
+  static const double questionHelpSizedBox = 20.0;
+  static const double helpSupportSpace = 15.0;
+  static const double imageSpacer = 60.0;
+  static const double headlineFontSize = 16.0;
+  static const double searchTextFieldHeight = 44.0;
+  static const double searchTextFieldWidth = 357.0;
+  static const double searchTextFieldRadius = 12.0;
+  static const double supportContainerPadding = 5.0;
+  static const double supportTextFont = 16.0;
+  static const double downArrow = 30.0;
+  static const double needMoreHelpFont = 16.0;
+  static const double helpContainerHeight = 44.0;
+  static const double helpContainerWidth = 351.0;
+  static const double helpContainerPadding = 10.0;
+  static const double helpContainerRadius = 8.0;
+  static const double helpContainerBorder = 1.0;
+  static const double helpContainerSizedBox = 8.0;
+  static const double helpContainerText = 16.0;
+  static const double helpSupportImageHeight = 145.0;
+  static const double helpSupportImageWidth = 145.0;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
