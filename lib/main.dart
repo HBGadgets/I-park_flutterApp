@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_variables.dart';
+import 'package:hb/view/ui/home.dart';
 import 'package:hb/view/ui/splashscreen.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: ConstantVariables.title,
-      home: SplashPage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
