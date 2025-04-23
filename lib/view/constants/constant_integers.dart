@@ -129,6 +129,15 @@ class ConstantIntegers  {
   static const double privacyScreenLogoWidth = 145.0;
   static const double notificationSize = 31.0;
   static const double menuSize = 31.0;
+  static const double scrollThickness = 6.0;
+  static const double scrollRadius = 10.0;
+  static const double whatsappImageHeight = 25.0;
+  static const double whatsappImageWidth = 25.0;
+  static const double whatsappImageTabSpace = 5.0;
+
+
+
+
 
 
 }
