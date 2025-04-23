@@ -18,6 +18,9 @@ class LoginPageScreen extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  // Create a GlobalKey for the Form
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,23 +45,26 @@ class LoginPageScreen extends State<LoginPage> {
   }
 
   Widget columnContent() {
-    return Column(
-      children: [
-        SizedBox(height: ConstantIntegers.loginUpperSpaceHeight),
-        stackLogoText(),
-        SizedBox(height: ConstantIntegers.noAccountSpace),
-        noAccountRow(),
-        registerRow(),
-        SizedBox(height: ConstantIntegers.spaceEmail),
-        labelText(ConstantVariables.email),
-        emailTextField(Icons.mail_outline_outlined),
-        SizedBox(height: ConstantIntegers.passwordSpace),
-        labelText(ConstantVariables.password),
-        passwordTextField(),
-        rememberMeContent(),
-        SizedBox(height: ConstantIntegers.buttonSpace),
-        loginButton(),
-      ],
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          SizedBox(height: ConstantIntegers.loginUpperSpaceHeight),
+          stackLogoText(),
+          SizedBox(height: ConstantIntegers.noAccountSpace),
+          noAccountRow(),
+          registerRow(),
+          SizedBox(height: ConstantIntegers.spaceEmail),
+          labelText(ConstantVariables.email),
+          emailTextField(Icons.mail_outline_outlined),
+          SizedBox(height: ConstantIntegers.passwordSpace),
+          labelText(ConstantVariables.password),
+          passwordTextField(),
+          rememberMeContent(),
+          SizedBox(height: ConstantIntegers.buttonSpace),
+          loginButton(),
+        ],
+      ),
     );
   }
 
@@ -151,7 +157,7 @@ class LoginPageScreen extends State<LoginPage> {
   }
 
   Widget emailTextField(IconData icon) {
-    return TextField(
+    return TextFormField(
       controller: emailController,
       decoration: InputDecoration(
         prefixIcon: Icon(icon, color: ConstantColors.iconColor),
@@ -166,11 +172,17 @@ class LoginPageScreen extends State<LoginPage> {
         fontSize: ConstantIntegers.textFieldFontSize,
         fontFamily: ConstantVariables.fontFamilyPoppins,
       ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your email';
+        }
+        return null;
+      },
     );
   }
 
   Widget passwordTextField() {
-    return TextField(
+    return TextFormField(
       controller: passwordController,
       decoration: InputDecoration(
         prefixIcon: Icon(Icons.lock_outline, color: ConstantColors.iconColor),
@@ -189,6 +201,12 @@ class LoginPageScreen extends State<LoginPage> {
         fontFamily: ConstantVariables.fontFamilyPoppins,
         fontSize: ConstantIntegers.textFieldFontSize,
       ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your password';
+        }
+        return null;
+      },
     );
   }
 
@@ -232,31 +250,33 @@ class LoginPageScreen extends State<LoginPage> {
       height: ConstantIntegers.buttonHeight,
       child: ElevatedButton(
         onPressed: () async {
-          String email = emailController.text;
-          String password = passwordController.text;
+          if (formKey.currentState!.validate()) {
+            String email = emailController.text;
+            String password = passwordController.text;
 
-          bool success = await Provider.of<UserProvider>(
-            context,
-            listen: false,
-          ).login(email, password);
-          if (success) {
-            Navigator.push(
+            bool success = await Provider.of<UserProvider>(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          } else {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: Colors.red,
-                content: Text(
-                  'Login failed. Please try again.',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: ConstantVariables.fontFamilyPoppins,
+              listen: false,
+            ).login(email, password);
+            if (success) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: Colors.red,
+                  content: Text(
+                    'Login failed. Please try again.',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                    ),
                   ),
                 ),
-              ),
-            );
+              );
+            }
           }
         },
         style: ElevatedButton.styleFrom(
