@@ -148,6 +148,7 @@ class HomeTabScreen extends State<HomeTab> {
                 Icon(
                   Icons.directions_car_outlined,
                   color: ConstantColors.homeScreenCarIconColor,
+                  size: ConstantIntegers.chatCarSize,
                 ),
                 SizedBox(width: ConstantIntegers.chatIconPadding),
                 Text(
@@ -182,7 +183,7 @@ class HomeTabScreen extends State<HomeTab> {
           icon: Icon(
             Icons.add_circle,
             size: ConstantIntegers.addCircleIconSize,
-            color: Colors.black,
+            color: ConstantColors.addCircle,
           ),
         ),
       ],
