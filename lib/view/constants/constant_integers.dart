@@ -127,4 +127,8 @@ class ConstantIntegers  {
   static const double aboutUsLogoWidth = 145.0;
   static const double privacyScreenLogoHeight = 145.0;
   static const double privacyScreenLogoWidth = 145.0;
+  static const double notificationSize = 31.0;
+  static const double menuSize = 31.0;
+
+
 }
