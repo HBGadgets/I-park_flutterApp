@@ -199,7 +199,7 @@ class SplashPageScreen extends State<SplashPage>
                             color: Colors.white,
                             fontSize: ConstantIntegers.forwardFontSize,
                             letterSpacing:
-                                ConstantIntegers.forwardLetterSpacing,
+                            ConstantIntegers.forwardLetterSpacing,
                           ),
                         ),
                       );
