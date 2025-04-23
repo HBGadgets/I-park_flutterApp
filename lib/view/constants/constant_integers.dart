@@ -141,3 +141,13 @@ class ConstantIntegers {
   static const double messageWhatsAppHeight = 35.0;
   static const double messageWhatsAppWidth = 35.0;
 }
+  static const double addCircleIconSize = 31.0;
+
+
+
+
+
+
+
+
+}

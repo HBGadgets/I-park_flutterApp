@@ -15,16 +15,15 @@ class HomeTab extends StatefulWidget {
 class HomeTabScreen extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(resizeToAvoidBottomInset: false,
-      body: 
-      Column(children: [qrContent(), recentChatsHeader(), chatsList()]),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Column(children: [qrContent(), recentChatsHeader(), chatsList()]),
       backgroundColor: ConstantColors.defaultDashBoardColour,
     );
   }
 
   Widget qrContent() {
-    return 
-      Center(
+    return Center(
       child: Padding(
         padding: const EdgeInsets.all(ConstantIntegers.qrContainerPadding),
         child: Container(
@@ -168,7 +167,7 @@ class HomeTabScreen extends State<HomeTab> {
                 fontSize: ConstantIntegers.chatSize,
                 color: ConstantColors.homeScreenCarMessageTextColor,
                 fontFamily: ConstantVariables.fontFamilyPoppins,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -180,7 +179,11 @@ class HomeTabScreen extends State<HomeTab> {
               MaterialPageRoute(builder: (context) => AddCustomerScreen()),
             );
           },
-          icon: Icon(Icons.add_circle, size: 31, color: Colors.black),
+          icon: Icon(
+            Icons.add_circle,
+            size: ConstantIntegers.addCircleIconSize,
+            color: Colors.black,
+          ),
         ),
       ],
     );
