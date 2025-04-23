@@ -62,4 +62,5 @@ class ConstantVariables {
   static const String feedbackText = "Feedback :";
   static const String feedbackContentText =
       "I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods.";
+  static const String dateFormatText ="dd/MM/yyyy";
 }

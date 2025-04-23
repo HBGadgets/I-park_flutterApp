@@ -136,6 +136,7 @@ class ConstantIntegers  {
   static const double whatsappImageTabSpace = 5.0;
   static const double drawerTextSize = 18.0;
   static const double drawerIconSize = 24.0;
+  static const double addCircleIconSize = 31.0;
 
 
 

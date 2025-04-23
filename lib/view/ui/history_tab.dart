@@ -129,7 +129,7 @@ class HistoryTabScreen extends State<HistoryTab> {
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
-        dateController.text = DateFormat('dd/MM/yyyy').format(selectedDate!);
+        dateController.text = DateFormat(ConstantVariables.dateFormatText).format(selectedDate!);
       });
     }
   }
