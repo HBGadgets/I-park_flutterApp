@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class ConstantIntegers {
   static const double loginMarginLeft = 35.0;
   static const double loginMarginRight = 35.0;
@@ -165,18 +163,15 @@ class ConstantIntegers {
   static const double vehicleNoTextFontSize = 16.0;
   static const double vehicleNoTextBelowSizedBoxWidth = 10.0;
   static const double vehicleNoHintTextFontSize = 16.0;
-  static const double vehicleNoHintTextBelowSizedBoxHeight= 16.0;
-  static const double addButtonAboveHeight= 28.0;
-  static const double addButtonAboveWidth= 107.0;
-  static const double addButtonEdgeCircular= 5.0;
+  static const double vehicleNoHintTextBelowSizedBoxHeight = 16.0;
+  static const double addButtonAboveHeight = 28.0;
+  static const double addButtonAboveWidth = 107.0;
+  static const double addButtonEdgeCircular = 5.0;
   static const double addButtonTextFontSize = 16.0;
   static const double totalCountTextFontSize = 16.0;
   static const double totalCountTextBelowSizedBoxHeight = 20.0;
   static const double vehicleNoHintTextAboveSizedBoxHeight = 20.0;
   static const double customerIDTextAboveSizedBoxHeight = 16.0;
-
-
-}
   static const double aboutUsPagePadding = 16.0;
   static const double detailAboutUsTextSize = 12.0;
   static const double aboutUsSizedBox = 20.0;
@@ -185,12 +180,34 @@ class ConstantIntegers {
   static const double bulletSpaceCircle = 8.0;
   static const double socialImageHeight = 40.0;
   static const double socialImageWidth = 40.0;
-
-
-
-
-
-
-
+  static const double scrollbarThickness = 1.0;
+  static const double scrollbarBorderCircularSize = 16.0;
+  static const double singleChildScrollViewPadding = 16.0;
+  static const double experienceTextFontSize = 24.0;
+  static const double experienceTextAboveHeight = 30.0;
+  static const double experienceTextBelowHeight = 20.0;
+  static const double experienceServiceTextFontSize = 12.0;
+  static const double feedbackOptionAboveSizedBoxHeight = 30.0;
+  static const double feedbackTextFieldAboveSizedBoxHeight = 30.0;
+  static const double submitButtonAboveSizedBoxHeight = 40.0;
+  static const double notificationIconSize = 31.0;
+  static const int feedbackTextFieldMaxLines = 10;
+  static const double feedbackTextFieldCircularSize = 16.0;
+  static const double feedbackOutlineCircularSize = 16.0;
+  static const double submitButtonWidth = 317.0;
+  static const double submitButtonSymmetricHorizontal = 50.0;
+  static const double submitButtonSymmetricVertical = 15.0;
+  static const double submitTextFontSize = 16.0;
+  static const double submitButtonRoundedBorderSize = 10.0;
+  static const double feedbackOptionScale = 1.0;
+  static const double onTapDownScale = 1.2;
+  static const double onTapUpScale = 1.0;
+  static const double onTapCancelScale = 1.0;
+  static const int animationEmojiDurationSec = 200;
+  static const double allImageHeight = 79;
+  static const double allImageWidth = 79;
+  static const double feedbackAboveLabelHeight = 20;
+  static const double labelTextSize = 16;
+  static const double feedbackTextFieldHintTextSize = 12;
 
 }

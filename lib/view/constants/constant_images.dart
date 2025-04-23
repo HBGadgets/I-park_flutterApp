@@ -12,5 +12,9 @@ class ConstantImages {
   static const facebook = "Facebook.png";
   static const twitter = "X.png";
   static const whatsapp = "Vector.png";
+  static const angryEmoji = "angry emoji.png";
+  static const notSatisfiedEmoji = "sad.png";
+  static const satisfiedImage = "satisfied.png";
+  static const lovedEmoji = "lovedIt.png";
 
 }

@@ -27,20 +27,16 @@ class ConstantVariables {
   static const String menuLogoutListText = "Logout";
   static const String tabBarHomeText = "Home";
   static const String tabBarChatText = "Chat";
-
   static const String tabBarHistoryText = "History";
   static const String tabBarProfileText = "Profile";
   static const String homePersonNameText = "Rohan Rah";
   static const String scanQRText = "Scan QR";
   static const String recentText = "Recent";
   static const String recentMessagesText = "Recent Messages";
-
   static const String customerNo = "Customer - 007";
   static const String carNo = "MH36A6678";
-
   static const String request = "I have send you request";
   static const String chatContent = "I Need my car in 30 min..";
-
   static const String dateHintText = "DD/MM/YY";
   static const String labelSelectTimeText = "Select Time";
   static const String historyPersonNameText = "Shrikant Ramesh Yadav";
@@ -90,10 +86,14 @@ class ConstantVariables {
   static const String phoneDetail =  'Phone: (555) 123-4567';
   static const String websiteDetail =   'Website: www.ipark.com';
   static const String socialDetail =   'Social Media: @iParkApp';
-
-
-
-
-
+  static const String appBarTitleText = "Feedback";
+  static const String experienceText = "How was your experience?";
+  static const String experienceServiceText = "Your Feedback is valuable in helping us better understand your needs and tailor our service accordingly.";
+  static const String angryLabelText = "Angry";
+  static const String notSatisfiedLabelText = "Not Satisfied";
+  static const String satisfiedLabelText = "Satisfied";
+  static const String likeLabelText = "Loved it";
+  static const String textFieldHintText = "Write your feedback here...";
+  static const String submitButtonText = "Submit";
 
 }
