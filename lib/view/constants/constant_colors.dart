@@ -82,5 +82,17 @@ class ConstantColors {
 
 
 
+  static const Color addPageScaffoldColor = Colors.white;
+  static const Color arrowBackColor = Colors.white;
+  static const Color detailsTextColor = Colors.black;
+  static const Color customerIDTextColor = Colors.grey;
+  static const Color customerNameTextColor = Colors.black;
+  static const Color customerHintTextColor = Colors.black;
+  static const Color vehicleTypeColorText = Colors.grey;
+  static const Color vehicleNameColorText = Colors.black;
+  static const Color vehicleNumberColorText = Colors.grey;
+  static const Color vehicleNumberColor = Colors.black;
+  static const Color addButtonTTextColor = Colors.white;
+  static const Color totalCountColorText = Colors.grey;
 
 }

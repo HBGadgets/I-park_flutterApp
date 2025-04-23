@@ -63,6 +63,18 @@ class ConstantVariables {
   static const String feedbackContentText =
       "I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods.";
   static const String dateFormatText ="dd/MM/yyyy";
+  static const String addText ="Add";
+  static const String fillDetailsText ="Fill the details:";
+  static const String customerIDText ="Customer ID:";
+  static const String customerHintText ="Customer - 007";
+  static const String customerNameText ="Customer - 007";
+  static const String vehicleTypeText ="Vehicle Type:";
+  static const String vehicleTypeHintText ="Sedan";
+  static const String vehicleNumberText ="Vehicle Number:";
+  static const String vehicleNumberHintText ="MH36A6678";
+  static const String addButtonText ="+ Add";
+  static const String totalCountText ="Total Count: 1";
+
   static const String loginFailed ="Login failed. Please try again.";
 
 }
