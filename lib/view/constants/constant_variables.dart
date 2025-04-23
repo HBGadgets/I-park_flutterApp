@@ -62,19 +62,38 @@ class ConstantVariables {
   static const String feedbackText = "Feedback :";
   static const String feedbackContentText =
       "I recently had the pleasure of experiencing Valley Boy, and I have to say, it was an absolute delight! The music is fresh, catchy, and the lyrics are both thoughtful and relatable. Valley Boy has a unique sound that combines laid-back vibes with an edgy twist, creating a perfect balance for a variety of moods.";
-  static const String dateFormatText ="dd/MM/yyyy";
-  static const String addText ="Add";
-  static const String fillDetailsText ="Fill the details:";
-  static const String customerIDText ="Customer ID:";
-  static const String customerHintText ="Customer - 007";
-  static const String customerNameText ="Customer - 007";
-  static const String vehicleTypeText ="Vehicle Type:";
-  static const String vehicleTypeHintText ="Sedan";
-  static const String vehicleNumberText ="Vehicle Number:";
-  static const String vehicleNumberHintText ="MH36A6678";
-  static const String addButtonText ="+ Add";
-  static const String totalCountText ="Total Count: 1";
+  static const String dateFormatText = "dd/MM/yyyy";
+  static const String addText = "Add";
+  static const String fillDetailsText = "Fill the details:";
+  static const String customerIDText = "Customer ID:";
+  static const String customerHintText = "Customer - 007";
+  static const String customerNameText = "Customer - 007";
+  static const String vehicleTypeText = "Vehicle Type:";
+  static const String vehicleTypeHintText = "Sedan";
+  static const String vehicleNumberText = "Vehicle Number:";
+  static const String vehicleNumberHintText = "MH36A6678";
+  static const String addButtonText = "+ Add";
+  static const String totalCountText = "Total Count: 1";
+  static const String loginFailed = "Login failed. Please try again.";
+  static const String aboutUsText = "About Us";
+  static const String welcomeDetails =
+      "Welcome to iPark, the app that transforms the way hotels and guests manage parking. We connect you with valet services at your favorite hotels, making parking and retrieving your vehicle faster, easier, and more convenient than ever before. Whether you're a hotel looking to enhance your guest experience or a traveler who needs quick, seamless parking, iPark is here to help.";
+  static const String ourMission = 'Our Mission';
+  static const String ourMissionDetails =
+      'At iPark, our mission is to redefine the parking experience. We aim to simplify and streamline parking for both hotels and guests by leveraging technology to connect them in real-time. We believe that parking should never be a hassle, and through our app, we offer a seamless, efficient, and stress-free solution. Our goal is to ensure every guest enjoys a worry-free stay with the convenience of instant valet service at their fingertips.';
+  static const String whoWeAre = 'Who we are:';
+  static const String whoWeAreDetails =
+      'We are a team of innovators passionate about using technology to enhance everyday experiences. Our diverse team comes from backgrounds in hospitality, tech, and customer service, united by a shared vision to solve parking challenges for both businesses and travelers. We work hand-in-hand with hotels to provide top-notch valet services and offer guests an easy, efficient way to schedule parking and retrieve their vehicles—all through a simple, user-friendly app.';
+  static const String contactUs =  'Contact Us:';
+  static const String question =  'Have questions or need assistance? We’re here to help!.';
+  static const String emailDetail =  'Email: support@ipark.com';
+  static const String phoneDetail =  'Phone: (555) 123-4567';
+  static const String websiteDetail =   'Website: www.ipark.com';
+  static const String socialDetail =   'Social Media: @iParkApp';
 
-  static const String loginFailed ="Login failed. Please try again.";
+
+
+
+
 
 }

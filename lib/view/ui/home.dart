@@ -264,6 +264,11 @@ class HomeScreen extends State<HomePage> {
                 ),
           ),
           createDrawerItem(
+            icon: Icons.settings_outlined,
+            text: ConstantVariables.menuSettingsListText,
+            onTap: () => Navigator.pop(context),
+          ),
+          createDrawerItem(
             icon: Icons.logout,
             text: ConstantVariables.menuLogoutListText,
             onTap: () async {
