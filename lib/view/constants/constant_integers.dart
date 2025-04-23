@@ -180,6 +180,49 @@ class ConstantIntegers {
   static const double bulletSpaceCircle = 8.0;
   static const double socialImageHeight = 40.0;
   static const double socialImageWidth = 40.0;
+  static const double mainContainerMargin = 30.0;
+  static const double headlineSearchSizedBox = 10.0;
+  static const double searchQuestionSizedBox = 25.0;
+  static const double questionHelpSizedBox = 20.0;
+  static const double helpSupportSpace = 15.0;
+  static const double imageSpacer = 60.0;
+  static const double headlineFontSize = 16.0;
+  static const double searchTextFieldHeight = 44.0;
+  static const double searchTextFieldWidth = 357.0;
+  static const double searchTextFieldRadius = 12.0;
+  static const double supportContainerPadding = 5.0;
+  static const double supportTextFont = 16.0;
+  static const double downArrow = 30.0;
+  static const double needMoreHelpFont = 16.0;
+  static const double helpContainerHeight = 44.0;
+  static const double helpContainerWidth = 351.0;
+  static const double helpContainerPadding = 10.0;
+  static const double helpContainerRadius = 8.0;
+  static const double helpContainerBorder = 1.0;
+  static const double helpContainerSizedBox = 8.0;
+  static const double helpContainerText = 16.0;
+  static const double helpSupportImageHeight = 145.0;
+  static const double helpSupportImageWidth = 145.0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   static const double scrollbarThickness = 1.0;
   static const double scrollbarBorderCircularSize = 16.0;
   static const double singleChildScrollViewPadding = 16.0;

@@ -91,6 +91,11 @@ class ConstantColors {
   static const Color feedbackTextFieldBorderColor = Colors.black;
   static const Color submitButtonBackgroundColor = Colors.black;
   static const Color submitButtonTextColor = Colors.white;
+  static const Color supportContainerBorder = Colors.black;
+  static const Color supportContainer = Color(0xA3DFF7F9);
+
+
+
 
 
 

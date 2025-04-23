@@ -27,16 +27,20 @@ class ConstantVariables {
   static const String menuLogoutListText = "Logout";
   static const String tabBarHomeText = "Home";
   static const String tabBarChatText = "Chat";
+
   static const String tabBarHistoryText = "History";
   static const String tabBarProfileText = "Profile";
   static const String homePersonNameText = "Rohan Rah";
   static const String scanQRText = "Scan QR";
   static const String recentText = "Recent";
   static const String recentMessagesText = "Recent Messages";
+
   static const String customerNo = "Customer - 007";
   static const String carNo = "MH36A6678";
+
   static const String request = "I have send you request";
   static const String chatContent = "I Need my car in 30 min..";
+
   static const String dateHintText = "DD/MM/YY";
   static const String labelSelectTimeText = "Select Time";
   static const String historyPersonNameText = "Shrikant Ramesh Yadav";
@@ -80,6 +84,29 @@ class ConstantVariables {
   static const String whoWeAre = 'Who we are:';
   static const String whoWeAreDetails =
       'We are a team of innovators passionate about using technology to enhance everyday experiences. Our diverse team comes from backgrounds in hospitality, tech, and customer service, united by a shared vision to solve parking challenges for both businesses and travelers. We work hand-in-hand with hotels to provide top-notch valet services and offer guests an easy, efficient way to schedule parking and retrieve their vehicles—all through a simple, user-friendly app.';
+  static const String contactUs = 'Contact Us:';
+  static const String question =
+      'Have questions or need assistance? We’re here to help!.';
+  static const String emailDetail = 'Email: support@ipark.com';
+  static const String phoneDetail = 'Phone: (555) 123-4567';
+  static const String websiteDetail = 'Website: www.ipark.com';
+  static const String socialDetail = 'Social Media: @iParkApp';
+  static const String helpSupport = "Help & Support";
+  static const String callSupport = "Call Support Teamt";
+  static const String chatUs = "Chat with us";
+  static const String ticketRaise = "Raise the ticket";
+  static const String provideSupport = "We Provide 24x7 Support";
+  static const String searchHelp = "Search for help";
+  static const String what =  "What is ipark?";
+  static const String beneficial ="How is it beneficial?";
+  static const String scanToScan = "How to Scan QR?";
+  static const String inform = "How to inform valley boy?";
+  static const String needMoreHelp = "Need more help? Our support team members are here to help you";
+
+
+
+
+
   static const String contactUs =  'Contact Us:';
   static const String question =  'Have questions or need assistance? We’re here to help!.';
   static const String emailDetail =  'Email: support@ipark.com';

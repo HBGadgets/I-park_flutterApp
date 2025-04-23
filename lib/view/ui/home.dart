@@ -99,6 +99,7 @@ class HomeScreen extends State<HomePage> {
                   onTap: onTabChanged,
                   indicatorColor: ConstantColors.tabBarIndicatorColor,
                   labelColor: ConstantColors.tabBarLabelColor,
+                  dividerColor: Colors.black,
                   unselectedLabelColor: ConstantColors.unSelectedLabelColor,
                   tabs: [homeTab(), chatTab(), historyTab(), profileTab()],
                 ),
