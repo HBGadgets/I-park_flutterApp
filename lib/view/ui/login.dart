@@ -20,7 +20,6 @@ class LoginPageScreen extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: container(),
@@ -157,11 +156,15 @@ class LoginPageScreen extends State<LoginPage> {
       decoration: InputDecoration(
         prefixIcon: Icon(icon, color: ConstantColors.iconColor),
         hintText: ConstantVariables.enterEmail,
-        hintStyle: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins),
+        hintStyle: TextStyle(
+          fontFamily: ConstantVariables.fontFamilyPoppins,
+          color: ConstantColors.textFieldText,
+        ),
       ),
       style: TextStyle(
         color: ConstantColors.textFieldText,
         fontSize: ConstantIntegers.textFieldFontSize,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
       ),
     );
   }
@@ -176,10 +179,14 @@ class LoginPageScreen extends State<LoginPage> {
           color: ConstantColors.iconColor,
         ),
         hintText: ConstantVariables.enterPassword,
-        hintStyle: TextStyle(fontFamily: ConstantVariables.fontFamilyPoppins),
+        hintStyle: TextStyle(
+          fontFamily: ConstantVariables.fontFamilyPoppins,
+          color: ConstantColors.textFieldText,
+        ),
       ),
       style: TextStyle(
         color: ConstantColors.textFieldText,
+        fontFamily: ConstantVariables.fontFamilyPoppins,
         fontSize: ConstantIntegers.textFieldFontSize,
       ),
     );
@@ -239,7 +246,16 @@ class LoginPageScreen extends State<LoginPage> {
             );
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Login failed. Please try again.')),
+              SnackBar(
+                backgroundColor: Colors.red,
+                content: Text(
+                  'Login failed. Please try again.',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                  ),
+                ),
+              ),
             );
           }
         },

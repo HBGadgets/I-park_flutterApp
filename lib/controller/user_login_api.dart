@@ -39,7 +39,6 @@ class UserProvider with ChangeNotifier {
 
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
-
     if (prefs.containsKey('token')) {
       await prefs.remove('token');
       keyToken = null;
