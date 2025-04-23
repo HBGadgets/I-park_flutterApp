@@ -294,13 +294,18 @@ class HomeScreen extends State<HomePage> {
     required GestureTapCallback onTap,
   }) {
     return ListTile(
-      leading: Icon(icon, color: ConstantColors.drawerMenuListIconColor),
+      leading: Icon(
+        icon,
+        color: ConstantColors.drawerMenuListIconColor,
+        size: ConstantIntegers.drawerIconSize,
+      ),
       title: Text(
         text,
         style: TextStyle(
           color: ConstantColors.drawerMenuListTextColor,
           fontWeight: FontWeight.bold,
           fontFamily: ConstantVariables.fontFamilyPoppins,
+          fontSize: ConstantIntegers.drawerTextSize,
         ),
       ),
       onTap: onTap,
