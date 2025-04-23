@@ -75,4 +75,6 @@ class ConstantVariables {
   static const String addButtonText ="+ Add";
   static const String totalCountText ="Total Count: 1";
 
+  static const String loginFailed ="Login failed. Please try again.";
+
 }

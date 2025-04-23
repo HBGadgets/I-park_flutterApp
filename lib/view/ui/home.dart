@@ -94,7 +94,7 @@ class HomeScreen extends State<HomePage> {
               ),
               Container(
                 height: ConstantIntegers.tabBarContainerHeight,
-                color: Colors.black,
+                color: ConstantColors.tabBarContainer,
                 child: TabBar(
                   onTap: onTabChanged,
                   indicatorColor: ConstantColors.tabBarIndicatorColor,
@@ -141,7 +141,7 @@ class HomeScreen extends State<HomePage> {
         children: [
           Image.asset(
             ConstantImages.assetImages + ConstantImages.whatsappVectorImage,
-            color: Colors.white,
+            color: ConstantColors.tabBarWhatsApp,
             height: ConstantIntegers.whatsappImageHeight,
             width: ConstantIntegers.whatsappImageWidth,
           ),

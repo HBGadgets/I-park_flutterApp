@@ -59,6 +59,29 @@ class ConstantColors {
   static const Color historyDepartureTextColor = Colors.black;
   static const Color defaultLoginColour = Colors.white;
   static const Color defaultDashBoardColour = Colors.white;
+  static const Color chatContentAppBar = Colors.white;
+  static const Color chatContentCarNoAppBar = Colors.black;
+  static const Color chatContentNotification = Colors.black;
+  static const Color backArrow = Colors.black;
+  static const Color tabBarContainer = Colors.black;
+  static const Color tabBarWhatsApp = Colors.white;
+  static const Color addCircle = Colors.black;
+  static const Color scaFoldError = Colors.red;
+  static const Color scaFoldErrorText = Colors.white;
+  static const Color loginButtonText = Colors.white;
+
+
+
+
+
+
+
+
+
+
+
+
+
   static const Color addPageScaffoldColor = Colors.white;
   static const Color arrowBackColor = Colors.white;
   static const Color detailsTextColor = Colors.black;

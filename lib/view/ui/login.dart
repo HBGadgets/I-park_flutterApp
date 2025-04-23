@@ -18,7 +18,6 @@ class LoginPageScreen extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  // Create a GlobalKey for the Form
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -266,12 +265,19 @@ class LoginPageScreen extends State<LoginPage> {
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: Colors.red,
-                  content: Text(
-                    'Login failed. Please try again.',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                  behavior: SnackBarBehavior.floating,
+                  margin: EdgeInsets.all(ConstantIntegers.snackBarMargin),
+                  backgroundColor: ConstantColors.scaFoldError,
+                  content: Padding(
+                    padding: const EdgeInsets.all(
+                      ConstantIntegers.snackBarPadding,
+                    ),
+                    child: Text(
+                      ConstantVariables.loginFailed,
+                      style: TextStyle(
+                        color: ConstantColors.scaFoldErrorText,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
+                      ),
                     ),
                   ),
                 ),
@@ -288,7 +294,7 @@ class LoginPageScreen extends State<LoginPage> {
         child: Text(
           ConstantVariables.login,
           style: TextStyle(
-            color: Colors.white,
+            color: ConstantColors.loginButtonText,
             fontSize: ConstantIntegers.buttonLoginFont,
             fontWeight: FontWeight.bold,
             fontFamily: ConstantVariables.fontFamilyPoppins,

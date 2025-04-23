@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 
 class ConstantIntegers {
   static const double loginMarginLeft = 35.0;
@@ -144,6 +145,14 @@ class ConstantIntegers {
   static const double addColumnPaddingRight = 36.0;
   static const double addColumnPaddingTop = 16.0;
 }
+  static const double chatCarNoAppbar = 18.0;
+  static const double snackBarPadding = 5.0;
+  static const double snackBarMargin = 10.0;
+
+
+
+
+
 
 
 
