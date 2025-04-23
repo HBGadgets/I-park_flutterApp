@@ -85,6 +85,8 @@ class ConstantColors {
   static const Color aboutUsIconColor = Colors.black;
   static const Color supportContainerBorder = Colors.black;
   static const Color supportContainer = Color(0xA3DFF7F9);
+  static const Color dividerColors =  Colors.grey;
+
 
 
 

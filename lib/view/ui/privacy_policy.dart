@@ -10,166 +10,176 @@ class PrivacyPolicyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ConstantColors.defaultDashBoardColour,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Privacy Policy',
+          ConstantVariables.privacyPolicy,
           style: TextStyle(
-            color: Colors.white,
+            color: ConstantColors.appBarTitlesColor,
             fontFamily: ConstantVariables.fontFamilyPoppins,
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: ConstantColors.arrowBackColor,
+          ),
+          onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.white, size: 31),
+            icon: Icon(
+              Icons.notifications,
+              color: ConstantColors.notificationIconColor,
+              size: ConstantIntegers.notificationSize,
+            ),
             onPressed: () {},
           ),
         ],
         backgroundColor: Colors.black,
       ),
-      body: Scrollbar(
-        thumbVisibility: true,
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 20),
-                        Text(
-                          'Privacy Policy',
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            fontFamily:
-                                ConstantVariables.fontFamilyPoppinsBlack,
-                          ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(ConstantIntegers.privacyPolicyMainPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: ConstantIntegers.privacySizedBox),
+                      Text(
+                        ConstantVariables.privacyPolicy,
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+                          color: ConstantColors.detailsTextColor,
                         ),
-                        SizedBox(height: 5),
-                        Text(
-                          'Last Updated February 4th, 2025',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
-                            fontFamily:
-                                ConstantVariables.fontFamilyPoppinsBlack,
-                          ),
+                      ),
+                      SizedBox(
+                        height: ConstantIntegers.privacyLastUpdateSizedBox,
+                      ),
+                      Text(
+                        ConstantVariables.lastUpdate,
+                        style: TextStyle(
+                          fontSize: ConstantIntegers.subtitleLastUpdate,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Image.asset(
-                    ConstantImages.assetImages + ConstantImages.iParkLogo,
-                    height: ConstantIntegers.privacyScreenLogoHeight,
-                    width: ConstantIntegers.privacyScreenLogoWidth,
-                    color: ConstantColors.loginLogoColor,
+                ),
+                Image.asset(
+                  ConstantImages.assetImages + ConstantImages.iParkLogo,
+                  height: ConstantIntegers.privacyScreenLogoHeight,
+                  width: ConstantIntegers.privacyScreenLogoWidth,
+                  color: ConstantColors.loginLogoColor,
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Divider(
+                  color: ConstantColors.dividerColors,
+                  thickness: ConstantIntegers.dividerThicknessPolicy,
+                ),
+                SizedBox(height: ConstantIntegers.privacySpacing),
+                Text(
+                  ConstantVariables.tableContent,
+                  style: TextStyle(
+                    fontSize: ConstantIntegers.tableHeaderFont,
+                    color: Colors.black,
+                    fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 0),
-                  Divider(color: Colors.grey, thickness: 1.0),
-                  SizedBox(height: 4),
-                  Text(
-                    'Table of Contents',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
-                      fontWeight: FontWeight.bold,
-                    ),
+                ),
+                SizedBox(height: ConstantIntegers.privacySpacing),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: ConstantIntegers.tableContentColumnPadding,
                   ),
-                  SizedBox(height: 5),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        buildNumberedItem(1, 'Introduction'),
-                        buildNumberedItem(2, 'Information We Collect'),
-                        buildNumberedItem(3, 'How We Use Your Information'),
-                        buildNumberedItem(4, 'Sharing Your Information'),
-                        buildNumberedItem(5, 'Data Security'),
-                        buildNumberedItem(6, 'Your Privacy Rights'),
-                        buildNumberedItem(7, "Children's Privacy"),
-                        buildNumberedItem(8, 'Third-Party Links and Services'),
-                        buildNumberedItem(9, 'Changes to this Privacy Policy'),
-                        buildNumberedItem(10, 'Contact Us'),
-                      ],
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      buildNumberedItem(1, ConstantVariables.introduction),
+                      buildNumberedItem(2, ConstantVariables.information),
+                      buildNumberedItem(3, ConstantVariables.use),
+                      buildNumberedItem(4, ConstantVariables.sharing),
+                      buildNumberedItem(5, ConstantVariables.security),
+                      buildNumberedItem(6, ConstantVariables.privacy),
+                      buildNumberedItem(7, ConstantVariables.childrenPrivacy),
+                      buildNumberedItem(8, ConstantVariables.thirdParty),
+                      buildNumberedItem(9, ConstantVariables.changes),
+                      buildNumberedItem(10, ConstantVariables.contact),
+                    ],
                   ),
-                  Divider(color: Colors.grey, thickness: 1.0),
-                  SizedBox(height: 10),
-                  subtitleText("1. Introduction", [
-                    "Protecting Your Privacy: Our Commitment to Keeping Your Data Safe",
-                    "Understanding Our Privacy Practices",
-                    "Your Information, Your Rights: A Guide to Our Privacy Policy",
-                  ]),
-                  subtitleText("2. Information We Collect", [
-                    "What We Collect and Why: Transparency in Data Collection",
-                    "Your Data: How We Gather and Utilize Information",
-                    "Information Collection: Providing Insight into Our Practices",
-                  ]),
-                  subtitleText("3. How We Use Your Information", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                  subtitleText("4. Sharing Your Information", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                  subtitleText("5. Data Security", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                  subtitleText("6. Your Privacy Rights", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                  subtitleText("7. Children's Privacy", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                  subtitleText("8. Third-Party Links and Services", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                  subtitleText("9. Changes to this Privacy Policy", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                  subtitleText("10. Contact Us", [
-                    "Using Your Data to Enhance Your Experience",
-                    "Access Restrictions",
-                    "Your Information in Action: Improving Services and Personalization",
-                  ]),
-                ],
-              ),
-            ],
-          ),
+                ),
+                Divider(
+                  color: ConstantColors.dividerColors,
+                  thickness: ConstantIntegers.dividerThicknessPolicy,
+                ),
+                SizedBox(height: ConstantIntegers.tableContentColumnPadding),
+                subtitleText("1. Introduction", [
+                  "Protecting Your Privacy: Our Commitment to Keeping Your Data Safe",
+                  "Understanding Our Privacy Practices",
+                  "Your Information, Your Rights: A Guide to Our Privacy Policy",
+                ]),
+                subtitleText("2. Information We Collect", [
+                  "What We Collect and Why: Transparency in Data Collection",
+                  "Your Data: How We Gather and Utilize Information",
+                  "Information Collection: Providing Insight into Our Practices",
+                ]),
+                subtitleText("3. How We Use Your Information", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+                subtitleText("4. Sharing Your Information", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+                subtitleText("5. Data Security", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+                subtitleText("6. Your Privacy Rights", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+                subtitleText("7. Children's Privacy", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+                subtitleText("8. Third-Party Links and Services", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+                subtitleText("9. Changes to this Privacy Policy", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+                subtitleText("10. Contact Us", [
+                  "Using Your Data to Enhance Your Experience",
+                  "Access Restrictions",
+                  "Your Information in Action: Improving Services and Personalization",
+                ]),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -182,12 +192,13 @@ class PrivacyPolicyScreen extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: ConstantIntegers.subtitleTextFont,
             fontWeight: FontWeight.bold,
             fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+            color: ConstantColors.iconColor,
           ),
         ),
-        SizedBox(height: 5),
+        SizedBox(height: ConstantIntegers.space),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: points.map((text) => bulletPoint(text)).toList(),
@@ -198,20 +209,29 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
   Widget bulletPoint(String text) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10.0, bottom: 4.0),
+      padding: const EdgeInsets.only(
+        left: ConstantIntegers.bulletPointRowPaddingLeft,
+        bottom: ConstantIntegers.bulletPointRowPaddingBottom,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child: Icon(Icons.circle, size: 8, color: Colors.grey),
+            padding: const EdgeInsets.only(
+              top: ConstantIntegers.bulletPointRowPaddingTop,
+            ),
+            child: Icon(
+              Icons.circle,
+              size: ConstantIntegers.bulletCircle,
+              color: Colors.grey,
+            ),
           ),
-          SizedBox(width: 8),
+          SizedBox(width: ConstantIntegers.helpContainerSizedBox),
           Expanded(
             child: Text(
               text,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: ConstantIntegers.bulletContent,
                 color: Colors.grey,
                 fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
                 fontWeight: FontWeight.bold,
@@ -230,7 +250,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           TextSpan(
             text: "$number. ",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: ConstantIntegers.numberText,
               fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
               color: Colors.black,
             ),
@@ -238,7 +258,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           TextSpan(
             text: title,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: ConstantIntegers.titleText,
               fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
               decoration: TextDecoration.underline,
               color: Colors.black,
