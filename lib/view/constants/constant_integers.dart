@@ -147,6 +147,35 @@ class ConstantIntegers {
   static const double chatCarNoAppbar = 18.0;
   static const double snackBarPadding = 5.0;
   static const double snackBarMargin = 10.0;
+  static const double fillDetailsTextFontSize = 18.0;
+  static const double customerIDTextFontSize = 16.0;
+  static const double textBetweenSizedBox = 30.0;
+  static const double expandChildSizedBox = 20.0;
+  static const double customerHintTextFontSize = 16.0;
+  static const double containerSizedBox = 16.0;
+  static const double containerPaddingAll = 16.0;
+  static const double containerBorderRadiusCircularSize = 8.0;
+  static const double customerNameTextSize = 16.0;
+  static const double textBelowSizedBox = 8.0;
+  static const double vehicleTypeTextFontSize = 16.0;
+  static const double vehicleTypeSizedBox = 37.0;
+  static const double vehicleSizedBoxHeight = 20.0;
+  static const double vehicleTypeHintTextFontSize = 16.0;
+  static const double vehicleTextBelowSizedBoxHeight = 8.0;
+  static const double vehicleNoTextFontSize = 16.0;
+  static const double vehicleNoTextBelowSizedBoxWidth = 10.0;
+  static const double vehicleNoHintTextFontSize = 16.0;
+  static const double vehicleNoHintTextBelowSizedBoxHeight= 16.0;
+  static const double addButtonAboveHeight= 28.0;
+  static const double addButtonAboveWidth= 107.0;
+  static const double addButtonEdgeCircular= 5.0;
+  static const double addButtonTextFontSize = 16.0;
+  static const double totalCountTextFontSize = 16.0;
+  static const double totalCountTextBelowSizedBoxHeight = 20.0;
+  static const double vehicleNoHintTextAboveSizedBoxHeight = 20.0;
+  static const double customerIDTextAboveSizedBoxHeight = 16.0;
+
+
 }
 
 
