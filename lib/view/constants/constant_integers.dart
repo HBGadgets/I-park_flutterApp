@@ -144,10 +144,11 @@ class ConstantIntegers {
   static const double addColumnPaddingLeft = 26.0;
   static const double addColumnPaddingRight = 36.0;
   static const double addColumnPaddingTop = 16.0;
-}
   static const double chatCarNoAppbar = 18.0;
   static const double snackBarPadding = 5.0;
   static const double snackBarMargin = 10.0;
+}
+
 
 
 
