@@ -102,6 +102,25 @@ class ConstantVariables {
   static const String scanToScan = "How to Scan QR?";
   static const String inform = "How to inform valley boy?";
   static const String needMoreHelp = "Need more help? Our support team members are here to help you";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String lastUpdate = "Last Updated February 4th, 2025";
+  static const String tableContent = "Table of Contents";
+  static const String introduction = 'Introduction';
+  static const String information = 'Information We Collect';
+  static const String use = 'How We Use Your Information';
+  static const String security = 'Data Security';
+  static const String sharing = 'Sharing Your Information';
+  static const String privacy = 'Your Privacy Rights';
+  static const String childrenPrivacy =  "Children's Privacy";
+  static const String thirdParty ='Third-Party Links and Services';
+  static const String changes = 'Changes to this Privacy Policy';
+  static const String contact = 'Contact Us';
+
+
+
+
+
+
 
 
 

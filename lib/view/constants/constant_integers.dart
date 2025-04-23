@@ -203,6 +203,36 @@ class ConstantIntegers {
   static const double helpContainerText = 16.0;
   static const double helpSupportImageHeight = 145.0;
   static const double helpSupportImageWidth = 145.0;
+  static const double privacyPolicyMainPadding = 30.0;
+  static const double privacySizedBox = 20.0;
+  static const double privacyLastUpdateSizedBox = 5.0;
+  static const double subtitleLastUpdate = 14.0;
+  static const double dividerThicknessPolicy = 1.0;
+  static const double privacySpacing = 5.0;
+  static const double tableHeaderFont = 24.0;
+  static const double tableContentColumnPadding = 10.0;
+  static const double subtitleTextFont = 14.0;
+  static const double space = 5.0;
+  static const double bulletPointRowPaddingLeft = 10.0;
+  static const double bulletPointRowPaddingBottom = 4.0;
+  static const double bulletPointRowPaddingTop = 4.0;
+  static const double numberText = 16.0;
+  static const double titleText = 16.0;
+  static const double bulletContent = 14.0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
