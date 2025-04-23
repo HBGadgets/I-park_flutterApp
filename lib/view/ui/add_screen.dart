@@ -65,7 +65,7 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                 Text(
                   ConstantVariables.fillDetailsText,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: ConstantIntegers.fillDetailsTextFontSize,
                     fontWeight: FontWeight.bold,
                     color: ConstantColors.detailsTextColor,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
@@ -74,26 +74,28 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
               ],
             ),
 
-            SizedBox(height: 16),
+            SizedBox(
+              height: ConstantIntegers.customerIDTextAboveSizedBoxHeight,
+            ),
             Row(
               children: [
                 Text(
                   ConstantVariables.customerIDText,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: ConstantIntegers.customerIDTextFontSize,
                     color: ConstantColors.customerIDTextColor,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                   ),
                 ),
-                SizedBox(width: 30),
+                SizedBox(width: ConstantIntegers.textBetweenSizedBox),
                 Expanded(
                   child: SizedBox(
-                    height: 20,
+                    height: ConstantIntegers.expandChildSizedBox,
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: ConstantVariables.customerHintText,
                         hintStyle: TextStyle(
-                          fontSize: 16,
+                          fontSize: ConstantIntegers.customerHintTextFontSize,
                           color: ConstantColors.customerHintTextColor,
                           fontFamily: ConstantVariables.fontFamilyPoppins,
                           fontWeight: FontWeight.bold,
@@ -104,13 +106,15 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            SizedBox(height: ConstantIntegers.containerSizedBox),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(ConstantIntegers.containerPaddingAll),
               width: double.infinity,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(
+                  ConstantIntegers.containerBorderRadiusCircularSize,
+                ),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,32 +122,34 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                   Text(
                     ConstantVariables.customerNameText,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: ConstantIntegers.customerNameTextSize,
                       color: ConstantColors.customerNameTextColor,
                       fontWeight: FontWeight.bold,
                       fontFamily: ConstantVariables.fontFamilyPoppins,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  SizedBox(height: ConstantIntegers.textBelowSizedBox),
                   Row(
                     children: [
                       Text(
                         ConstantVariables.vehicleTypeText,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: ConstantIntegers.vehicleTypeTextFontSize,
                           color: ConstantColors.vehicleTypeColorText,
                           fontFamily: ConstantVariables.fontFamilyPoppins,
                         ),
                       ),
-                      SizedBox(width: 37),
+                      SizedBox(width: ConstantIntegers.vehicleTypeSizedBox),
                       Expanded(
                         child: SizedBox(
-                          height: 20,
+                          height: ConstantIntegers.vehicleSizedBoxHeight,
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: ConstantVariables.vehicleTypeHintText,
                               hintStyle: TextStyle(
-                                fontSize: 16,
+                                fontSize:
+                                    ConstantIntegers
+                                        .vehicleTypeHintTextFontSize,
                                 color: ConstantColors.vehicleNameColorText,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
@@ -154,26 +160,33 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 8),
+                  SizedBox(
+                    height: ConstantIntegers.vehicleTextBelowSizedBoxHeight,
+                  ),
                   Row(
                     children: [
                       Text(
                         ConstantVariables.vehicleNumberText,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: ConstantIntegers.vehicleNoTextFontSize,
                           color: ConstantColors.vehicleNumberColorText,
                           fontFamily: ConstantVariables.fontFamilyPoppins,
                         ),
                       ),
-                      SizedBox(width: 10),
+                      SizedBox(
+                        width: ConstantIntegers.vehicleNoTextBelowSizedBoxWidth,
+                      ),
                       Expanded(
                         child: SizedBox(
-                          height: 20,
+                          height:
+                              ConstantIntegers
+                                  .vehicleNoHintTextAboveSizedBoxHeight,
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: ConstantVariables.vehicleNumberHintText,
                               hintStyle: TextStyle(
-                                fontSize: 16,
+                                fontSize:
+                                    ConstantIntegers.vehicleNoHintTextFontSize,
                                 color: ConstantColors.vehicleNumberColor,
                                 fontFamily: ConstantVariables.fontFamilyPoppins,
                                 fontWeight: FontWeight.bold,
@@ -187,26 +200,30 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(
+              height: ConstantIntegers.vehicleNoHintTextBelowSizedBoxHeight,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 SizedBox(
-                  width: 107,
-                  height: 28,
+                  width: ConstantIntegers.addButtonAboveWidth,
+                  height: ConstantIntegers.addButtonAboveHeight,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(
+                          ConstantIntegers.addButtonEdgeCircular,
+                        ),
                       ),
                     ),
                     child: Text(
                       ConstantVariables.addButtonText,
                       style: TextStyle(
                         color: ConstantColors.addButtonTTextColor,
-                        fontSize: 16,
+                        fontSize: ConstantIntegers.addButtonTextFontSize,
                       ),
                     ),
                   ),
@@ -221,12 +238,14 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                   ConstantVariables.totalCountText,
                   style: TextStyle(
                     color: ConstantColors.totalCountColorText,
-                    fontSize: 16,
+                    fontSize: ConstantIntegers.totalCountTextFontSize,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(
+              height: ConstantIntegers.totalCountTextBelowSizedBoxHeight,
+            ),
           ],
         ),
       ),
