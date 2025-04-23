@@ -83,6 +83,14 @@ class ConstantColors {
   static const Color totalCountColorText = Colors.grey;
   static const Color aboutUsDetails = Color(0xFF454B60);
   static const Color aboutUsIconColor = Colors.black;
+  static const Color feedbackScaffoldBackgroundColor = Colors.white;
+  static const Color experienceServiceTextColor = Colors.grey;
+  static const Color feedbackAppBarColor = Colors.white;
+  static const Color appbarBackgroundColor = Colors.black;
+  static const Color titleTextColor = Colors.black;
+  static const Color feedbackTextFieldBorderColor = Colors.black;
+  static const Color submitButtonBackgroundColor = Colors.black;
+  static const Color submitButtonTextColor = Colors.white;
   static const Color supportContainerBorder = Colors.black;
   static const Color supportContainer = Color(0xA3DFF7F9);
 

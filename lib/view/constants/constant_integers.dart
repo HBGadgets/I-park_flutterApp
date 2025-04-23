@@ -99,7 +99,7 @@ class ConstantIntegers {
   static const double containerInitialPosition = 0.0;
   static const int sliderAnimationSecond = 1;
   static const double animationBegin = 0.0;
-  static const double animationEnd = 20.0;
+  static const double animationEnd = 1.0;
   static const double slidingContainerHeight = 80.0;
   static const double slidingContainerWidth = 290.0;
   static const double slidingContainerRadius = 40.0;
@@ -223,5 +223,34 @@ class ConstantIntegers {
 
 
 
+  static const double scrollbarThickness = 1.0;
+  static const double scrollbarBorderCircularSize = 16.0;
+  static const double singleChildScrollViewPadding = 16.0;
+  static const double experienceTextFontSize = 24.0;
+  static const double experienceTextAboveHeight = 30.0;
+  static const double experienceTextBelowHeight = 20.0;
+  static const double experienceServiceTextFontSize = 12.0;
+  static const double feedbackOptionAboveSizedBoxHeight = 30.0;
+  static const double feedbackTextFieldAboveSizedBoxHeight = 30.0;
+  static const double submitButtonAboveSizedBoxHeight = 40.0;
+  static const double notificationIconSize = 31.0;
+  static const int feedbackTextFieldMaxLines = 10;
+  static const double feedbackTextFieldCircularSize = 16.0;
+  static const double feedbackOutlineCircularSize = 16.0;
+  static const double submitButtonWidth = 317.0;
+  static const double submitButtonSymmetricHorizontal = 50.0;
+  static const double submitButtonSymmetricVertical = 15.0;
+  static const double submitTextFontSize = 16.0;
+  static const double submitButtonRoundedBorderSize = 10.0;
+  static const double feedbackOptionScale = 1.0;
+  static const double onTapDownScale = 1.2;
+  static const double onTapUpScale = 1.0;
+  static const double onTapCancelScale = 1.0;
+  static const int animationEmojiDurationSec = 200;
+  static const double allImageHeight = 79;
+  static const double allImageWidth = 79;
+  static const double feedbackAboveLabelHeight = 20;
+  static const double labelTextSize = 16;
+  static const double feedbackTextFieldHintTextSize = 12;
 
 }

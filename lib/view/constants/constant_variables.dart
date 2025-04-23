@@ -107,5 +107,20 @@ class ConstantVariables {
 
 
 
+  static const String contactUs =  'Contact Us:';
+  static const String question =  'Have questions or need assistance? We’re here to help!.';
+  static const String emailDetail =  'Email: support@ipark.com';
+  static const String phoneDetail =  'Phone: (555) 123-4567';
+  static const String websiteDetail =   'Website: www.ipark.com';
+  static const String socialDetail =   'Social Media: @iParkApp';
+  static const String appBarTitleText = "Feedback";
+  static const String experienceText = "How was your experience?";
+  static const String experienceServiceText = "Your Feedback is valuable in helping us better understand your needs and tailor our service accordingly.";
+  static const String angryLabelText = "Angry";
+  static const String notSatisfiedLabelText = "Not Satisfied";
+  static const String satisfiedLabelText = "Satisfied";
+  static const String likeLabelText = "Loved it";
+  static const String textFieldHintText = "Write your feedback here...";
+  static const String submitButtonText = "Submit";
 
 }
