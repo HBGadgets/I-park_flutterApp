@@ -51,11 +51,11 @@ class SplashPageScreen extends State<SplashPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [_buildBackground(), _buildContent(context)]),
+      body: Stack(children: [buildBackground(), buildContent(context)]),
     );
   }
 
-  Widget _buildBackground() {
+  Widget buildBackground() {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -80,10 +80,10 @@ class SplashPageScreen extends State<SplashPage>
     );
   }
 
-  Widget _buildContent(BuildContext context) {
+  Widget buildContent(BuildContext context) {
     return Column(
       children: [
-        _buildIrixLogo(),
+        buildIrixLogo(),
         const Spacer(),
         slidingContainer(),
         const SizedBox(
@@ -93,7 +93,7 @@ class SplashPageScreen extends State<SplashPage>
     );
   }
 
-  Widget _buildIrixLogo() {
+  Widget buildIrixLogo() {
     return Image.asset(
       '${ConstantImages.assetImages}${ConstantImages.iParkLogo}',
       height: ConstantIntegers.iParkLogoHeight,

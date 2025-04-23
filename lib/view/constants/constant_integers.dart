@@ -17,7 +17,7 @@ class ConstantIntegers  {
   static const double getStartedTextFontSize = 12.0;
   static const double confirmationSliderSizedBoxWidth = 30.0;
   static const double spaceEmail = 30.0;
-  static const double labelText = 12.0;
+  static const double labelText = 13.0;
   static const double textFieldFontSize = 16.0;
   static const double passwordSpace = 50.0;
   static const double rememberMeFont = 12.0;
