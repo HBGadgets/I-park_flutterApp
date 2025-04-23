@@ -22,14 +22,11 @@ class SplashPageScreen extends State<SplashPage>
   void initState() {
     super.initState();
     controller = AnimationController(
-      duration: const Duration(seconds: ConstantIntegers.sliderAnimationSecond),
+      duration: const Duration(seconds: 1),
       vsync: this,
-    )..repeat(reverse: true);
+    )..repeat();
 
-    animation = Tween<double>(
-      begin: ConstantIntegers.animationBegin,
-      end: ConstantIntegers.animationEnd,
-    ).animate(controller);
+    animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller);
   }
 
   @override
@@ -39,13 +36,9 @@ class SplashPageScreen extends State<SplashPage>
   }
 
   void navigateToNextPage() {
-    setState(() {
-      containerPosition = ConstantIntegers.containerInitialPosition;
-    });
-
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => const LoginPage()));
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => const LoginPage()),
+    );
   }
 
   @override
@@ -116,14 +109,12 @@ class SplashPageScreen extends State<SplashPage>
           alignment: Alignment.center,
           children: [
             AnimatedPositioned(
-              duration: const Duration(
-                milliseconds: ConstantIntegers.movingMilliseconds,
-              ),
+              duration: const Duration(milliseconds: 150),
               left: containerPosition,
               child: GestureDetector(
                 onPanUpdate: (details) {
                   setState(() {
-                    containerPosition += details.delta.dx;
+                    containerPosition += details.delta.dx * 2;
                     containerPosition = containerPosition.clamp(
                       ConstantIntegers.containerPositionStart,
                       ConstantIntegers.containerPositionEnd,
@@ -180,15 +171,11 @@ class SplashPageScreen extends State<SplashPage>
                           return LinearGradient(
                             colors: [Colors.white, Colors.grey.shade900],
                             begin: Alignment(
-                              -1 +
-                                  animation.value *
-                                      ConstantIntegers.animationValueBegin1,
+                              -1 + animation.value * 1,
                               ConstantIntegers.animationValueBegin2,
                             ),
                             end: Alignment(
-                              1 +
-                                  animation.value *
-                                      ConstantIntegers.animationValueEnd1,
+                              1 + animation.value * 1,
                               ConstantIntegers.animationValueEnd2,
                             ),
                           ).createShader(bounds);
@@ -199,7 +186,7 @@ class SplashPageScreen extends State<SplashPage>
                             color: Colors.white,
                             fontSize: ConstantIntegers.forwardFontSize,
                             letterSpacing:
-                            ConstantIntegers.forwardLetterSpacing,
+                                ConstantIntegers.forwardLetterSpacing,
                           ),
                         ),
                       );

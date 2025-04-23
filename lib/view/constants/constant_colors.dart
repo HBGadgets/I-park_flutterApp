@@ -83,6 +83,10 @@ class ConstantColors {
   static const Color totalCountColorText = Colors.grey;
   static const Color aboutUsDetails = Color(0xFF454B60);
   static const Color aboutUsIconColor = Colors.black;
+  static const Color supportContainerBorder = Colors.black;
+  static const Color supportContainer = Color(0xA3DFF7F9);
+
+
 
 
 

@@ -12,5 +12,6 @@ class ConstantImages {
   static const facebook = "Facebook.png";
   static const twitter = "X.png";
   static const whatsapp = "Vector.png";
-
+  static const chat = "image 145.png";
+  static const ticket = "image 146.png";
 }
