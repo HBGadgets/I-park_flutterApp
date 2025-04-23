@@ -1,4 +1,6 @@
-class ConstantIntegers {
+import 'package:flutter/cupertino.dart';
+
+class ConstantIntegers  {
   static const double loginMarginLeft = 35.0;
   static const double loginMarginRight = 35.0;
   static const double loginUpperSpaceHeight = 59.0;
@@ -49,8 +51,6 @@ class ConstantIntegers {
   static const double chatPaddingLeft = 20.0;
   static const double chatChatPadding = 20.0;
   static const double recentChatMessagesPadding = 15.0;
-
-
   static const double chatPaddingRight = 20.0;
   static const double listViewPadding = 10.0;
   static const double chatIconPadding = 10.0;
