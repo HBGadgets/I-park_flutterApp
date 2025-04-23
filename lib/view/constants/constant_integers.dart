@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class ConstantIntegers  {
+class ConstantIntegers {
   static const double loginMarginLeft = 35.0;
   static const double loginMarginRight = 35.0;
   static const double loginUpperSpaceHeight = 59.0;
@@ -136,12 +136,8 @@ class ConstantIntegers  {
   static const double whatsappImageTabSpace = 5.0;
   static const double drawerTextSize = 18.0;
   static const double drawerIconSize = 24.0;
-
-
-
-
-
-
-
-
+  static const double recentFont = 14.0;
+  static const double chatCarSize = 24.0;
+  static const double messageWhatsAppHeight = 35.0;
+  static const double messageWhatsAppWidth = 35.0;
 }

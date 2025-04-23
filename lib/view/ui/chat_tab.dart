@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../constants/constant_colors.dart';
+import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
 import '../constants/constant_variables.dart';
 import 'chat_content.dart';
@@ -30,7 +30,7 @@ class ChatTabScreen extends State<ChatTab> {
                     color: ConstantColors.recentChatsTextColor,
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                     fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                    fontSize: ConstantIntegers.recentFont,
                   ),
                 ),
               ],
@@ -40,13 +40,43 @@ class ChatTabScreen extends State<ChatTab> {
               child: ListView(
                 padding: EdgeInsets.all(ConstantIntegers.listViewPadding),
                 children: [
-                  _buildChatColumn(),
+                  chatColumn(),
                   SizedBox(height: ConstantIntegers.chatBelowPadding),
                   Divider(
                     thickness: ConstantIntegers.dividerThickness,
                     color: ConstantColors.homeScreenDividerColor,
                   ),
-                  _buildChatColumn(),
+                  chatColumn(),
+                  SizedBox(height: ConstantIntegers.chatBelowPadding),
+                  Divider(
+                    thickness: ConstantIntegers.dividerThickness,
+                    color: ConstantColors.homeScreenDividerColor,
+                  ),
+                  chatColumn(),
+                  SizedBox(height: ConstantIntegers.chatBelowPadding),
+                  Divider(
+                    thickness: ConstantIntegers.dividerThickness,
+                    color: ConstantColors.homeScreenDividerColor,
+                  ),
+                  chatColumn(),
+                  SizedBox(height: ConstantIntegers.chatBelowPadding),
+                  Divider(
+                    thickness: ConstantIntegers.dividerThickness,
+                    color: ConstantColors.homeScreenDividerColor,
+                  ),
+                  chatColumn(),
+                  SizedBox(height: ConstantIntegers.chatBelowPadding),
+                  Divider(
+                    thickness: ConstantIntegers.dividerThickness,
+                    color: ConstantColors.homeScreenDividerColor,
+                  ),
+                  chatColumn(),
+                  SizedBox(height: ConstantIntegers.chatBelowPadding),
+                  Divider(
+                    thickness: ConstantIntegers.dividerThickness,
+                    color: ConstantColors.homeScreenDividerColor,
+                  ),
+                  chatColumn(),
                   SizedBox(height: ConstantIntegers.chatBelowPadding),
                   Divider(
                     thickness: ConstantIntegers.dividerThickness,
@@ -62,17 +92,15 @@ class ChatTabScreen extends State<ChatTab> {
     );
   }
 
-  Widget _buildChatColumn() {
+  Widget chatColumn() {
     return GestureDetector(
       onTap: () {
-          print("Chat column tapped!");
         if (mounted) {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ChatContent(
-                carNumber: ConstantVariables.carNo,
-              ),
+              builder:
+                  (context) => ChatContent(carNumber: ConstantVariables.carNo),
             ),
           );
         }
@@ -90,6 +118,7 @@ class ChatTabScreen extends State<ChatTab> {
                       Icon(
                         Icons.directions_car_outlined,
                         color: ConstantColors.homeScreenCarIconColor,
+                        size: ConstantIntegers.chatCarSize,
                       ),
                       SizedBox(width: ConstantIntegers.chatIconPadding),
                       Text(
@@ -114,7 +143,11 @@ class ChatTabScreen extends State<ChatTab> {
                   ),
                 ],
               ),
-              Image.asset("assets/images/Vector.png"),
+              Image.asset(
+                ConstantImages.assetImages + ConstantImages.whatsappVectorImage,
+                height: ConstantIntegers.messageWhatsAppHeight,
+                width: ConstantIntegers.messageWhatsAppWidth,
+              ),
             ],
           ),
         ],
