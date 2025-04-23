@@ -82,8 +82,8 @@ class HomeScreen extends State<HomePage> {
         drawer: buildDrawer(),
         body: Scrollbar(
           thumbVisibility: true,
-          thickness: 6.0,
-          radius: Radius.circular(10),
+          thickness: ConstantIntegers.scrollThickness,
+          radius: Radius.circular(ConstantIntegers.scrollRadius),
           child: Column(
             children: [
               Expanded(
@@ -140,12 +140,12 @@ class HomeScreen extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            "assets/images/Vector.png",
+            ConstantImages.assetImages + ConstantImages.whatsappVectorImage,
             color: Colors.white,
-            height: 25,
-            width: 25,
+            height: ConstantIntegers.whatsappImageHeight,
+            width: ConstantIntegers.whatsappImageWidth,
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: ConstantIntegers.whatsappImageTabSpace),
           Text(
             ConstantVariables.tabBarChatText,
             style: TextStyle(
@@ -264,24 +264,22 @@ class HomeScreen extends State<HomePage> {
                 ),
           ),
           createDrawerItem(
-            icon: Icons.settings_outlined,
-            text: ConstantVariables.menuSettingsListText,
-            onTap: () => Navigator.pop(context),
-          ),
-          createDrawerItem(
             icon: Icons.logout,
             text: ConstantVariables.menuLogoutListText,
             onTap: () async {
+              final BuildContext currentContext = context;
               final prefs = await SharedPreferences.getInstance();
               if (prefs.containsKey('token')) {
                 await Provider.of<UserProvider>(
-                  context,
+                  currentContext,
                   listen: false,
                 ).logout();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
+                if (currentContext.mounted) {
+                  Navigator.pushReplacement(
+                    currentContext,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                }
               }
             },
           ),
