@@ -24,10 +24,13 @@ class SplashPageScreen extends State<SplashPage>
   void initState() {
     super.initState();
     controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: ConstantIntegers.sliderAnimationSecond),
       vsync: this,
     )..repeat();
-    animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller);
+    animation = Tween<double>(
+      begin: ConstantIntegers.animationBegin,
+      end: ConstantIntegers.animationEnd,
+    ).animate(controller);
   }
 
   @override
@@ -51,12 +54,7 @@ class SplashPageScreen extends State<SplashPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          buildBackground(),
-          buildContent(context),
-        ],
-      ),
+      body: Stack(children: [buildBackground(), buildContent(context)]),
     );
   }
 
@@ -91,7 +89,9 @@ class SplashPageScreen extends State<SplashPage>
         buildIrixLogo(),
         const Spacer(),
         slidingContainer(),
-        const SizedBox(height: ConstantIntegers.confirmationSliderSizedBoxWidth),
+        const SizedBox(
+          height: ConstantIntegers.confirmationSliderSizedBoxWidth,
+        ),
       ],
     );
   }
@@ -177,29 +177,29 @@ class SplashPageScreen extends State<SplashPage>
                   return containerPosition > ConstantIntegers.containerHide
                       ? const SizedBox.shrink()
                       : ShaderMask(
-                    shaderCallback: (bounds) {
-                      return LinearGradient(
-                        colors: [Colors.white, Colors.grey.shade900],
-                        begin: Alignment(
-                          -1 + animation.value * 1,
-                          ConstantIntegers.animationValueBegin2,
+                        shaderCallback: (bounds) {
+                          return LinearGradient(
+                            colors: [Colors.white, Colors.grey.shade900],
+                            begin: Alignment(
+                              -1 + animation.value * 1,
+                              ConstantIntegers.animationValueBegin2,
+                            ),
+                            end: Alignment(
+                              1 + animation.value * 1,
+                              ConstantIntegers.animationValueEnd2,
+                            ),
+                          ).createShader(bounds);
+                        },
+                        child: const Text(
+                          ConstantVariables.forward,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: ConstantIntegers.forwardFontSize,
+                            letterSpacing:
+                                ConstantIntegers.forwardLetterSpacing,
+                          ),
                         ),
-                        end: Alignment(
-                          1 + animation.value * 1,
-                          ConstantIntegers.animationValueEnd2,
-                        ),
-                      ).createShader(bounds);
-                    },
-                    child: const Text(
-                      ConstantVariables.forward,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: ConstantIntegers.forwardFontSize,
-                        letterSpacing:
-                        ConstantIntegers.forwardLetterSpacing,
-                      ),
-                    ),
-                  );
+                      );
                 },
               ),
             ),
