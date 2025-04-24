@@ -27,6 +27,7 @@ class ProfileTabScreen extends State<ProfileTab> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -325,9 +326,9 @@ class ProfileTabScreen extends State<ProfileTab> {
                 leading: Icon(Icons.delete, color: Colors.red),
                 title: Text("Delete Profile Picture"),
                 onTap: () {
-                  Navigator.pop(context); // Close the bottom sheet
+                  Navigator.pop(context);
                   setState(() {
-                    profileImage = null; // Remove the profile image
+                    profileImage = null;
                   });
                 },
               ),
@@ -359,10 +360,10 @@ class ProfileTabScreen extends State<ProfileTab> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   iconButtonOption(Icons.photo_library, "Gallery", () {
-                    pickImage(context, ImageSource.gallery); // Pass context to pickImage
+                    pickImage(context, ImageSource.gallery);
                   }),
                   iconButtonOption(Icons.camera_alt, "Camera", () {
-                    pickImage(context, ImageSource.camera); // Pass context to pickImage
+                    pickImage(context, ImageSource.camera);
                   }),
                 ],
               ),
