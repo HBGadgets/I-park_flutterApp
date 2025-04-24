@@ -64,8 +64,8 @@ class AboutUsScreen extends StatelessWidget {
               SizedBox(height: ConstantIntegers.aboutUsDetailSizedBox),
               text(ConstantVariables.whoWeAreDetails),
               SizedBox(height: ConstantIntegers.aboutUsSizedBox),
-              text(ConstantVariables.contactUs, FontWeight.bold),
-              text(ConstantVariables.question),
+              text(ConstantVariables.contactUsText, FontWeight.bold),
+              text(ConstantVariables.questionText),
               SizedBox(height: ConstantIntegers.aboutUsDetailSizedBox),
               contactInfo(),
               SizedBox(height: ConstantIntegers.aboutUsSizedBox),
@@ -92,10 +92,10 @@ class AboutUsScreen extends StatelessWidget {
 
   Widget contactInfo() {
     final contactDetails = [
-      ConstantVariables.emailDetail,
-      ConstantVariables.phoneDetail,
-      ConstantVariables.websiteDetail,
-      ConstantVariables.socialDetail,
+      ConstantVariables.emailDetailText,
+      ConstantVariables.phoneDetailText,
+      ConstantVariables.websiteDetailText,
+      ConstantVariables.socialDetailText,
     ];
 
     return Column(
