@@ -224,42 +224,72 @@ class ProfileTabScreen extends State<ProfileTab> {
   }
 
   Widget profileCircularAvatar() {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        CircleAvatar(
-          radius: ConstantIntegers.profileCircularAvatar,
-          backgroundColor: Colors.black,
-          backgroundImage:
-              profileImage != null ? FileImage(profileImage!) : null,
-          child:
-              profileImage == null
-                  ? Icon(Icons.person, size: 130, color: Colors.white)
-                  : null,
-        ),
-        Positioned(
-          bottom: 2,
-          right: 2,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: ConstantColors.profileEditIconBackground,
-            ),
-            child: IconButton(
-              icon: Icon(
-                Icons.camera_alt,
-                color: Colors.black,
-                size: ConstantIntegers.profileEditIconSize,
+    return GestureDetector(
+      onTap: () {
+        if (profileImage != null) {
+          showImagePreviewDialog(context);
+        }
+      },
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          CircleAvatar(
+            radius: ConstantIntegers.profileCircularAvatar,
+            backgroundColor: Colors.black,
+            backgroundImage: profileImage != null ? FileImage(profileImage!) : null,
+            child: profileImage == null
+                ? Icon(Icons.person, size: 130, color: Colors.white)
+                : null,
+          ),
+          Positioned(
+            bottom: 2,
+            right: 2,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: ConstantColors.profileEditIconBackground,
               ),
-              onPressed: () {
-                showImagePickerBottomSheet(context);
-              },
+              child: IconButton(
+                icon: Icon(Icons.camera_alt, color: Colors.black, size: ConstantIntegers.profileEditIconSize),
+                onPressed: () {
+                  showImagePickerBottomSheet(context);
+                },
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
+  void showImagePreviewDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.black,
+          insetPadding: EdgeInsets.zero,
+          child: GestureDetector(
+            onTap: () => Navigator.of(context).pop(),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              color: Colors.black,
+              child: profileImage != null
+                  ? Image.file(profileImage!, fit: BoxFit.contain)
+                  : Center(
+                child: Text(
+                  "No image selected.",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+
 
   void showImagePickerBottomSheet(BuildContext context) {
     showModalBottomSheet(
