@@ -43,10 +43,14 @@ class HomeScreen extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
         bool shouldExit = await showExitConfirmationDialog(context);
-        return shouldExit;
+        if (shouldExit) {
+          Navigator.of(context).pop();
+        }
       },
       child: DefaultTabController(
         length: ConstantIntegers.tabBarLength,
