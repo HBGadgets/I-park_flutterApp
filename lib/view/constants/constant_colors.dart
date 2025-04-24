@@ -75,10 +75,10 @@ class ConstantColors {
   static const Color customerIDTextColor = Colors.grey;
   static const Color customerNameTextColor = Colors.black;
   static const Color customerHintTextColor = Colors.black;
-  static const Color vehicleTypeColorText = Colors.grey;
-  static const Color vehicleNameColorText = Colors.black;
-  static const Color vehicleNumberColorText = Colors.grey;
-  static const Color vehicleNumberColor = Colors.black;
+  static const Color vehicleTypeColorText = Colors.black;
+  static const Color vehicleNameColorText = Colors.grey;
+  static const Color vehicleNumberColorText = Colors.black;
+  static const Color vehicleNumberColor = Colors.grey;
   static const Color addButtonTTextColor = Colors.white;
   static const Color totalCountColorText = Colors.grey;
   static const Color aboutUsDetails = Color(0xFF454B60);
