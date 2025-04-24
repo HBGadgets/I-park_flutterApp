@@ -144,18 +144,58 @@ class HomeScreen extends State<HomePage> {
           context: context,
           builder:
               (context) => AlertDialog(
-                title: Text("Confirm Exit..!!"),
-                content: Text("Are you sure you want to exit the app?"),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(true),
-                    child: Text("Yes"),
+                backgroundColor: Colors.black12,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ), // Rounded edges
+                contentPadding: EdgeInsets.zero,
+                content: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    gradient: LinearGradient(
+                      colors: [Colors.black, Colors.black],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
                   ),
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(false),
-                    child: Text("No"),
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Confirm Exit..!!",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "Are you sure ?",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          dialogueRoundedButton(
+                            "Yes",
+                            Colors.white,
+                            () => Navigator.of(context).pop(true),
+                          ),
+                          const SizedBox(width: 10),
+                          dialogueRoundedButton(
+                            "No",
+                            Colors.white,
+                            () => Navigator.of(context).pop(false),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
         ) ??
         false;
@@ -166,6 +206,26 @@ class HomeScreen extends State<HomePage> {
     }
 
     return false;
+  }
+
+  Widget dialogueRoundedButton(
+    String text,
+    Color color,
+    VoidCallback onPressed,
+  ) {
+    return SizedBox(
+      width: 100,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ), // Rounded button
+        ),
+        child: Text(text, style: TextStyle(color: Colors.black, fontSize: 16)),
+      ),
+    );
   }
 
   Widget homeTab() {
