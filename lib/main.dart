@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const SplashPage();
           } else {
-            return snapshot.data == true ? const HomePage() : const LoginPage();
+            return snapshot.data == true ? const HomePage() : const SplashPage();
           }
         },
       ),

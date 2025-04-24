@@ -88,137 +88,72 @@ class HomeScreen extends State<HomePage> {
             ],
           ),
           drawer: buildDrawer(),
-          body: Scrollbar(
-            thumbVisibility: true,
-            thickness: ConstantIntegers.scrollThickness,
-            radius: Radius.circular(ConstantIntegers.scrollRadius),
-            child: Column(
-              children: [
-                Expanded(
-                  child: TabBarView(
-                    physics: BouncingScrollPhysics(),
-                    children: [HomeTab(), ChatTab(), HistoryTab(), ProfileTab()],
-                  ),
-                ),
-                Container(
-                  height: ConstantIntegers.tabBarContainerHeight,
-                  color: ConstantColors.tabBarContainer,
-                  child: TabBar(
-                    onTap: onTabChanged,
-                    indicatorColor: ConstantColors.tabBarIndicatorColor,
-                    labelColor: ConstantColors.tabBarLabelColor,
-                    dividerColor: Colors.black,
-                    unselectedLabelColor: ConstantColors.unSelectedLabelColor,
-                    tabs: [homeTab(), chatTab(), historyTab(), profileTab()],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-    return DefaultTabController(
-      length: ConstantIntegers.tabBarLength,
-      initialIndex: selectedTabIndex,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: ConstantColors.defaultDashBoardColour,
-        appBar: AppBar(
-          backgroundColor: ConstantColors.appTabBarBackgroundColor,
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: Icon(
-                  Icons.menu,
-                  color: ConstantColors.menuIconColor,
-                  size: ConstantIntegers.menuSize,
-                ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            },
-          ),
-          title: Text(
-            appBarTitles[selectedTabIndex],
-            style: TextStyle(
-              color: ConstantColors.appBarTitlesColor,
-              fontFamily: ConstantVariables.fontFamilyPoppins,
-              fontSize: ConstantIntegers.selectedTabText,
-            ),
-          ),
-          centerTitle: true,
-          actions: [
-            Icon(
-              Icons.notifications,
-              color: ConstantColors.notificationIconColor,
-              size: ConstantIntegers.notificationSize,
-            ),
-          ],
-        ),
-        drawer: buildDrawer(),
-        body:
-            widget.isLoading
-                ? Center(child: CircularProgressIndicator())
-                : Scrollbar(
-                  thumbVisibility: true,
-                  thickness: ConstantIntegers.scrollThickness,
-                  radius: Radius.circular(ConstantIntegers.scrollRadius),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: TabBarView(
-                          physics: BouncingScrollPhysics(),
-                          children: [
-                            HomeTab(),
-                            ChatTab(),
-                            HistoryTab(),
-                            ProfileTab(),
-                          ],
+          body:
+              widget.isLoading
+                  ? Center(child: CircularProgressIndicator())
+                  : Scrollbar(
+                    thumbVisibility: true,
+                    thickness: ConstantIntegers.scrollThickness,
+                    radius: Radius.circular(ConstantIntegers.scrollRadius),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: TabBarView(
+                            physics: BouncingScrollPhysics(),
+                            children: [
+                              HomeTab(),
+                              ChatTab(),
+                              HistoryTab(),
+                              ProfileTab(),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        height: ConstantIntegers.tabBarContainerHeight,
-                        color: ConstantColors.tabBarContainer,
-                        child: TabBar(
-                          onTap: onTabChanged,
-                          indicatorColor: ConstantColors.tabBarIndicatorColor,
-                          labelColor: ConstantColors.tabBarLabelColor,
-                          dividerColor: Colors.black,
-                          unselectedLabelColor:
-                              ConstantColors.unSelectedLabelColor,
-                          tabs: [
-                            homeTab(),
-                            chatTab(),
-                            historyTab(),
-                            profileTab(),
-                          ],
+                        Container(
+                          height: ConstantIntegers.tabBarContainerHeight,
+                          color: ConstantColors.tabBarContainer,
+                          child: TabBar(
+                            onTap: onTabChanged,
+                            indicatorColor: ConstantColors.tabBarIndicatorColor,
+                            labelColor: ConstantColors.tabBarLabelColor,
+                            dividerColor: Colors.black,
+                            unselectedLabelColor:
+                                ConstantColors.unSelectedLabelColor,
+                            tabs: [
+                              homeTab(),
+                              chatTab(),
+                              historyTab(),
+                              profileTab(),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+        ),
       ),
     );
   }
 
   Future<bool> showExitConfirmationDialog(BuildContext context) async {
-    final shouldExit = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("Confirm Exit..!!"),
-        content: Text("Are you sure you want to exit the app?"),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text("Yes"),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text("No"),
-          ),
-        ],
-      ),
-    ) ??
+    final shouldExit =
+        await showDialog<bool>(
+          context: context,
+          builder:
+              (context) => AlertDialog(
+                title: Text("Confirm Exit..!!"),
+                content: Text("Are you sure you want to exit the app?"),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(true),
+                    child: Text("Yes"),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text("No"),
+                  ),
+                ],
+              ),
+        ) ??
         false;
 
     if (shouldExit) {
@@ -228,7 +163,6 @@ class HomeScreen extends State<HomePage> {
 
     return false;
   }
-
 
   Widget homeTab() {
     return Tab(
@@ -348,34 +282,40 @@ class HomeScreen extends State<HomePage> {
           createDrawerItem(
             icon: Icons.insert_drive_file_outlined,
             text: ConstantVariables.menuAboutUsListText,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AboutUsScreen()),
-            ),
+            onTap:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsScreen()),
+                ),
           ),
           createDrawerItem(
             icon: Icons.star_border,
             text: ConstantVariables.menuRatingListText,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => FeedbackPage()),
-            ),
+            onTap:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FeedbackPage()),
+                ),
           ),
           createDrawerItem(
             icon: Icons.support_agent_outlined,
             text: ConstantVariables.menuHelpSupportListText,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HelpSupport()),
-            ),
+            onTap:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HelpSupport()),
+                ),
           ),
           createDrawerItem(
             icon: Icons.privacy_tip_outlined,
             text: ConstantVariables.menuPrivacyListText,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()),
-            ),
+            onTap:
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PrivacyPolicyScreen(),
+                  ),
+                ),
           ),
           createDrawerItem(
             icon: Icons.settings_outlined,

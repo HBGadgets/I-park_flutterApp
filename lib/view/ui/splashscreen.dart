@@ -27,7 +27,6 @@ class SplashPageScreen extends State<SplashPage>
       duration: const Duration(seconds: 1),
       vsync: this,
     )..repeat();
-
     animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller);
   }
 
@@ -40,7 +39,6 @@ class SplashPageScreen extends State<SplashPage>
   Future<void> navigateToNextPage() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isLoggedIn = prefs.containsKey('token');
-
     if (!mounted) return;
 
     Navigator.of(context).pushReplacement(
