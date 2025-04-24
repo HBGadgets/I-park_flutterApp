@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../constants/constant_colors.dart';
-import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
 import '../constants/constant_variables.dart';
 
@@ -12,6 +14,21 @@ class ProfileTab extends StatefulWidget {
 }
 
 class ProfileTabScreen extends State<ProfileTab> {
+  File? profileImage;
+
+  Future<void> pickImage(ImageSource source) async {
+    final ImagePicker imagePicker = ImagePicker();
+    final XFile? pickedFile = await imagePicker.pickImage(source: source);
+
+    if (pickedFile != null) {
+      setState(() {
+        profileImage = File(pickedFile.path);
+      });
+    } else {
+      print("No image selected.");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,11 +224,87 @@ class ProfileTabScreen extends State<ProfileTab> {
   }
 
   Widget profileCircularAvatar() {
-    return CircleAvatar(
-      radius: ConstantIntegers.profileCircularAvatar,
-      backgroundImage: AssetImage(
-        ConstantImages.assetImages + ConstantImages.circularAvatarImage,
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        CircleAvatar(
+          radius: ConstantIntegers.profileCircularAvatar,
+          backgroundColor: Colors.black,
+          backgroundImage:
+              profileImage != null ? FileImage(profileImage!) : null,
+          child:
+              profileImage == null
+                  ? Icon(Icons.person, size: 130, color: Colors.white)
+                  : null,
+        ),
+        Positioned(
+          bottom: 2,
+          right: 2,
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: ConstantColors.profileEditIconBackground,
+            ),
+            child: IconButton(
+              icon: Icon(
+                Icons.camera_alt,
+                color: Colors.black,
+                size: ConstantIntegers.profileEditIconSize,
+              ),
+              onPressed: () {
+                showImagePickerBottomSheet(context);
+              },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void showImagePickerBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Add Profile Picture",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  iconButtonOption(Icons.photo_library, "Gallery", () {
+                    pickImage(ImageSource.gallery);
+                  }),
+                  iconButtonOption(Icons.camera_alt, "Camera", () {
+                    pickImage(ImageSource.camera);
+                  }),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget iconButtonOption(IconData icon, String label, VoidCallback onTap) {
+    return Column(
+      children: [
+        IconButton(
+          icon: Icon(icon, size: 40, color: Colors.black),
+          onPressed: onTap,
+        ),
+        Text(label, style: TextStyle(fontSize: 14)),
+      ],
     );
   }
 
