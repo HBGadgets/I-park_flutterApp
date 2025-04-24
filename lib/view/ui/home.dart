@@ -17,7 +17,9 @@ import 'help_support.dart';
 import 'home_tab.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final bool isLoading;
+
+  const HomePage({super.key, this.isLoading = false});
 
   @override
   HomeScreen createState() => HomeScreen();
@@ -80,33 +82,47 @@ class HomeScreen extends State<HomePage> {
           ],
         ),
         drawer: buildDrawer(),
-        body: Scrollbar(
-          thumbVisibility: true,
-          thickness: ConstantIntegers.scrollThickness,
-          radius: Radius.circular(ConstantIntegers.scrollRadius),
-          child: Column(
-            children: [
-              Expanded(
-                child: TabBarView(
-                  physics: BouncingScrollPhysics(),
-                  children: [HomeTab(), ChatTab(), HistoryTab(), ProfileTab()],
+        body:
+            widget.isLoading
+                ? Center(child: CircularProgressIndicator())
+                : Scrollbar(
+                  thumbVisibility: true,
+                  thickness: ConstantIntegers.scrollThickness,
+                  radius: Radius.circular(ConstantIntegers.scrollRadius),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: TabBarView(
+                          physics: BouncingScrollPhysics(),
+                          children: [
+                            HomeTab(),
+                            ChatTab(),
+                            HistoryTab(),
+                            ProfileTab(),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: ConstantIntegers.tabBarContainerHeight,
+                        color: ConstantColors.tabBarContainer,
+                        child: TabBar(
+                          onTap: onTabChanged,
+                          indicatorColor: ConstantColors.tabBarIndicatorColor,
+                          labelColor: ConstantColors.tabBarLabelColor,
+                          dividerColor: Colors.black,
+                          unselectedLabelColor:
+                              ConstantColors.unSelectedLabelColor,
+                          tabs: [
+                            homeTab(),
+                            chatTab(),
+                            historyTab(),
+                            profileTab(),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                height: ConstantIntegers.tabBarContainerHeight,
-                color: ConstantColors.tabBarContainer,
-                child: TabBar(
-                  onTap: onTabChanged,
-                  indicatorColor: ConstantColors.tabBarIndicatorColor,
-                  labelColor: ConstantColors.tabBarLabelColor,
-                  dividerColor: Colors.black,
-                  unselectedLabelColor: ConstantColors.unSelectedLabelColor,
-                  tabs: [homeTab(), chatTab(), historyTab(), profileTab()],
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
