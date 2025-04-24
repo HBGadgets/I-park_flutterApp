@@ -69,7 +69,7 @@ class ConstantVariables {
   static const String vehicleNumberText = "Vehicle Number:";
   static const String vehicleNumberHintText = "MH36A6678";
   static const String addButtonText = "+ Add";
-  static const String totalCountText = "Total Count: 1";
+  static const String totalCountText = "Total Count: ";
   static const String loginFailed = "Login failed. Please try again.";
   static const String aboutUsText = "About Us";
   static const String welcomeDetails =
