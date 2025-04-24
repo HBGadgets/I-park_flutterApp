@@ -27,20 +27,16 @@ class ConstantVariables {
   static const String menuLogoutListText = "Logout";
   static const String tabBarHomeText = "Home";
   static const String tabBarChatText = "Chat";
-
   static const String tabBarHistoryText = "History";
   static const String tabBarProfileText = "Profile";
   static const String homePersonNameText = "Rohan Rah";
   static const String scanQRText = "Scan QR";
   static const String recentText = "Recent";
   static const String recentMessagesText = "Recent Messages";
-
   static const String customerNo = "Customer - 007";
   static const String carNo = "MH36A6678";
-
   static const String request = "I have send you request";
   static const String chatContent = "I Need my car in 30 min..";
-
   static const String dateHintText = "DD/MM/YY";
   static const String labelSelectTimeText = "Select Time";
   static const String historyPersonNameText = "Shrikant Ramesh Yadav";

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hb/view/constants/constant_colors.dart';
 import 'package:hb/view/ui/about_us.dart';
 import 'package:hb/view/ui/feedback.dart';
@@ -42,89 +43,125 @@ class HomeScreen extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: ConstantIntegers.tabBarLength,
-      initialIndex: selectedTabIndex,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: ConstantColors.defaultDashBoardColour,
-        appBar: AppBar(
-          backgroundColor: ConstantColors.appTabBarBackgroundColor,
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: Icon(
-                  Icons.menu,
-                  color: ConstantColors.menuIconColor,
-                  size: ConstantIntegers.menuSize,
-                ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            },
-          ),
-          title: Text(
-            appBarTitles[selectedTabIndex],
-            style: TextStyle(
-              color: ConstantColors.appBarTitlesColor,
-              fontFamily: ConstantVariables.fontFamilyPoppins,
-              fontSize: ConstantIntegers.selectedTabText,
-            ),
-          ),
-          centerTitle: true,
-          actions: [
-            Icon(
-              Icons.notifications,
-              color: ConstantColors.notificationIconColor,
-              size: ConstantIntegers.notificationSize,
-            ),
-          ],
-        ),
-        drawer: buildDrawer(),
-        body:
-            widget.isLoading
-                ? Center(child: CircularProgressIndicator())
-                : Scrollbar(
-                  thumbVisibility: true,
-                  thickness: ConstantIntegers.scrollThickness,
-                  radius: Radius.circular(ConstantIntegers.scrollRadius),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: TabBarView(
-                          physics: BouncingScrollPhysics(),
-                          children: [
-                            HomeTab(),
-                            ChatTab(),
-                            HistoryTab(),
-                            ProfileTab(),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: ConstantIntegers.tabBarContainerHeight,
-                        color: ConstantColors.tabBarContainer,
-                        child: TabBar(
-                          onTap: onTabChanged,
-                          indicatorColor: ConstantColors.tabBarIndicatorColor,
-                          labelColor: ConstantColors.tabBarLabelColor,
-                          dividerColor: Colors.black,
-                          unselectedLabelColor:
-                              ConstantColors.unSelectedLabelColor,
-                          tabs: [
-                            homeTab(),
-                            chatTab(),
-                            historyTab(),
-                            profileTab(),
-                          ],
-                        ),
-                      ),
-                    ],
+    return WillPopScope(
+      onWillPop: () async {
+        bool shouldExit = await showExitConfirmationDialog(context);
+        return shouldExit;
+      },
+      child: DefaultTabController(
+        length: ConstantIntegers.tabBarLength,
+        initialIndex: selectedTabIndex,
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: ConstantColors.defaultDashBoardColour,
+          appBar: AppBar(
+            backgroundColor: ConstantColors.appTabBarBackgroundColor,
+            leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: Icon(
+                    Icons.menu,
+                    color: ConstantColors.menuIconColor,
+                    size: ConstantIntegers.menuSize,
                   ),
-                ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
+              },
+            ),
+            title: Text(
+              appBarTitles[selectedTabIndex],
+              style: TextStyle(
+                color: ConstantColors.appBarTitlesColor,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+                fontSize: ConstantIntegers.selectedTabText,
+              ),
+            ),
+            centerTitle: true,
+            actions: [
+              Icon(
+                Icons.notifications,
+                color: ConstantColors.notificationIconColor,
+                size: ConstantIntegers.notificationSize,
+              ),
+            ],
+          ),
+          drawer: buildDrawer(),
+          body:
+              widget.isLoading
+                  ? Center(child: CircularProgressIndicator())
+                  : Scrollbar(
+                    thumbVisibility: true,
+                    thickness: ConstantIntegers.scrollThickness,
+                    radius: Radius.circular(ConstantIntegers.scrollRadius),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: TabBarView(
+                            physics: BouncingScrollPhysics(),
+                            children: [
+                              HomeTab(),
+                              ChatTab(),
+                              HistoryTab(),
+                              ProfileTab(),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: ConstantIntegers.tabBarContainerHeight,
+                          color: ConstantColors.tabBarContainer,
+                          child: TabBar(
+                            onTap: onTabChanged,
+                            indicatorColor: ConstantColors.tabBarIndicatorColor,
+                            labelColor: ConstantColors.tabBarLabelColor,
+                            dividerColor: Colors.black,
+                            unselectedLabelColor:
+                                ConstantColors.unSelectedLabelColor,
+                            tabs: [
+                              homeTab(),
+                              chatTab(),
+                              historyTab(),
+                              profileTab(),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+        ),
       ),
     );
+  }
+
+  Future<bool> showExitConfirmationDialog(BuildContext context) async {
+    final shouldExit =
+        await showDialog<bool>(
+          context: context,
+          builder:
+              (context) => AlertDialog(
+                title: Text("Confirm Exit..!!"),
+                content: Text("Are you sure you want to exit the app?"),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(true),
+                    child: Text("Yes"),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text("No"),
+                  ),
+                ],
+              ),
+        ) ??
+        false;
+
+    if (shouldExit) {
+      SystemNavigator.pop();
+      return false;
+    }
+
+    return false;
   }
 
   Widget homeTab() {
