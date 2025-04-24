@@ -219,40 +219,6 @@ class ConstantIntegers {
   static const double numberText = 16.0;
   static const double titleText = 16.0;
   static const double bulletContent = 14.0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   static const double scrollbarThickness = 1.0;
   static const double scrollbarBorderCircularSize = 16.0;
   static const double singleChildScrollViewPadding = 16.0;
@@ -282,5 +248,6 @@ class ConstantIntegers {
   static const double feedbackAboveLabelHeight = 20;
   static const double labelTextSize = 16;
   static const double feedbackTextFieldHintTextSize = 12;
+  static const double profileEditIconSize = 30.0;
 
 }
