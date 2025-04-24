@@ -289,8 +289,6 @@ class ProfileTabScreen extends State<ProfileTab> {
     );
   }
 
-
-
   void showImagePickerBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
