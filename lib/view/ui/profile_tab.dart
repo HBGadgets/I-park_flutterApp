@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../constants/constant_colors.dart';
@@ -15,15 +14,14 @@ class ProfileTab extends StatefulWidget {
 
 class ProfileTabScreen extends State<ProfileTab> {
   File? profileImage;
-
-  Future<void> pickImage(ImageSource source) async {
+  Future<void> pickImage(BuildContext context, ImageSource source) async {
     final ImagePicker imagePicker = ImagePicker();
     final XFile? pickedFile = await imagePicker.pickImage(source: source);
-
     if (pickedFile != null) {
       setState(() {
         profileImage = File(pickedFile.path);
       });
+      Navigator.pop(context);
     } else {
       print("No image selected.");
     }
@@ -250,9 +248,17 @@ class ProfileTabScreen extends State<ProfileTab> {
                 color: ConstantColors.profileEditIconBackground,
               ),
               child: IconButton(
-                icon: Icon(Icons.camera_alt, color: Colors.black, size: ConstantIntegers.profileEditIconSize),
+                icon: Icon(
+                  profileImage == null ? Icons.camera_alt : Icons.edit,
+                  color: Colors.black,
+                  size: ConstantIntegers.profileEditIconSize,
+                ),
                 onPressed: () {
-                  showImagePickerBottomSheet(context);
+                  if (profileImage == null) {
+                    showImagePickerBottomSheet(context);
+                  } else {
+                    showEditOptionsBottomSheet(context);
+                  }
                 },
               ),
             ),
@@ -261,6 +267,7 @@ class ProfileTabScreen extends State<ProfileTab> {
       ),
     );
   }
+
   void showImagePreviewDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -289,7 +296,47 @@ class ProfileTabScreen extends State<ProfileTab> {
     );
   }
 
-
+  void showEditOptionsBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Profile Options",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              ListTile(
+                leading: Icon(Icons.camera_alt, color: Colors.black),
+                title: Text("Change Profile Picture"),
+                onTap: () {
+                  Navigator.pop(context);
+                  showImagePickerBottomSheet(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.delete, color: Colors.red),
+                title: Text("Delete Profile Picture"),
+                onTap: () {
+                  Navigator.pop(context); // Close the bottom sheet
+                  setState(() {
+                    profileImage = null; // Remove the profile image
+                  });
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   void showImagePickerBottomSheet(BuildContext context) {
     showModalBottomSheet(
@@ -312,10 +359,10 @@ class ProfileTabScreen extends State<ProfileTab> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   iconButtonOption(Icons.photo_library, "Gallery", () {
-                    pickImage(ImageSource.gallery);
+                    pickImage(context, ImageSource.gallery); // Pass context to pickImage
                   }),
                   iconButtonOption(Icons.camera_alt, "Camera", () {
-                    pickImage(ImageSource.camera);
+                    pickImage(context, ImageSource.camera); // Pass context to pickImage
                   }),
                 ],
               ),
