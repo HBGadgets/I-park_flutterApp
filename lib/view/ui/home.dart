@@ -18,7 +18,9 @@ import 'help_support.dart';
 import 'home_tab.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final bool isLoading;
+
+  const HomePage({super.key, this.isLoading = false});
 
   @override
   HomeScreen createState() => HomeScreen();
@@ -114,6 +116,87 @@ class HomeScreen extends State<HomePage> {
             ),
           ),
         ),
+    return DefaultTabController(
+      length: ConstantIntegers.tabBarLength,
+      initialIndex: selectedTabIndex,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: ConstantColors.defaultDashBoardColour,
+        appBar: AppBar(
+          backgroundColor: ConstantColors.appTabBarBackgroundColor,
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: Icon(
+                  Icons.menu,
+                  color: ConstantColors.menuIconColor,
+                  size: ConstantIntegers.menuSize,
+                ),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            },
+          ),
+          title: Text(
+            appBarTitles[selectedTabIndex],
+            style: TextStyle(
+              color: ConstantColors.appBarTitlesColor,
+              fontFamily: ConstantVariables.fontFamilyPoppins,
+              fontSize: ConstantIntegers.selectedTabText,
+            ),
+          ),
+          centerTitle: true,
+          actions: [
+            Icon(
+              Icons.notifications,
+              color: ConstantColors.notificationIconColor,
+              size: ConstantIntegers.notificationSize,
+            ),
+          ],
+        ),
+        drawer: buildDrawer(),
+        body:
+            widget.isLoading
+                ? Center(child: CircularProgressIndicator())
+                : Scrollbar(
+                  thumbVisibility: true,
+                  thickness: ConstantIntegers.scrollThickness,
+                  radius: Radius.circular(ConstantIntegers.scrollRadius),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: TabBarView(
+                          physics: BouncingScrollPhysics(),
+                          children: [
+                            HomeTab(),
+                            ChatTab(),
+                            HistoryTab(),
+                            ProfileTab(),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: ConstantIntegers.tabBarContainerHeight,
+                        color: ConstantColors.tabBarContainer,
+                        child: TabBar(
+                          onTap: onTabChanged,
+                          indicatorColor: ConstantColors.tabBarIndicatorColor,
+                          labelColor: ConstantColors.tabBarLabelColor,
+                          dividerColor: Colors.black,
+                          unselectedLabelColor:
+                              ConstantColors.unSelectedLabelColor,
+                          tabs: [
+                            homeTab(),
+                            chatTab(),
+                            historyTab(),
+                            profileTab(),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
       ),
     );
   }

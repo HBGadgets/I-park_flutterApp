@@ -17,8 +17,8 @@ class LoginPage extends StatefulWidget {
 class LoginPageScreen extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -248,43 +248,59 @@ class LoginPageScreen extends State<LoginPage> {
       width: ConstantIntegers.buttonWidth,
       height: ConstantIntegers.buttonHeight,
       child: ElevatedButton(
-        onPressed: () async {
-          if (formKey.currentState!.validate()) {
-            String email = emailController.text;
-            String password = passwordController.text;
+        onPressed:
+            isLoading
+                ? null
+                : () async {
+                  setState(() {
+                    isLoading = true;
+                  });
 
-            bool success = await Provider.of<UserProvider>(
-              context,
-              listen: false,
-            ).login(email, password);
-            if (success) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomePage()),
-              );
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  behavior: SnackBarBehavior.floating,
-                  margin: EdgeInsets.all(ConstantIntegers.snackBarMargin),
-                  backgroundColor: ConstantColors.scaFoldError,
-                  content: Padding(
-                    padding: const EdgeInsets.all(
-                      ConstantIntegers.snackBarPadding,
-                    ),
-                    child: Text(
-                      ConstantVariables.loginFailed,
-                      style: TextStyle(
-                        color: ConstantColors.scaFoldErrorText,
-                        fontFamily: ConstantVariables.fontFamilyPoppins,
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }
-          }
-        },
+                  if (formKey.currentState!.validate()) {
+                    String email = emailController.text;
+                    String password = passwordController.text;
+
+                    bool success = await Provider.of<UserProvider>(
+                      context,
+                      listen: false,
+                    ).login(email, password);
+
+                    setState(() {
+                      isLoading = false;
+                    });
+
+                    if (success) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(isLoading: false),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          behavior: SnackBarBehavior.floating,
+                          margin: EdgeInsets.all(
+                            ConstantIntegers.snackBarMargin,
+                          ),
+                          backgroundColor: ConstantColors.scaFoldError,
+                          content: Padding(
+                            padding: const EdgeInsets.all(
+                              ConstantIntegers.snackBarPadding,
+                            ),
+                            child: Text(
+                              ConstantVariables.loginFailed,
+                              style: TextStyle(
+                                color: ConstantColors.scaFoldErrorText,
+                                fontFamily: ConstantVariables.fontFamilyPoppins,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                  }
+                },
         style: ElevatedButton.styleFrom(
           backgroundColor: ConstantColors.loginBButtonColor,
           shape: RoundedRectangleBorder(
