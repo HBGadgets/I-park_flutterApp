@@ -115,23 +115,12 @@ class ConstantVariables {
   static const String thirdParty ='Third-Party Links and Services';
   static const String changes = 'Changes to this Privacy Policy';
   static const String contact = 'Contact Us';
-
-
-
-
-
-
-
-
-
-
-
-  static const String contactUs =  'Contact Us:';
-  static const String question =  'Have questions or need assistance? We’re here to help!.';
-  static const String emailDetail =  'Email: support@ipark.com';
-  static const String phoneDetail =  'Phone: (555) 123-4567';
-  static const String websiteDetail =   'Website: www.ipark.com';
-  static const String socialDetail =   'Social Media: @iParkApp';
+  static const String contactUsText =  'Contact Us:';
+  static const String questionText =  'Have questions or need assistance? We’re here to help!.';
+  static const String emailDetailText =  'Email: support@ipark.com';
+  static const String phoneDetailText =  'Phone: (555) 123-4567';
+  static const String websiteDetailText =   'Website: www.ipark.com';
+  static const String socialDetailText =   'Social Media: @iParkApp';
   static const String appBarTitleText = "Feedback";
   static const String experienceText = "How was your experience?";
   static const String experienceServiceText = "Your Feedback is valuable in helping us better understand your needs and tailor our service accordingly.";
