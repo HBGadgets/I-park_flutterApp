@@ -7,9 +7,8 @@ import 'package:hb/view/ui/history_tab.dart';
 import 'package:hb/view/ui/login.dart';
 import 'package:hb/view/ui/privacy_policy.dart';
 import 'package:hb/view/ui/profile_tab.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../controller/user_login_api.dart';
+import '../../controller/user_login_auth.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
 import '../constants/constant_variables.dart';
@@ -391,12 +390,10 @@ class HomeScreen extends State<HomePage> {
             text: ConstantVariables.menuLogoutListText,
             onTap: () async {
               final BuildContext currentContext = context;
+              final AuthService authService = AuthService();
+              await authService.logout();
               final prefs = await SharedPreferences.getInstance();
-              if (prefs.containsKey('token')) {
-                await Provider.of<UserProvider>(
-                  currentContext,
-                  listen: false,
-                ).logout();
+              if (!prefs.containsKey('token')) {
                 if (currentContext.mounted) {
                   Navigator.pushReplacement(
                     currentContext,
