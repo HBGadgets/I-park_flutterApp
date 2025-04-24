@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../controller/user_login_api.dart';
+import '../../controller/user_login_auth.dart';
 import '../constants/constant_colors.dart';
 import '../constants/constant_images.dart';
 import '../constants/constant_integers.dart';
@@ -19,6 +18,7 @@ class LoginPageScreen extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isLoading = false;
+  final AuthService authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -248,62 +248,58 @@ class LoginPageScreen extends State<LoginPage> {
       width: ConstantIntegers.buttonWidth,
       height: ConstantIntegers.buttonHeight,
       child: ElevatedButton(
-        onPressed:
-            isLoading
-                ? null
-                : () async {
-                  setState(() {
-                    isLoading = true;
-                  });
+        onPressed: isLoading
+            ? null
+            : () async {
+          setState(() {
+            isLoading = true;
+          });
 
-                  if (formKey.currentState!.validate()) {
-                    String email = emailController.text.trim();
-                    String password = passwordController.text.trim();
+          if (formKey.currentState!.validate()) {
+            String email = emailController.text.trim();
+            String password = passwordController.text.trim();
 
-                    bool success = await Provider.of<UserProvider>(
-                      context,
-                      listen: false,
-                    ).login(email, password);
-                    setState(() {
-                      isLoading = false;
-                    });
+            bool success = await authService.login(email, password);
+            setState(() {
+              isLoading = false;
+            });
 
-                    if (success) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(isLoading: false),
-                        ),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          behavior: SnackBarBehavior.floating,
-                          margin: EdgeInsets.all(
-                            ConstantIntegers.snackBarMargin,
-                          ),
-                          backgroundColor: ConstantColors.scaFoldError,
-                          content: Padding(
-                            padding: const EdgeInsets.all(
-                              ConstantIntegers.snackBarPadding,
-                            ),
-                            child: Text(
-                              ConstantVariables.loginFailed,
-                              style: TextStyle(
-                                color: ConstantColors.scaFoldErrorText,
-                                fontFamily: ConstantVariables.fontFamilyPoppins,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    }
-                  } else {
-                    setState(() {
-                      isLoading = false;
-                    });
-                  }
-                },
+            if (success) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(isLoading: false),
+                ),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  margin: EdgeInsets.all(
+                    ConstantIntegers.snackBarMargin,
+                  ),
+                  backgroundColor: ConstantColors.scaFoldError,
+                  content: Padding(
+                    padding: const EdgeInsets.all(
+                      ConstantIntegers.snackBarPadding,
+                    ),
+                    child: Text(
+                      ConstantVariables.loginFailed,
+                      style: TextStyle(
+                        color: ConstantColors.scaFoldErrorText,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }
+          } else {
+            setState (() {
+              isLoading = false;
+            });
+          }
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: ConstantColors.loginBButtonColor,
           shape: RoundedRectangleBorder(
