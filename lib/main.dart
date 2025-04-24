@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_variables.dart';
 import 'package:hb/view/ui/home.dart';
-import 'package:hb/view/ui/login.dart';
 import 'package:hb/view/ui/splashscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:hb/controller/user_login_api.dart';
