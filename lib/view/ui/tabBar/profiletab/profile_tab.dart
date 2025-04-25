@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '../constants/constant_colors.dart';
-import '../constants/constant_integers.dart';
-import '../constants/constant_variables.dart';
+import '../../../constants/constant_colors.dart';
+import '../../../constants/constant_integers.dart';
+import '../../../constants/constant_variables.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});

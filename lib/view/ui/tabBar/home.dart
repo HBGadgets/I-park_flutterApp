@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hb/view/constants/constant_colors.dart';
-import 'package:hb/view/ui/about_us.dart';
-import 'package:hb/view/ui/feedback.dart';
-import 'package:hb/view/ui/history_tab.dart';
-import 'package:hb/view/ui/login.dart';
-import 'package:hb/view/ui/privacy_policy.dart';
-import 'package:hb/view/ui/profile_tab.dart';
+import 'package:hb/view/ui/drawer/about_us.dart';
+import 'package:hb/view/ui/drawer/feedback.dart';
+import 'package:hb/view/ui/tabBar/historytab/history_tab.dart';
+import 'package:hb/view/ui/login/login.dart';
+import 'package:hb/view/ui/drawer/privacy_policy.dart';
+import 'package:hb/view/ui/tabBar/profiletab/profile_tab.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../controller/user_login_auth.dart';
-import '../constants/constant_images.dart';
-import '../constants/constant_integers.dart';
-import '../constants/constant_variables.dart';
-import 'chat_tab.dart';
-import 'help_support.dart';
-import 'home_tab.dart';
+import '../../../controller/user_login_auth.dart';
+import '../../constants/constant_images.dart';
+import '../../constants/constant_integers.dart';
+import '../../constants/constant_variables.dart';
+import 'chattab/chat_tab.dart';
+import '../drawer/help_support.dart';
+import 'hometab/home_tab.dart';
 
 class HomePage extends StatefulWidget {
   final bool isLoading;

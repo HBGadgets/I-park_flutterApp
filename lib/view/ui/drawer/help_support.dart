@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_colors.dart';
 import 'package:hb/view/constants/constant_images.dart';
-import '../constants/constant_integers.dart';
-import '../constants/constant_variables.dart';
+import '../../constants/constant_integers.dart';
+import '../../constants/constant_variables.dart';
 
 class HelpSupport extends StatelessWidget {
   const HelpSupport({super.key});

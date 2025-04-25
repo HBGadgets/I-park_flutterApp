@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_variables.dart';
-import 'package:hb/view/ui/home.dart';
-import 'package:hb/view/ui/splashscreen.dart';
+import 'package:hb/view/ui/tabBar/home.dart';
+import 'package:hb/view/ui/splashscreen/splashscreen.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
