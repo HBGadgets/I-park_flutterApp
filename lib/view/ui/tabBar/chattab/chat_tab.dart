@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../constants/constant_colors.dart';
-import '../constants/constant_images.dart';
-import '../constants/constant_integers.dart';
-import '../constants/constant_variables.dart';
+import '../../../constants/constant_colors.dart';
+import '../../../constants/constant_images.dart';
+import '../../../constants/constant_integers.dart';
+import '../../../constants/constant_variables.dart';
 import 'chat_content.dart';
 
 class ChatTab extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_variables.dart';
-import '../constants/constant_colors.dart';
-import '../constants/constant_integers.dart';
+import '../../../constants/constant_colors.dart';
+import '../../../constants/constant_integers.dart';
 
 class ChatContent extends StatefulWidget {
   final String carNumber;
