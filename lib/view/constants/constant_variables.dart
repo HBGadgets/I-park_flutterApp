@@ -70,7 +70,7 @@ class ConstantVariables {
   static const String vehicleNumberHintText = "MH36A6678";
   static const String addButtonText = "+ Add";
   static const String totalCountText = "Total Count: ";
-  static const String loginFailed = "Login failed. Please try again.";
+  static const String loginFailed = "Email or Password Incorrect";
   static const String aboutUsText = "About Us";
   static const String welcomeDetails =
       "Welcome to iPark, the app that transforms the way hotels and guests manage parking. We connect you with valet services at your favorite hotels, making parking and retrieving your vehicle faster, easier, and more convenient than ever before. Whether you're a hotel looking to enhance your guest experience or a traveler who needs quick, seamless parking, iPark is here to help.";
