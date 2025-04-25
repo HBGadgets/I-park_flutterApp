@@ -96,5 +96,9 @@ class ConstantColors {
   static const Color dividerColors =  Colors.grey;
   static var profileEditIconColor = Colors.blue;
   static var profileEditIconBackground = Colors.grey;
+  static const Color selectImageTextColor = Colors.black;
+  static const Color changeImageTextColor = Colors.black;
+
+
 
 }

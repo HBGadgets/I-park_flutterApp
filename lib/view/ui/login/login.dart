@@ -4,7 +4,6 @@ import '../../constants/constant_colors.dart';
 import '../../constants/constant_images.dart';
 import '../../constants/constant_integers.dart';
 import '../../constants/constant_variables.dart';
-import '../tabBar/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -259,30 +258,19 @@ class LoginPageScreen extends State<LoginPage> {
             String email = emailController.text.trim();
             String password = passwordController.text.trim();
 
-            bool success = await authService.login(email, password);
+            bool success = await authService.login(context,email, password);
             setState(() {
               isLoading = false;
             });
 
-            if (success) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomePage(isLoading: false),
-                ),
-              );
-            } else {
+            if (!success) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   behavior: SnackBarBehavior.floating,
-                  margin: EdgeInsets.all(
-                    ConstantIntegers.snackBarMargin,
-                  ),
+                  margin: EdgeInsets.all(ConstantIntegers.snackBarMargin),
                   backgroundColor: ConstantColors.scaFoldError,
                   content: Padding(
-                    padding: const EdgeInsets.all(
-                      ConstantIntegers.snackBarPadding,
-                    ),
+                    padding: const EdgeInsets.all(ConstantIntegers.snackBarPadding),
                     child: Text(
                       ConstantVariables.loginFailed,
                       style: TextStyle(
@@ -295,7 +283,7 @@ class LoginPageScreen extends State<LoginPage> {
               );
             }
           } else {
-            setState (() {
+            setState(() {
               isLoading = false;
             });
           }
