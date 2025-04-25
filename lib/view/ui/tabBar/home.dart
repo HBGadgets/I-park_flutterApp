@@ -5,7 +5,7 @@ import 'package:hb/view/ui/drawer/about_us.dart';
 import 'package:hb/view/ui/drawer/feedback.dart';
 import 'package:hb/view/ui/tabBar/historytab/history_tab.dart';
 import 'package:hb/view/ui/login/login.dart';
-import 'package:hb/view/ui/drawer/privacy_policy.dart';
+import 'package:hb/view/ui/privacy_policy.dart';
 import 'package:hb/view/ui/tabBar/profiletab/profile_tab.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../controller/user_login_auth.dart';

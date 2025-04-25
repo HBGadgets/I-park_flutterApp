@@ -1,9 +1,10 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../view/constants/constant_url.dart';
 
 class AuthService {
-  final String apiUrl = 'https://i-park.onrender.com/api/user/login';
+  final String apiUrl = ConstantUrl.loginUrl;
   String? keyToken;
 
   Future<bool> login(String email, String password) async {
