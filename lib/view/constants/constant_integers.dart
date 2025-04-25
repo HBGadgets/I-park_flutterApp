@@ -249,5 +249,20 @@ class ConstantIntegers {
   static const double labelTextSize = 16;
   static const double feedbackTextFieldHintTextSize = 12;
   static const double profileEditIconSize = 30.0;
+  static const double circularAvatarImageSize = 130.0;
+  static const double positionImageBottom = 2.0;
+  static const double positionImageRight = 2.0;
+  static const double profileImageTextSize = 18.0;
+  static const double showBottomShitTopRadiusSize = 16.0;
+  static const double bottomShitPaddingSize = 16.0;
+  static const double profileOptionTextFontSize = 18.0;
+  static const double profileTextBelowSizedBoxHeight = 10.0;
+  static const double imagePickerBottomShitRadius = 16.0;
+  static const double imagePickerBottomShitPadding = 16.0;
+  static const double addProfileTextSize = 18.0;
+  static const double addProfileTextBelowSizedBoxHeight = 10.0;
+  static const double iconButtonOptionSize = 40.0;
+  static const double iconButtonLabelTextFontSize = 14.0;
+
 
 }

@@ -14,6 +14,7 @@ class ProfileTab extends StatefulWidget {
 
 class ProfileTabScreen extends State<ProfileTab> {
   File? profileImage;
+
   Future<void> pickImage(BuildContext context, ImageSource source) async {
     final ImagePicker imagePicker = ImagePicker();
     final XFile? pickedFile = await imagePicker.pickImage(source: source);
@@ -26,7 +27,6 @@ class ProfileTabScreen extends State<ProfileTab> {
       print("No image selected.");
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -235,14 +235,20 @@ class ProfileTabScreen extends State<ProfileTab> {
           CircleAvatar(
             radius: ConstantIntegers.profileCircularAvatar,
             backgroundColor: Colors.black,
-            backgroundImage: profileImage != null ? FileImage(profileImage!) : null,
-            child: profileImage == null
-                ? Icon(Icons.person, size: 130, color: Colors.white)
-                : null,
+            backgroundImage:
+                profileImage != null ? FileImage(profileImage!) : null,
+            child:
+                profileImage == null
+                    ? Icon(
+                      Icons.person,
+                      size: ConstantIntegers.circularAvatarImageSize,
+                      color: Colors.white,
+                    )
+                    : null,
           ),
           Positioned(
-            bottom: 2,
-            right: 2,
+            bottom: ConstantIntegers.positionImageBottom,
+            right: ConstantIntegers.positionImageRight,
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -282,14 +288,19 @@ class ProfileTabScreen extends State<ProfileTab> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               color: Colors.black,
-              child: profileImage != null
-                  ? Image.file(profileImage!, fit: BoxFit.contain)
-                  : Center(
-                child: Text(
-                  "No image selected.",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
+              child:
+                  profileImage != null
+                      ? Image.file(profileImage!, fit: BoxFit.contain)
+                      : Center(
+                        child: Text(
+                          ConstantVariables.noImageSelectedText,
+                          style: TextStyle(
+                            fontFamily: ConstantVariables.fontFamilyPoppins,
+                            color: Colors.white,
+                            fontSize: ConstantIntegers.profileImageTextSize,
+                          ),
+                        ),
+                      ),
             ),
           ),
         );
@@ -301,30 +312,48 @@ class ProfileTabScreen extends State<ProfileTab> {
     showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(ConstantIntegers.showBottomShitTopRadiusSize),
+        ),
       ),
       builder: (context) {
         return Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(ConstantIntegers.bottomShitPaddingSize),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "Profile Options",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ConstantVariables.profileOptionText,
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+                  fontSize: ConstantIntegers.profileOptionTextFontSize,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(
+                height: ConstantIntegers.profileTextBelowSizedBoxHeight,
+              ),
               ListTile(
                 leading: Icon(Icons.camera_alt, color: Colors.black),
-                title: Text("Change Profile Picture"),
+                title: Text(
+                  ConstantVariables.changeProfileText,
+                  style: TextStyle(
+                    fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context);
                   showImagePickerBottomSheet(context);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.delete, color: Colors.red),
-                title: Text("Delete Profile Picture"),
+                leading: Icon(Icons.delete, color: Colors.black),
+                title: Text(
+                  ConstantVariables.deleteProfileText,
+                  style: TextStyle(
+                    fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold
+                  ),
+                ),
                 onTap: () {
                   Navigator.pop(context);
                   setState(() {
@@ -343,28 +372,46 @@ class ProfileTabScreen extends State<ProfileTab> {
     showModalBottomSheet(
       context: context,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(ConstantIntegers.imagePickerBottomShitRadius),
+        ),
       ),
       builder: (context) {
         return Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(
+            ConstantIntegers.imagePickerBottomShitPadding,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "Add Profile Picture",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ConstantVariables.addProfileText,
+                style: TextStyle(
+                  fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
+                  fontSize: ConstantIntegers.addProfileTextSize,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(
+                height: ConstantIntegers.addProfileTextBelowSizedBoxHeight,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  iconButtonOption(Icons.photo_library, "Gallery", () {
-                    pickImage(context, ImageSource.gallery);
-                  }),
-                  iconButtonOption(Icons.camera_alt, "Camera", () {
-                    pickImage(context, ImageSource.camera);
-                  }),
+                  iconButtonOption(
+                    Icons.photo_library,
+                    ConstantVariables.galleryText,
+                    () {
+                      pickImage(context, ImageSource.gallery);
+                    },
+                  ),
+                  iconButtonOption(
+                    Icons.camera_alt,
+                    ConstantVariables.cameraText,
+                    () {
+                      pickImage(context, ImageSource.camera);
+                    },
+                  ),
                 ],
               ),
             ],
@@ -378,10 +425,21 @@ class ProfileTabScreen extends State<ProfileTab> {
     return Column(
       children: [
         IconButton(
-          icon: Icon(icon, size: 40, color: Colors.black),
+          icon: Icon(
+            icon,
+            size: ConstantIntegers.iconButtonOptionSize,
+            color: Colors.black,
+          ),
           onPressed: onTap,
         ),
-        Text(label, style: TextStyle(fontSize: 14)),
+        Text(
+          label,
+          style: TextStyle(
+            fontFamily: ConstantVariables.fontFamilyPoppins,
+            fontWeight: FontWeight.bold,
+            fontSize: ConstantIntegers.iconButtonLabelTextFontSize,
+          ),
+        ),
       ],
     );
   }

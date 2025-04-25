@@ -126,5 +126,12 @@ class ConstantVariables {
   static const String likeLabelText = "Loved it";
   static const String textFieldHintText = "Write your feedback here...";
   static const String submitButtonText = "Submit";
+  static const String noImageSelectedText = "No image selected.";
+  static const String profileOptionText = "Profile Options";
+  static const String changeProfileText = "Change Profile Picture";
+  static const String deleteProfileText = "Delete Profile Picture";
+  static const String addProfileText = "Add Profile Picture";
+  static const String galleryText = "Gallery";
+  static const String cameraText = "Camera";
 
 }
