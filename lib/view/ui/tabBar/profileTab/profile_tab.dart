@@ -338,7 +338,8 @@ class ProfileTabScreen extends State<ProfileTab> {
                 title: Text(
                   ConstantVariables.changeProfileText,
                   style: TextStyle(
-                    fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 onTap: () {
@@ -351,7 +352,8 @@ class ProfileTabScreen extends State<ProfileTab> {
                 title: Text(
                   ConstantVariables.deleteProfileText,
                   style: TextStyle(
-                    fontFamily: ConstantVariables.fontFamilyPoppins,fontWeight: FontWeight.bold
+                    fontFamily: ConstantVariables.fontFamilyPoppins,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 onTap: () {
