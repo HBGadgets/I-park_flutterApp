@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hb/view/constants/constant_images.dart';
 import 'package:hb/view/constants/constant_integers.dart';
 import 'package:hb/view/constants/constant_variables.dart';
-import '../constants/constant_colors.dart';
+import '../../constants/constant_colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'home.dart';
-import 'login.dart';
+import '../tabBar/home.dart';
+import '../login/login.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

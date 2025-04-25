@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../controller/user_login_auth.dart';
-import '../constants/constant_colors.dart';
-import '../constants/constant_images.dart';
-import '../constants/constant_integers.dart';
-import '../constants/constant_variables.dart';
-import 'home.dart';
+import '../../../controller/user_login_auth.dart';
+import '../../constants/constant_colors.dart';
+import '../../constants/constant_images.dart';
+import '../../constants/constant_integers.dart';
+import '../../constants/constant_variables.dart';
+import '../tabBar/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
