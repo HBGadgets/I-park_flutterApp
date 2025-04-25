@@ -45,11 +45,17 @@ class HomeTabScreen extends State<HomeTab> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CircleAvatar(
-                    backgroundImage: AssetImage(
-                      ConstantImages.assetImages +
-                          ConstantImages.circularAvatarImage,
-                    ),
+                  CircleAvatar(
+                    backgroundColor: Colors.black,
+                    backgroundImage:ConstantVariables.profileImage != null ? FileImage(ConstantVariables.profileImage!) : null,
+                    child:
+                    ConstantVariables.profileImage == null
+                        ? Icon(
+                      Icons.person,
+                      size: ConstantIntegers.circularAvatar2ImageSize,
+                      color: Colors.white,
+                    )
+                        : null,
                     radius: ConstantIntegers.qrCircularAvatarRadius,
                   ),
                   const SizedBox(width: ConstantIntegers.qrTextSizedBox),

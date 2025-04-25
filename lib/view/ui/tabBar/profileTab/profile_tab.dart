@@ -13,14 +13,14 @@ class ProfileTab extends StatefulWidget {
 }
 
 class ProfileTabScreen extends State<ProfileTab> {
-  File? profileImage;
+
 
   Future<void> pickImage(BuildContext context, ImageSource source) async {
     final ImagePicker imagePicker = ImagePicker();
     final XFile? pickedFile = await imagePicker.pickImage(source: source);
     if (pickedFile != null) {
       setState(() {
-        profileImage = File(pickedFile.path);
+        ConstantVariables.profileImage = File(pickedFile.path);
       });
       Navigator.pop(context);
     } else {
@@ -33,30 +33,6 @@ class ProfileTabScreen extends State<ProfileTab> {
     return Scaffold(
       body: profileTabViewContent(),
       backgroundColor: ConstantColors.defaultDashBoardColour,
-    );
-  }
-
-  Widget profileTab() {
-    return Tab(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.person,
-            size: ConstantIntegers.tabBarIcon,
-            color: ConstantColors.tabBarIconsColor,
-          ),
-          Text(
-            ConstantVariables.tabBarProfileText,
-            style: TextStyle(
-              fontFamily: ConstantVariables.fontFamilyPoppins,
-              fontSize: ConstantIntegers.tabBarText,
-              fontWeight: FontWeight.bold,
-              color: ConstantColors.tabBarIconsTextColor,
-            ),
-          ),
-        ],
-      ),
     );
   }
 
@@ -111,7 +87,6 @@ class ProfileTabScreen extends State<ProfileTab> {
 
   Widget profilePaddingColumn() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         profileColumnRow(),
@@ -225,7 +200,7 @@ class ProfileTabScreen extends State<ProfileTab> {
   Widget profileCircularAvatar() {
     return GestureDetector(
       onTap: () {
-        if (profileImage != null) {
+        if (ConstantVariables.profileImage != null) {
           showImagePreviewDialog(context);
         }
       },
@@ -236,9 +211,9 @@ class ProfileTabScreen extends State<ProfileTab> {
             radius: ConstantIntegers.profileCircularAvatar,
             backgroundColor: Colors.black,
             backgroundImage:
-                profileImage != null ? FileImage(profileImage!) : null,
+            ConstantVariables.profileImage != null ? FileImage(ConstantVariables.profileImage!) : null,
             child:
-                profileImage == null
+            ConstantVariables.profileImage == null
                     ? Icon(
                       Icons.person,
                       size: ConstantIntegers.circularAvatarImageSize,
@@ -256,12 +231,12 @@ class ProfileTabScreen extends State<ProfileTab> {
               ),
               child: IconButton(
                 icon: Icon(
-                  profileImage == null ? Icons.camera_alt : Icons.edit,
+                  ConstantVariables.profileImage == null ? Icons.camera_alt : Icons.edit,
                   color: Colors.black,
                   size: ConstantIntegers.profileEditIconSize,
                 ),
                 onPressed: () {
-                  if (profileImage == null) {
+                  if (ConstantVariables.profileImage == null) {
                     showImagePickerBottomSheet(context);
                   } else {
                     showEditOptionsBottomSheet(context);
@@ -289,8 +264,8 @@ class ProfileTabScreen extends State<ProfileTab> {
               height: MediaQuery.of(context).size.height,
               color: Colors.black,
               child:
-                  profileImage != null
-                      ? Image.file(profileImage!, fit: BoxFit.contain)
+              ConstantVariables.profileImage != null
+                      ? Image.file(ConstantVariables.profileImage!, fit: BoxFit.contain)
                       : Center(
                         child: Text(
                           ConstantVariables.noImageSelectedText,
@@ -328,18 +303,24 @@ class ProfileTabScreen extends State<ProfileTab> {
                   fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
                   fontSize: ConstantIntegers.profileOptionTextFontSize,
                   fontWeight: FontWeight.bold,
+                  color: ConstantColors.changeImageTextColor,
                 ),
               ),
               const SizedBox(
                 height: ConstantIntegers.profileTextBelowSizedBoxHeight,
               ),
               ListTile(
-                leading: Icon(Icons.camera_alt, color: Colors.black),
+                leading: Icon(
+                  Icons.camera_alt,
+                  color: ConstantColors.selectImageTextColor,
+                ),
                 title: Text(
                   ConstantVariables.changeProfileText,
                   style: TextStyle(
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                     fontWeight: FontWeight.bold,
+                    color: ConstantColors.changeImageTextColor,
+                    fontSize: ConstantIntegers.profileOptionsTextFontSize,
                   ),
                 ),
                 onTap: () {
@@ -348,18 +329,23 @@ class ProfileTabScreen extends State<ProfileTab> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.delete, color: Colors.black),
+                leading: Icon(
+                  Icons.delete,
+                  color: ConstantColors.selectImageTextColor,
+                ),
                 title: Text(
                   ConstantVariables.deleteProfileText,
                   style: TextStyle(
                     fontFamily: ConstantVariables.fontFamilyPoppins,
                     fontWeight: FontWeight.bold,
+                    color: ConstantColors.changeImageTextColor,
+                    fontSize: ConstantIntegers.profileOptionsTextFontSize,
                   ),
                 ),
                 onTap: () {
                   Navigator.pop(context);
                   setState(() {
-                    profileImage = null;
+                    ConstantVariables.profileImage = null;
                   });
                 },
               ),
@@ -392,6 +378,7 @@ class ProfileTabScreen extends State<ProfileTab> {
                   fontFamily: ConstantVariables.fontFamilyPoppinsBlack,
                   fontSize: ConstantIntegers.addProfileTextSize,
                   fontWeight: FontWeight.bold,
+                  color: ConstantColors.selectImageTextColor,
                 ),
               ),
               const SizedBox(
@@ -430,7 +417,7 @@ class ProfileTabScreen extends State<ProfileTab> {
           icon: Icon(
             icon,
             size: ConstantIntegers.iconButtonOptionSize,
-            color: Colors.black,
+            color: ConstantColors.selectImageTextColor,
           ),
           onPressed: onTap,
         ),
@@ -439,6 +426,7 @@ class ProfileTabScreen extends State<ProfileTab> {
           style: TextStyle(
             fontFamily: ConstantVariables.fontFamilyPoppins,
             fontWeight: FontWeight.bold,
+            color: ConstantColors.selectImageTextColor,
             fontSize: ConstantIntegers.iconButtonLabelTextFontSize,
           ),
         ),
