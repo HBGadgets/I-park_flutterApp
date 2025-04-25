@@ -5,16 +5,17 @@ import 'package:hb/view/ui/drawer/about_us.dart';
 import 'package:hb/view/ui/drawer/feedback.dart';
 import 'package:hb/view/ui/tabBar/historytab/history_tab.dart';
 import 'package:hb/view/ui/login/login.dart';
-import 'package:hb/view/ui/privacy_policy.dart';
+import 'package:hb/view/ui/drawer/privacy_policy.dart';
 import 'package:hb/view/ui/tabBar/profiletab/profile_tab.dart';
+import 'package:hb/view/ui/valleyBoy/valleyBoyScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../controller/user_login_auth.dart';
-import '../../constants/constant_images.dart';
-import '../../constants/constant_integers.dart';
-import '../../constants/constant_variables.dart';
-import 'chattab/chat_tab.dart';
-import '../drawer/help_support.dart';
-import 'hometab/home_tab.dart';
+import '../../../../controller/user_login_auth.dart';
+import '../../../constants/constant_images.dart';
+import '../../../constants/constant_integers.dart';
+import '../../../constants/constant_variables.dart';
+import '../chattab/chat_tab.dart';
+import '../../drawer/help_support.dart';
+import 'home_tab.dart';
 
 class HomePage extends StatefulWidget {
   final bool isLoading;
@@ -383,7 +384,11 @@ class HomeScreen extends State<HomePage> {
           createDrawerItem(
             icon: Icons.settings_outlined,
             text: ConstantVariables.menuSettingsListText,
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ValleyBoyScreen()),
+    ),
+
           ),
           createDrawerItem(
             icon: Icons.logout,

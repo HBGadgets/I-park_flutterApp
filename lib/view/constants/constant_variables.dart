@@ -44,6 +44,7 @@ class ConstantVariables {
   static const String labelSelectTimeText = "Select Time";
   static const String historyPersonNameText = "Shrikant Ramesh Yadav";
   static const String historyCarNumberText = "MH36A6678";
+  static const String valleyBoyNameText = "Valley Boy Name";
   static const String distanceArrivalText = "Arrival";
   static const String distanceDepartureText = "Departure";
   static const String dateText = "17.02-2025";
