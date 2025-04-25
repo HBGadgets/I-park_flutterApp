@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hb/view/ui/tabBar/home.dart';
+import 'package:hb/view/ui/tabBar/homeTab/home.dart';
 import '../../../constants/constant_colors.dart';
 import '../../../constants/constant_integers.dart';
 import '../../../constants/constant_variables.dart';
