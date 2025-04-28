@@ -4,7 +4,7 @@ import 'package:hb/view/constants/constant_colors.dart';
 import 'package:hb/view/ui/drawer/about_us.dart';
 import 'package:hb/view/ui/drawer/feedback.dart';
 import 'package:hb/view/ui/tabBar/historytab/history_tab.dart';
-import 'package:hb/view/ui/login/login.dart';
+import 'package:hb/view/loginpage/login.dart';
 import 'package:hb/view/ui/drawer/privacy_policy.dart';
 import 'package:hb/view/ui/tabBar/profiletab/profile_tab.dart';
 import 'package:hb/view/ui/valleyBoy/valleyBoyScreen.dart';
@@ -15,7 +15,7 @@ import '../../../constants/constant_integers.dart';
 import '../../../constants/constant_variables.dart';
 import '../chattab/chat_tab.dart';
 import '../../drawer/help_support.dart';
-import 'home_tab.dart';
+import '../homeTab/home_tab.dart';
 
 class HomePage extends StatefulWidget {
   final bool isLoading;
