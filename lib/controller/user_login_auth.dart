@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hb/view/ui/tabBar/homeTab/add_screen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,17 +28,10 @@ class AuthService {
         Map<String, dynamic> decodedToken = JwtDecoder.decode(keyToken!);
         int userRole = decodedToken['role'];
 
-        if (userRole == 5) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => AddCustomerScreen()),
-          );
-        } else if (userRole == 4) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
-        }
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage(userRole: userRole)),
+        );
 
         return true;
       } else {

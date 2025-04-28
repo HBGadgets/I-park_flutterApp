@@ -52,7 +52,7 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
         print('Type: ${entry.type}, Number: ${entry.numberController.text}');
       }
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('All entries submitted!')));
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(userRole: 0,)));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please fill all fields!')));
     }

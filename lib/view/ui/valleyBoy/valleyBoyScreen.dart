@@ -7,23 +7,7 @@ class ValleyBoyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Text(
-          "Valley Boy",
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: ConstantVariables.fontFamilyPoppins,
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
-        ),
-        backgroundColor: Colors.black,
-        centerTitle: true,
-      ),
+
       backgroundColor: Colors.white,
       body: ListView(
         padding: EdgeInsets.all(10),
