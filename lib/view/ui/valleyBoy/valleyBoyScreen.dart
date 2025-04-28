@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../constants/constant_variables.dart';
 
 class ValleyBoyScreen extends StatelessWidget {
   const ValleyBoyScreen({super.key});
