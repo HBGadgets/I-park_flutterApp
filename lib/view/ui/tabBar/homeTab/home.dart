@@ -19,8 +19,9 @@ import 'home_tab.dart';
 
 class HomePage extends StatefulWidget {
   final bool isLoading;
+  final int userRole;
 
-  const HomePage({super.key, this.isLoading = false});
+  const HomePage({super.key, this.isLoading = false, required this.userRole});
 
   @override
   HomeScreen createState() => HomeScreen();
@@ -105,7 +106,8 @@ class HomeScreen extends State<HomePage> {
                           child: TabBarView(
                             physics: BouncingScrollPhysics(),
                             children: [
-                              HomeTab(),
+                              widget.userRole == 5 ? ValleyBoyScreen():
+                              HomeTab() ,
                               ChatTab(),
                               HistoryTab(),
                               ProfileTab(),

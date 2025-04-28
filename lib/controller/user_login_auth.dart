@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hb/view/ui/tabBar/homeTab/add_screen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../view/constants/constant_url.dart';
-import '../view/ui/tabBar/home.dart';
+import '../view/ui/tabBar/homeTab/home.dart';
 
 class AuthService {
   final String apiUrl = ConstantUrl.loginUrl;
@@ -29,17 +28,10 @@ class AuthService {
         Map<String, dynamic> decodedToken = JwtDecoder.decode(keyToken!);
         int userRole = decodedToken['role'];
 
-        if (userRole == 5) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => AddCustomerScreen()),
-          );
-        } else if (userRole == 4) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
-        }
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage(userRole: userRole)),
+        );
 
         return true;
       } else {

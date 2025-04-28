@@ -46,7 +46,7 @@ class SplashPageScreen extends State<SplashPage>
 
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => isLoggedIn ? const HomePage() : const LoginPage(),
+        builder: (context) => isLoggedIn ? const HomePage(userRole: 0,) : const LoginPage(),
       ),
     );
   }

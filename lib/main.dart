@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             return const SplashPage();
           } else {
             return snapshot.data == true
-                ? const HomePage()
+                ? const HomePage(userRole: 0,)
                 : const SplashPage();
           }
         },
