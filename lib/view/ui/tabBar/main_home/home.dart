@@ -149,7 +149,7 @@ class HomeScreen extends State<HomePage> {
                 backgroundColor: Colors.black12,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
-                ), // Rounded edges
+                ),
                 contentPadding: EdgeInsets.zero,
                 content: Container(
                   decoration: BoxDecoration(
@@ -223,7 +223,7 @@ class HomeScreen extends State<HomePage> {
           backgroundColor: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
-          ), // Rounded button
+          ),
         ),
         child: Text(text, style: TextStyle(color: Colors.black, fontSize: 16)),
       ),
