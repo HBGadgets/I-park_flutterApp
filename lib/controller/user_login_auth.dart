@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../view/constants/constant_url.dart';
-import '../view/ui/tabBar/home.dart';
+import '../view/ui/tabBar/homeTab/home.dart';
 
 class AuthService {
   final String apiUrl = ConstantUrl.loginUrl;
