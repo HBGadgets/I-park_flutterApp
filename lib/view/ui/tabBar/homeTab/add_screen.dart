@@ -21,6 +21,7 @@ class AddCustomerScreen extends StatefulWidget {
 
 class AddCustomerScreenState extends State<AddCustomerScreen> {
   final List<VehicleEntry> vehicleEntries = [VehicleEntry()];
+  final List<Map<String, String>> registeredVehicles = [];
 
   final List<String> vehicleTypes = [
     'Sedan',
@@ -33,15 +34,28 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
   ];
 
   void addVehicleEntry() {
-    setState(() {
-      vehicleEntries.add(VehicleEntry());
-    });
+    if (vehicleEntries.isNotEmpty) {
+      final entry = vehicleEntries.last;
+      if (entry.type != null && entry.numberController.text.isNotEmpty) {
+        registeredVehicles.add({
+          'type': entry.type!,
+          'number': entry.numberController.text,
+        });
+
+        entry.type = null;
+        entry.numberController.clear();
+
+        setState(() {});
+      }
+    }
   }
 
   void submitEntries() {
     bool allFilled = true;
     for (var entry in vehicleEntries) {
-      if (entry.type == null || entry.type!.isEmpty || entry.numberController.text.isEmpty) {
+      if (entry.type == null ||
+          entry.type!.isEmpty ||
+          entry.numberController.text.isNotEmpty) {
         allFilled = false;
         break;
       }
@@ -51,10 +65,17 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
       for (var entry in vehicleEntries) {
         print('Type: ${entry.type}, Number: ${entry.numberController.text}');
       }
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('All entries submitted!')));
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(userRole: 0,)));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('All entries submitted!')));
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage(userRole: 0)),
+      );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please fill all fields!')));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Please fill all fields!')));
     }
   }
 
@@ -126,7 +147,9 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                 ),
               ],
             ),
-            SizedBox(height: ConstantIntegers.customerIDTextAboveSizedBoxHeight),
+            SizedBox(
+              height: ConstantIntegers.customerIDTextAboveSizedBoxHeight,
+            ),
             Row(
               children: [
                 Text(
@@ -139,179 +162,339 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                 ),
                 SizedBox(width: ConstantIntegers.textBetweenSizedBox),
                 Expanded(
-                  child: SizedBox(
-                    height: ConstantIntegers.expandChildSizedBox,
-                    child: TextField(
-                      readOnly: true,
-                      decoration: InputDecoration(
-                        hintText: ConstantVariables.customerHintText,
-                        hintStyle: TextStyle(
-                          fontSize: ConstantIntegers.customerHintTextFontSize,
-                          color: ConstantColors.customerHintTextColor,
-                          fontFamily: ConstantVariables.fontFamilyPoppins,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  child: DropdownButtonFormField<String>(
+                    dropdownColor: Colors.white,
+                    value: null,
+                    hint: Text(
+                      ConstantVariables.customerHintText,
+                      style: TextStyle(
+                        fontSize: ConstantIntegers.customerHintTextFontSize,
+                        color: ConstantColors.customerHintTextColor,
+                        fontFamily: ConstantVariables.fontFamilyPoppins,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
+                    items: [
+                      DropdownMenuItem(
+                        value: 'Customer 1',
+                        child: Text('Customer 007'),
+                      ),
+                      DropdownMenuItem(
+                        value: 'Customer 2',
+                        child: Text('Customer 008'),
+                      ),
+                      DropdownMenuItem(
+                        value: 'Customer 3',
+                        child: Text('Customer 009'),
+                      ),
+                    ],
+                    onChanged: (String? newValue) {
+                      setState(() {});
+                    },
                   ),
                 ),
+                SizedBox(width: 10),
               ],
             ),
             SizedBox(height: ConstantIntegers.containerSizedBox),
             Expanded(
-              child: ListView.builder(
+              child: ListView.builder(physics: NeverScrollableScrollPhysics(),
                 itemCount: vehicleEntries.length,
                 itemBuilder: (context, index) {
                   final entry = vehicleEntries[index];
-                  return Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Container(
-                          padding: EdgeInsets.all(ConstantIntegers.containerPaddingAll),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(ConstantIntegers.containerBorderRadiusCircularSize),
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Container(
+                      padding: EdgeInsets.all(
+                        ConstantIntegers.containerPaddingAll,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(
+                          ConstantIntegers.containerBorderRadiusCircularSize,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            ConstantVariables.customerNameText,
+                            style: TextStyle(
+                              fontSize: ConstantIntegers.customerNameTextSize,
+                              color: ConstantColors.customerNameTextColor,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: ConstantVariables.fontFamilyPoppins,
+                            ),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          SizedBox(height: ConstantIntegers.textBelowSizedBox),
+                          Row(
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    ConstantVariables.customerNameText,
-                                    style: TextStyle(
-                                      fontSize: ConstantIntegers.customerNameTextSize,
-                                      color: ConstantColors.customerNameTextColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                                    ),
-                                  ),
-                                  if (vehicleEntries.length > 1)
-                                    IconButton(
-                                      padding: EdgeInsets.zero,
-                                      icon: Icon(Icons.remove_circle_outline, size: 24, color: Colors.black),
-                                      onPressed: () {
-                                        setState(() {
-                                          vehicleEntries.removeAt(index);
-                                        });
-                                      },
-                                    ),
-                                ],
+                              Text(
+                                ConstantVariables.vehicleTypeText,
+                                style: TextStyle(
+                                  fontSize:
+                                      ConstantIntegers.vehicleTypeTextFontSize,
+                                  color: ConstantColors.vehicleTypeColorText,
+                                  fontFamily:
+                                      ConstantVariables.fontFamilyPoppins,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                              SizedBox(height: ConstantIntegers.textBelowSizedBox),
-                              Row(
-                                children: [
-                                  Text(
-                                    ConstantVariables.vehicleTypeText,
+                              SizedBox(
+                                width: ConstantIntegers.vehicleTypeSizedBox,
+                              ),
+                              Expanded(
+                                child: DropdownButtonFormField<String>(
+                                  dropdownColor: Colors.white,
+                                  value: entry.type,
+                                  hint: Text(
+                                    ConstantVariables.vehicleTypeHintText,
                                     style: TextStyle(
-                                      fontSize: ConstantIntegers.vehicleTypeTextFontSize,
-                                      color: ConstantColors.vehicleTypeColorText,
-                                      fontFamily: ConstantVariables.fontFamilyPoppins,
+                                      fontSize:
+                                          ConstantIntegers
+                                              .vehicleTypeHintTextFontSize,
+                                      color:
+                                          ConstantColors.vehicleNameColorText,
+                                      fontFamily:
+                                          ConstantVariables.fontFamilyPoppins,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(width: ConstantIntegers.vehicleTypeSizedBox),
-                                  Expanded(
-                                    child: DropdownButtonFormField<String>(
-                                      value: entry.type,
-                                      hint: Text(
-                                        ConstantVariables.vehicleTypeHintText,
-                                        style: TextStyle(
-                                          fontSize: ConstantIntegers.vehicleTypeHintTextFontSize,
-                                          color: ConstantColors.vehicleNameColorText,
-                                          fontFamily: ConstantVariables.fontFamilyPoppins,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      items: vehicleTypes.map((String vehicle) {
+                                  items:
+                                      vehicleTypes.map((String vehicle) {
                                         return DropdownMenuItem<String>(
                                           value: vehicle,
                                           child: Text(vehicle),
                                         );
                                       }).toList(),
-                                      onChanged: (String? newValue) {
-                                        setState(() {
-                                          entry.type = newValue;
-                                        });
-                                      },
-                                    ),
-                                  ),
-                                ],
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      entry.type = newValue;
+                                    });
+                                  },
+                                ),
                               ),
-                              SizedBox(height: ConstantIntegers.vehicleTextBelowSizedBoxHeight),
-                              Row(
-                                children: [
-                                  Text(
-                                    ConstantVariables.vehicleNumberText,
-                                    style: TextStyle(
-                                      fontSize: ConstantIntegers.vehicleNoTextFontSize,
-                                      color: ConstantColors.vehicleNumberColorText,
-                                      fontFamily: ConstantVariables.fontFamilyPoppins,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(width: ConstantIntegers.vehicleNoTextBelowSizedBoxWidth),
-                                  Expanded(
-                                    child: SizedBox(
-                                      height: ConstantIntegers.vehicleNoHintTextAboveSizedBoxHeight,
-                                      child: TextField(
-                                        controller: entry.numberController,
-                                        decoration: InputDecoration(
-                                          hintText: ConstantVariables.vehicleNumberHintText,
-                                          hintStyle: TextStyle(
-                                            fontSize: ConstantIntegers.vehicleNoHintTextFontSize,
-                                            color: ConstantColors.vehicleNumberColor,
-                                            fontFamily: ConstantVariables.fontFamilyPoppins,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                            ],
+                          ),
+                          SizedBox(
+                            height:
+                                ConstantIntegers.vehicleTextBelowSizedBoxHeight,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                ConstantVariables.vehicleNumberText,
+                                style: TextStyle(
+                                  fontSize:
+                                      ConstantIntegers.vehicleNoTextFontSize,
+                                  color: ConstantColors.vehicleNumberColorText,
+                                  fontFamily:
+                                      ConstantVariables.fontFamilyPoppins,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                width:
+                                    ConstantIntegers
+                                        .vehicleNoTextBelowSizedBoxWidth,
+                              ),
+                              Expanded(
+                                child: SizedBox(
+                                  height:
+                                      ConstantIntegers
+                                          .vehicleNoHintTextAboveSizedBoxHeight,
+                                  child: TextField(
+                                    controller: entry.numberController,
+                                    decoration: InputDecoration(
+                                      hintText:
+                                          ConstantVariables
+                                              .vehicleNumberHintText,
+                                      hintStyle: TextStyle(
+                                        fontSize:
+                                            ConstantIntegers
+                                                .vehicleNoHintTextFontSize,
+                                        color:
+                                            ConstantColors.vehicleNumberColor,
+                                        fontFamily:
+                                            ConstantVariables.fontFamilyPoppins,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
-                        ),
+                        ],
                       ),
-                      if (index == vehicleEntries.length - 1)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              ElevatedButton(
-                                onPressed: addVehicleEntry,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(ConstantIntegers.addButtonEdgeCircular),
-                                  ),
-                                ),
-                                child: Text(
-                                  ConstantVariables.addButtonText,
-                                  style: TextStyle(
-                                    color: ConstantColors.addButtonTTextColor,
-                                    fontSize: ConstantIntegers.addButtonTextFontSize,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                    ],
+                    ),
                   );
                 },
               ),
             ),
-            SizedBox(height: ConstantIntegers.totalCountTextBelowSizedBoxHeight),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    onPressed: addVehicleEntry,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          ConstantIntegers.addButtonEdgeCircular,
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      ConstantVariables.addButtonText,
+                      style: TextStyle(
+                        color: ConstantColors.addButtonTTextColor,
+                        fontSize: ConstantIntegers.addButtonTextFontSize,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            // Display registered vehicles
+            Text(
+              'Registered Vehicles',
+              style: TextStyle(
+                fontSize: ConstantIntegers.fillDetailsTextFontSize,
+                fontWeight: FontWeight.bold,
+                color: ConstantColors.detailsTextColor,
+                fontFamily: ConstantVariables.fontFamilyPoppins,
+              ),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                itemCount: registeredVehicles.length,
+                itemBuilder: (context, index) {
+                  final vehicle = registeredVehicles[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Container(
+                      padding: EdgeInsets.all(
+                        ConstantIntegers.containerPaddingAll,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(
+                          ConstantIntegers.containerBorderRadiusCircularSize,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            ConstantVariables.customerNameText,
+                            style: TextStyle(
+                              fontSize: ConstantIntegers.customerNameTextSize,
+                              color: ConstantColors.customerNameTextColor,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: ConstantVariables.fontFamilyPoppins,
+                            ),
+                          ),
+                          SizedBox(height: ConstantIntegers.textBelowSizedBox),
+                          Row(
+                            children: [
+                              Text(
+                                ConstantVariables.vehicleTypeText,
+                                style: TextStyle(
+                                  fontSize:
+                                      ConstantIntegers.vehicleTypeTextFontSize,
+                                  color: ConstantColors.vehicleTypeColorText,
+                                  fontFamily:
+                                      ConstantVariables.fontFamilyPoppins,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(width: 30),
+
+                              Expanded(
+                                child: TextField(
+                                  controller: TextEditingController(
+                                    text: vehicle['type'],
+                                  ),
+                                  readOnly: true,
+                                  decoration: InputDecoration(
+                                    hintText:
+                                        ConstantVariables.vehicleTypeHintText,
+                                    hintStyle: TextStyle(
+                                      fontSize:
+                                          ConstantIntegers
+                                              .vehicleTypeHintTextFontSize,
+                                      color:
+                                          ConstantColors.vehicleNameColorText,
+                                      fontFamily:
+                                          ConstantVariables.fontFamilyPoppins,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: ConstantIntegers.textBelowSizedBox),
+                          Row(
+                            children: [
+                              Text(
+                                ConstantVariables.vehicleNumberText,
+                                style: TextStyle(
+                                  fontSize:
+                                      ConstantIntegers.vehicleNoTextFontSize,
+                                  color: ConstantColors.vehicleNumberColorText,
+                                  fontFamily:
+                                      ConstantVariables.fontFamilyPoppins,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                width:
+                                    ConstantIntegers
+                                        .vehicleNoTextBelowSizedBoxWidth,
+                              ),
+
+                              Expanded(
+                                child: TextField(
+                                  controller: TextEditingController(
+                                    text: vehicle['number'],
+                                  ),
+                                  readOnly: true,
+                                  decoration: InputDecoration(
+                                    hintText:
+                                        ConstantVariables.vehicleNumberHintText,
+                                    hintStyle: TextStyle(
+                                      fontSize:
+                                          ConstantIntegers
+                                              .vehicleNoHintTextFontSize,
+                                      color: ConstantColors.vehicleNumberColor,
+                                      fontFamily:
+                                          ConstantVariables.fontFamilyPoppins,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${ConstantVariables.totalCountText}: ${vehicleEntries.length}',
+                  '${ConstantVariables.totalCountText}: ${registeredVehicles.length}',
                   style: TextStyle(
                     color: ConstantColors.totalCountColorText,
                     fontSize: ConstantIntegers.totalCountTextFontSize,
@@ -322,7 +505,9 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(ConstantIntegers.addButtonEdgeCircular),
+                      borderRadius: BorderRadius.circular(
+                        ConstantIntegers.addButtonEdgeCircular,
+                      ),
                     ),
                   ),
                   child: Text(
@@ -335,7 +520,6 @@ class AddCustomerScreenState extends State<AddCustomerScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
           ],
         ),
       ),
