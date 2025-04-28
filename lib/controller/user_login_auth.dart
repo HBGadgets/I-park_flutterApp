@@ -28,6 +28,8 @@ class AuthService {
         Map<String, dynamic> decodedToken = JwtDecoder.decode(keyToken!);
         int userRole = decodedToken['role'];
 
+        await prefs.setInt('userRole', userRole);
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => HomePage(userRole: userRole)),
@@ -47,6 +49,7 @@ class AuthService {
     final prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey('token')) {
       await prefs.remove('token');
+      await prefs.remove('userRole');
       keyToken = null;
     }
   }

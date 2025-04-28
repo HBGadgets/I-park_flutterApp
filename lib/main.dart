@@ -22,17 +22,23 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const SplashPage();
           } else {
-            return snapshot.data == true
-                ? const HomePage(userRole: 0,)
-                : const SplashPage();
+            if (snapshot.data != null) {
+              final userRole = snapshot.data as int;
+              return HomePage(userRole: userRole);
+            } else {
+              return const SplashPage();
+            }
           }
         },
       ),
     );
   }
 
-  Future<bool> checkLoginStatus() async {
+  Future<int?> checkLoginStatus() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.containsKey('token');
+    if (prefs.containsKey('token')) {
+      return prefs.getInt('userRole');
+    }
+    return null;
   }
 }
