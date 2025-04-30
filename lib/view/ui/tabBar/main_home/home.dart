@@ -107,7 +107,7 @@ class HomeScreen extends State<HomePage> {
                             physics: BouncingScrollPhysics(),
                             children: [
                               widget.userRole == 5 ? HomeTab():
-                              ValleyBoyScreen() ,
+                              HomeTab() ,
                               ChatTab(),
                               HistoryTab(),
                               ProfileTab(),
