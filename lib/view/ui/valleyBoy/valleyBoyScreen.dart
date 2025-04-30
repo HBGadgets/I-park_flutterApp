@@ -112,77 +112,82 @@ class ValleyBoyScreenState extends State<ValleyBoyScreen> {
                 ],
               ),
             ),
-            Card(
-              color: Colors.white,
-              elevation: 4,
-              margin: EdgeInsets.only(left: 20, right: 20, top: 40, bottom: 20),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
+        Card(
+          color: Colors.white,
+          elevation: 4,
+          margin: EdgeInsets.only(left: 20, right: 20, top: 40, bottom: 20),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0), // Adjust padding as needed
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 70,
+                  child: Icon(
+                    Icons.person,
+                    size: 60,
+                    color: Colors.white,
+                  ),
+                  backgroundColor: Colors.black,
+                ),
+                SizedBox(height: 5),
+                Text(valleyBoys[selectedIndex]["name"]!, style: TextStyle(fontSize: 18)),
+                Text("001", style: TextStyle(fontSize: 15)),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, // Adjust alignment
                   children: [
-                    CircleAvatar(
-                      radius: 70,
-                      child: Icon(
-                        Icons.person,
-                        size: 60,
-                        color: Colors.white,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Supervisor", style: TextStyle(fontSize: 18)),
+                          Text("Mobile Number", style: TextStyle(fontSize: 18)),
+                          Text("Parking Details", style: TextStyle(fontSize: 18)),
+                          Text("Shift", style: TextStyle(fontSize: 18)),
+                          Text("Address", style: TextStyle(fontSize: 18)),
+                        ],
                       ),
-                      backgroundColor: Colors.black,
                     ),
-                    SizedBox(height: 5),
-                    Text(valleyBoys[selectedIndex]["name"]!, style: TextStyle(fontSize: 18)),
-                    Text("001", style: TextStyle(fontSize: 15)),
-                    SizedBox(height: 20,),
-                    Wrap(
-                      alignment: WrapAlignment.center,
-                      spacing: 10,
-                      runSpacing: 10,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Supervisor", style: TextStyle(fontSize: 18)),
-                            Text("Mobile Number", style: TextStyle(fontSize: 18)),
-                            Text("Parking Details", style: TextStyle(fontSize: 18)),
-                            Text("Shift", style: TextStyle(fontSize: 18)),
-                            Text("Address", style: TextStyle(fontSize: 18)),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(":", style: TextStyle(fontSize: 18)),
-                            Text(":", style: TextStyle(fontSize: 18)),
-                            Text(":", style: TextStyle(fontSize: 18)),
-                            Text(":", style: TextStyle(fontSize: 18)),
-                            Text(":", style: TextStyle(fontSize: 18)),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(valleyBoys[selectedIndex]["supervisor"]!, style: TextStyle(fontSize: 18)),
-                            Text(valleyBoys[selectedIndex]["mobile"]!, style: TextStyle(fontSize: 18)),
-                            Text(valleyBoys[selectedIndex]["parking"]!, style: TextStyle(fontSize: 18)),
-                            Text(valleyBoys[selectedIndex]["shift"]!, style: TextStyle(fontSize: 18)),
-                            Container(
-                              width: 200,
-                              child: Text(
-                                valleyBoys[selectedIndex]["address"]!,
-                                maxLines: 2, // Limit to 2 lines
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 18),
-                              ),
+                // Add spacing between columns
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(":", style: TextStyle(fontSize: 18)),
+                          Text(":", style: TextStyle(fontSize: 18)),
+                          Text(":", style: TextStyle(fontSize: 18)),
+                          Text(":", style: TextStyle(fontSize: 18)),
+                          Text(":", style: TextStyle(fontSize: 18)),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 10), // Add spacing between columns
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(valleyBoys[selectedIndex]["supervisor"]!, style: TextStyle(fontSize: 18)),
+                          Text(valleyBoys[selectedIndex]["mobile"]!, style: TextStyle(fontSize: 18)),
+                          Text(valleyBoys[selectedIndex]["parking"]!, style: TextStyle(fontSize: 18)),
+                          Text(valleyBoys[selectedIndex]["shift"]!, style: TextStyle(fontSize: 18)),
+                          Container(
+                            width: 200,
+                            child: Text(
+                              valleyBoys[selectedIndex]["address"]!,
+                              maxLines: 2, // Limit to 2 lines
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(fontSize: 18),
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
+        ),]
         ),
       ),
     );
